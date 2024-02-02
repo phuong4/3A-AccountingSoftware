@@ -1,0 +1,20 @@
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\ResolveAssemblyReference.cache
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\newForm.baml
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\App.baml
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\newForm.g.cs
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\App.g.cs
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh_MarkupCompile.cache
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.g.resources
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.Properties.Resources.resources
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.csproj.GenerateResource.Cache
+D:\FK11\PROGRAM\Arkh.exe
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.exe
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.pdb
+D:\FK11\FA11-PROGRAM\Arkh.exe
+D:\FK11\FA11-PROGRAM\Arkh.pdb
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\ArkhF10.baml
+D:\FK11\FA11\AR\Arkh\Arkh\UsingSmLib\obj\Debug\ArkhF10.g.cs
+D:\FK11.NET\FA11-PROJECT\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.exe
+D:\FK11.NET\FA11-PROJECT\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.pdb
+D:\FK11.NET\FA11-PROJECT- R07 - Update\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.exe
+D:\FK11.NET\FA11-PROJECT- R07 - Update\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.pdb
