@@ -18,3 +18,18 @@ D:\FK11.NET\FA11-PROJECT\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.exe
 D:\FK11.NET\FA11-PROJECT\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.pdb
 D:\FK11.NET\FA11-PROJECT- R07 - Update\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.exe
 D:\FK11.NET\FA11-PROJECT- R07 - Update\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.pdb
+D:\3A\PROGRAM\PROGRAM\Arkh.exe
+D:\3A\PROGRAM\PROGRAM\Arkh.pdb
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\ArkhF10.baml
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\newForm.baml
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\App.baml
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\ArkhF10.g.cs
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\newForm.g.cs
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\App.g.cs
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh_MarkupCompile.cache
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.g.resources
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.Properties.Resources.resources
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.csproj.GenerateResource.Cache
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.exe
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.pdb
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.csprojResolveAssemblyReference.cache
