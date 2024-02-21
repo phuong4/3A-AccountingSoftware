@@ -67,6 +67,10 @@ namespace Invt
          
             txtdvt.MaxLength = ListFunc.GetLengthColumn(TableFields, "dvt");
             txtghi_chu.MaxLength = ListFunc.GetLengthColumn(TableFields, "ghi_chu");
+            txtso_khung.MaxLength = ListFunc.GetLengthColumn(TableFields, "so_khung");
+            txtso_may.MaxLength = ListFunc.GetLengthColumn(TableFields, "so_may");
+            txtnam_san_xuat.MaxLength = ListFunc.GetLengthColumn(TableFields, "nam_san_xuat");
+            txtnuoc_san_xuat.MaxLength = ListFunc.GetLengthColumn(TableFields, "nuoc_san_xuat");
             this.Title = SysFunc.Cat_Dau(StartUp.titleWindow);
         } 
         #endregion
