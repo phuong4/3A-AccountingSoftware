@@ -21,7 +21,7 @@ using System.Windows.Input;
 using System.Text.RegularExpressions;
 using SmLib;
 
- 
+
 namespace Arkh
 {
     /// <summary>
@@ -69,6 +69,9 @@ namespace Arkh
             txtten_nh.MaxLength = ListFunc.GetLengthColumn(TableFields, "ten_nh");
             txttinh_thanh.MaxLength = ListFunc.GetLengthColumn(TableFields, "tinh_thanh");
             txtghi_chu.MaxLength = ListFunc.GetLengthColumn(TableFields, "ghi_chu");
+            txtnguoi_dai_dien.MaxLength = ListFunc.GetLengthColumn(TableFields, "nguoi_dai_dien");
+            txtchuc_vu.MaxLength = ListFunc.GetLengthColumn(TableFields, "chuc_vu");
+            txthan_thanh_toan.MaxLength = ListFunc.GetLengthColumn(TableFields, "han_thanh_toan");
             this.Title = SysFunc.Cat_Dau(StartUp.titleWindow);
 
         }
@@ -141,7 +144,7 @@ namespace Arkh
                                 if (KeyTextBox != null)
                                     KeyTextBox.IsReadOnly = true;
 
-                                TextBox NameTextBox = SmLib.SysFunc.FindChild<TextBox>(this, "txt" + StartUp.SqlTableObjectName); //
+                                TextBox NameTextBox = SmLib.SysFunc.FindChild<TextBox>(this, "txt" + StartUp.SqlTableObjectName);
                                 if (NameTextBox != null)
                                 {
                                     NameTextBox.SelectAll();

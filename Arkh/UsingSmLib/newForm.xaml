@@ -180,6 +180,16 @@
                                  TabIndex="70"
                                  Text="{smc:BindingEx ma_so_thue}"
                                  Style="{StaticResource ReadOnly}" />
+                        <TextBlock Text="Người đại diện"
+                                   Name="tblnguoi_dai_dien"
+                                   Grid.Row="5"
+                                   Grid.Column="3" />
+                        <TextBox x:Name="txtnguoi_dai_dien"
+                                 Grid.Column="4"
+                                 Grid.Row="5"
+                                 TabIndex="70"
+                                 Text="{smc:BindingEx nguoi_dai_dien}"
+                                 Style="{StaticResource ReadOnly}" />
                         <TextBlock Text="Tài khoản ngầm định"
                                    Name="tbltk"
                                    Grid.Row="6"
@@ -205,6 +215,16 @@
                                    Grid.ColumnSpan="3"
                                    Grid.Row="6" />
 
+                        <TextBlock Text="Chức vụ"
+                                   Name="tblchuc_vu"
+                                   Grid.Row="6"
+                                   Grid.Column="3" />
+                        <TextBox x:Name="txtchuc_vu"
+                                 Grid.Column="4"
+                                 Grid.Row="6"
+                                 TabIndex="70"
+                                 Text="{smc:BindingEx chuc_vu}"
+                                 Style="{StaticResource ReadOnly}" />
                         <TextBlock Text="Mã điều khoản tt ngầm định"
                                    Name="tblhan_tt"
                                    Grid.Row="7"
@@ -229,6 +249,17 @@
                                    Grid.Column="2"
                                    Grid.ColumnSpan="3"
                                    Grid.Row="7" />
+                        
+                        <TextBlock Text="Hạn thanh toán"
+                                   Name="tblhan_thanh_toan"
+                                   Grid.Row="7"
+                                   Grid.Column="3" />
+                        <TextBox x:Name="txthan_thanh_toan"
+                                 Grid.Column="4"
+                                 Grid.Row="7"
+                                 TabIndex="70"
+                                 Text="{smc:BindingEx han_thanh_toan}"
+                                 Style="{StaticResource ReadOnly}" />
                         <TextBlock Text="Nhóm khách 1"
                                    Name="tblnh_kh1"
                                    Grid.Row="8"

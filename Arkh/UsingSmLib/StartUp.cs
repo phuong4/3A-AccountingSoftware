@@ -24,19 +24,19 @@ namespace Arkh
     public class StartUp:StartupBase
     {
 
-        static public string sqlTableUpdateName = "dmkh";
-        static public string sqlTableName = "dmkh0";
-        static public string sqlTableView = "v_dmkh";
+        static public string sqlTableUpdateName = "dmkh"; //Ko rõ có phải tên table ko?
+        static public string sqlTableName = "dmkh0"; //Làm gì có bảng nào tên là dmkh0 đâu nhỉ?
+        static public string sqlTableView = "v_dmkh"; //Tên view
         static public DataRow CommandInfo;
      
-        static public string SqlTableKey = "ma_kh";
-        static public string SqlTableObjectName = "ten_kh";
+        static public string SqlTableKey = "ma_kh"; //Tên cột primary key
+        static public string SqlTableObjectName = "ten_kh"; //Trong bảng dmkh có một cột là ten_kh
 
         static public string TableName = "khách hàng";
         static public string TableName_CatDau = "khach hang";
         static public string TableName_CatDau2 = "customer";
         static public SmLib.SM.FrameBrowse.FrameBrowse oBrowse;
-        
+
 
         static public ActionTask currActionTask = ActionTask.None;
         static public string currSqlTableKey = string.Empty;
