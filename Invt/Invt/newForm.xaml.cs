@@ -72,7 +72,7 @@ namespace Invt
             txtnam_san_xuat.MaxLength = ListFunc.GetLengthColumn(TableFields, "nam_san_xuat");
             txtnuoc_san_xuat.MaxLength = ListFunc.GetLengthColumn(TableFields, "nuoc_san_xuat");
             this.Title = SysFunc.Cat_Dau(StartUp.titleWindow);
-        } 
+        }
         #endregion
 
         #region newForm_Loaded
@@ -791,6 +791,16 @@ namespace Invt
             txtgia_ton.Text = Convert.ToInt32(e.NewValue) == 0 ? "" : "1";
             txtgia_ton.SearchInit();
             txtgia_ton_PreviewLostFocus(null, null);
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            // Kiểm tra xem ký tự mới nhập vào có phải là số không và chuỗi số có độ dài lớn hơn 4 không
+            if (!char.IsDigit(e.Text, e.Text.Length - 1) || textBox.Text.Length >= 4)
+            {
+                e.Handled = true; // Ngăn không cho TextBox nhận ký tự đó
+            }
         }
 
     }

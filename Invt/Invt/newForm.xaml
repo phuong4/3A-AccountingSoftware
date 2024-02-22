@@ -807,6 +807,7 @@
                                  Grid.Column="1"
                                  Grid.Row="18"
                                  TabIndex="3"
+                                 PreviewTextInput="TextBox_PreviewTextInput"
                                  Text="{smc:BindingEx nam_san_xuat}"
                                  Style="{StaticResource ReadOnly}" />
                         <TextBlock Text="Nước sản xuất"

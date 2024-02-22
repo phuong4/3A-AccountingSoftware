@@ -250,7 +250,7 @@
                                    Grid.ColumnSpan="3"
                                    Grid.Row="7" />
                         
-                        <TextBlock Text="Hạn thanh toán"
+                        <TextBlock Text="Hạn thanh toán (ngày)"
                                    Name="tblhan_thanh_toan"
                                    Grid.Row="7"
                                    Grid.Column="3" />
@@ -258,6 +258,7 @@
                                  Grid.Column="4"
                                  Grid.Row="7"
                                  TabIndex="70"
+                                 PreviewTextInput="TextBox_PreviewTextInput"
                                  Text="{smc:BindingEx han_thanh_toan}"
                                  Style="{StaticResource ReadOnly}" />
                         <TextBlock Text="Nhóm khách 1"
