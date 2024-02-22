@@ -621,6 +621,15 @@ namespace Arkh
             }
         }
 
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            // Kiểm tra xem ký tự mới nhập vào có phải là số không và chuỗi số có độ dài lớn hơn 3 không
+            if (!char.IsDigit(e.Text, e.Text.Length - 1) || textBox.Text.Length >= 3)
+            {
+                e.Handled = true; // Ngăn không cho TextBox nhận ký tự đó
+            }
+        }
+
     }
-    
 }
