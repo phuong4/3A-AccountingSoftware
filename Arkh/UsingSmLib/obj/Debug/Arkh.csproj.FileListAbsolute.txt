@@ -32,3 +32,4 @@ D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.Properties.Resources.
 D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.csproj.GenerateResource.Cache
 D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.exe
 D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.pdb
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.csprojResolveAssemblyReference.cache

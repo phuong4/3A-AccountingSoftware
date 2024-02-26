@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOCTHDA", "SOCTHDA\SOCTHDA.csproj", "{CCF5CDF8-4C83-4730-8541-5CB402804BF5}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccLocalPath0 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCF5CDF8-4C83-4730-8541-5CB402804BF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF5CDF8-4C83-4730-8541-5CB402804BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF5CDF8-4C83-4730-8541-5CB402804BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF5CDF8-4C83-4730-8541-5CB402804BF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
