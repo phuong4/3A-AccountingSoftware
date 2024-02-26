@@ -8,7 +8,7 @@
               xmlns:igDP="http://infragistics.com/DataPresenter"
               Title="newForm"
               LanguageID="Invt_0"
-              Height="641"
+              Height="666"
               Width="740"
               Loaded="newForm_Loaded"
               Closed="FormList_Closed"
@@ -141,8 +141,8 @@
                                     Margin="8,5.5,8,5.5"
                                     ColumnCount="6"
                                     ColumnWidths="*,140,12,*,12,140"
-                                    RowCount="19"
-                                    RowHeights="25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,50,25,25">
+                                    RowCount="20"
+                                    RowHeights="25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,50,25">
 
                         <TextBlock Text="Mã vật tư"
                                    Name="tblma_vt"
@@ -208,23 +208,58 @@
                                  LostFocus="txtdvt_LostFocus"/>
                         <TextBlock Text="Số khung"
                                    Name="tblso_khung"
-                                   Grid.Row="3"
-                                   Grid.Column="3"
-                                   Style="{StaticResource ContentTextStyle}" />
-                        <TextBox x:Name="txtso_khung"
-                                 Grid.Column="4"
-                                 Grid.Row="3"
-                                 Grid.ColumnSpan="5"
-                                 TabIndex="3"
-                                 Text="{smc:BindingEx so_khung}"
-                                 Style="{StaticResource ReadOnly}" />
-                        <TextBlock Text="Theo dõi tồn kho"
-                                   Name="tblvt_ton_kho"
                                    Grid.Row="4"
                                    Grid.Column="0"
                                    Style="{StaticResource ContentTextStyle}" />
+                        <TextBox x:Name="txtso_khung"
+                                 Grid.Column="1"
+                                 Grid.Row="4"
+                                 TabIndex="3"
+                                 Text="{smc:BindingEx so_khung}"
+                                 Style="{StaticResource ReadOnly}" />
+                        <TextBlock Text="Số máy"
+                                   Name="tblso_may"
+                                   Grid.Row="4"
+                                   Grid.Column="3"
+                                   Style="{StaticResource ContentTextStyle}" />
+                        <TextBox x:Name="txtso_may"
+                                 Grid.Column="4"
+                                 Grid.Row="4"
+                                 Grid.ColumnSpan="5"
+                                 TabIndex="3"
+                                 Text="{smc:BindingEx so_may}"
+                                 Style="{StaticResource ReadOnly}" />
+                        <TextBlock Text="Năm sản xuất"
+                                   Name="tblnam_san_xuat"
+                                   Grid.Row="5"
+                                   Grid.Column="0"
+                                   Style="{StaticResource ContentTextStyle}" />
+                        <TextBox x:Name="txtnam_san_xuat"
+                                 Grid.Column="1"
+                                 Grid.Row="5"
+                                 TabIndex="3"
+                                 PreviewTextInput="TextBox_PreviewTextInput"
+                                 Text="{smc:BindingEx nam_san_xuat}"
+                                 Style="{StaticResource ReadOnly}" />
+                        <TextBlock Text="Nước sản xuất"
+                                   Name="tblnuoc_san_xuat"
+                                   Grid.Row="5"
+                                   Grid.Column="3"
+                                   Style="{StaticResource ContentTextStyle}" />
+                        <TextBox x:Name="txtnuoc_san_xuat"
+                                 Grid.Column="4"
+                                 Grid.Row="5"
+                                 Grid.ColumnSpan="5"
+                                 TabIndex="3"
+                                 Text="{smc:BindingEx nuoc_san_xuat}"
+                                 Style="{StaticResource ReadOnly}" />
+                        <TextBlock Text="Theo dõi tồn kho"
+                                   Name="tblvt_ton_kho"
+                                   Grid.Row="6"
+                                   Grid.Column="0"
+                                   Style="{StaticResource ContentTextStyle}" />
                         <StackPanel  Grid.Column="1"
-                                     Grid.Row="4"
+                                     Grid.Row="6"
                                      Grid.ColumnSpan="5"
                                      Orientation="Horizontal">
                             <smc:MaskedTextBox Name="txtvt_ton_kho"
@@ -261,12 +296,12 @@
                         </StackPanel>
                         <TextBlock Text="Cách tính giá tồn kho"
                                    Name="tblgia_ton"
-                                   Grid.Row="5"
+                                   Grid.Row="7"
                                    Grid.Column="0"
                                    Style="{StaticResource ContentTextStyle}" />
                         <smc:AutoCompleteTextBox Name="txtgia_ton"
                                                  Grid.Column="1"
-                                                 Grid.Row="5"
+                                                 Grid.Row="7"
                                                  TabIndex="7"
                                                  AllowEmty="False"
                                                  AllowWrong="False"
@@ -299,7 +334,7 @@
                                    Text="{smc:BindingEx ten_gia_ton}"
                                    Grid.Column="3"
                                    Grid.ColumnSpan="3"
-                                   Grid.Row="5" />
+                                   Grid.Row="7" />
                         <!--<StackPanel  Grid.Column="1"
                                      Grid.Row="5"
                                      Grid.ColumnSpan="5"
@@ -338,13 +373,13 @@
                         </StackPanel>-->
                         <TextBlock Text="Loại vật tư"
                                    Name="tblloai_vt"
-                                   Grid.Row="6"
+                                   Grid.Row="8"
                                    Grid.Column="0"
                                    Style="{StaticResource ContentTextStyle}" />
 
 
                         <smc:AutoCompleteTextBox Name="txtloai_vt"
-                                                 Grid.Row="6"
+                                                 Grid.Row="8"
                                                  Grid.Column="1"
                                                  TabIndex="8"
                                                  AllowEmty="True"
@@ -358,20 +393,20 @@
 
                         <TextBlock Text="{smc:BindingEx ten_loai_vt}"
                                    x:Name="txtten_loai_vt"
-                                   Grid.Row="6"
+                                   Grid.Row="8"
                                    Grid.Column="3"
                                    Grid.ColumnSpan="5"
                                    Style="{StaticResource ContentTextStyle}" />
 
                         <TextBlock Text="Tài khoản kho"
                                    Name="tbltk_vt"
-                                   Grid.Row="7"
+                                   Grid.Row="9"
                                    Grid.Column="0"
                                    Style="{StaticResource ContentTextStyle}" />
 
 
                         <smc:AutoCompleteTextBox Name="txttk_vt"
-                                                 Grid.Row="7"
+                                                 Grid.Row="9"
                                                  Grid.Column="1"
                                                  TabIndex="9"
                                                  AllowWrong="False"
@@ -397,7 +432,7 @@
                             </smc:AutoCompleteTextBox.Style>
                         </smc:AutoCompleteTextBox>
                             <TextBlock Text="{smc:BindingEx ten_tk_vt}"
-                                   Grid.Row="7"
+                                   Grid.Row="9"
                                    Grid.Column="3"
                                    Grid.ColumnSpan="5"
                                    x:Name="txtten_tk_vt"
@@ -405,11 +440,11 @@
 
                         <TextBlock Text="Sửa tài khoản kho"
                                    Name="tblsua_tk_kho"
-                                   Grid.Row="8"
+                                   Grid.Row="10"
                                    Grid.Column="0"
                                    Style="{StaticResource ContentTextStyle}" />
                         <StackPanel  Grid.Column="1"
-                                     Grid.Row="8"
+                                     Grid.Row="10"
                                      Grid.ColumnSpan="5"
                                      Orientation="Horizontal">
 
@@ -443,12 +478,12 @@
                         </StackPanel>
                         <TextBlock Text="Tài khoản doanh thu"
                                    Name="tbltk_dt"
-                                   Grid.Row="9"
+                                   Grid.Row="11"
                                    Grid.Column="0"
                                    Style="{StaticResource ContentTextStyle}" />
 
                         <smc:AutoCompleteTextBox Name="txttk_dt"
-                                                 Grid.Row="9"
+                                                 Grid.Row="11"
                                                  Grid.Column="1"
                                                  TabIndex="11"
                                                  AllowEmty="True"
@@ -460,12 +495,12 @@
                                                  Style="{StaticResource AutoCompleteTextBoxReadOnly}" />
                         <TextBlock Text="Tài khoản hàng bán bị trả lại"
                                    Name="tbltk_tl"
-                                   Grid.Row="9"
+                                   Grid.Row="11"
                                    Grid.Column="3"
                                    Style="{StaticResource ContentTextStyle}" />
 
                         <smc:AutoCompleteTextBox Name="txttk_tl"
-                                                 Grid.Row="9"
+                                                 Grid.Row="11"
                                                  Grid.Column="5"
                                                  TabIndex="12"
                                                  Text="{smc:BindingEx tk_tl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -478,12 +513,12 @@
                                                  Style="{StaticResource AutoCompleteTextBoxReadOnly}" />
                         <TextBlock Text="Tài khoản doanh thu nội bộ"
                                    Name="tbltk_dtnb"
-                                   Grid.Row="10"
+                                   Grid.Row="12"
                                    Grid.Column="0"
                                    Style="{StaticResource ContentTextStyle}" />
 
                         <smc:AutoCompleteTextBox Name="txttk_dtnb"
-                                                 Grid.Row="10"
+                                                 Grid.Row="12"
                                                  Grid.Column="1"
                                                  TabIndex="13"
                                                  Text="{smc:BindingEx tk_dtnb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -513,12 +548,12 @@
                         </smc:AutoCompleteTextBox>
                             <TextBlock Text="Tài khoản chênh lệch giá vật tư"
                                    Name="tbltk_cl_vt"
-                                   Grid.Row="10"
+                                   Grid.Row="12"
                                    Grid.Column="3"
                                    Style="{StaticResource ContentTextStyle}" />
 
                         <smc:AutoCompleteTextBox Name="txttk_cl_vt"
-                                                 Grid.Row="10"
+                                                 Grid.Row="12"
                                                  Grid.Column="5"
                                                  TabIndex="14"
                                                  Text="{smc:BindingEx tk_cl_vt, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -548,11 +583,11 @@
                         </smc:AutoCompleteTextBox>
                             <TextBlock Text="Tài khoản chiết khấu"
                                    Name="tbltk_ck"
-                                   Grid.Row="11"
+                                   Grid.Row="13"
                                    Grid.Column="0"
                                    Style="{StaticResource ContentTextStyle}" />
                         <smc:AutoCompleteTextBox Name="txttk_ck"
-                                                 Grid.Row="11"
+                                                 Grid.Row="13"
                                                  Grid.Column="1"
                                                  TabIndex="15"
                                                  Text="{smc:BindingEx tk_ck, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -582,11 +617,11 @@
                         </smc:AutoCompleteTextBox>
                             <TextBlock Text="Tài khoản nguyên vật liệu"
                                    Name="tbltk_nvl"
-                                   Grid.Row="11"
+                                   Grid.Row="13"
                                    Grid.Column="3"
                                    Style="{StaticResource ContentTextStyle}" />
                         <smc:AutoCompleteTextBox Name="txttk_nvl"
-                                                 Grid.Row="11"
+                                                 Grid.Row="13"
                                                  Grid.Column="5"
                                                  TabIndex="16"
                                                  Text="{smc:BindingEx tk_nvl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -616,11 +651,11 @@
                         </smc:AutoCompleteTextBox>
                             <TextBlock Text="Tài khoản giá vốn"
                                    Name="tbltk_gv"
-                                   Grid.Row="12"
+                                   Grid.Row="14"
                                    Grid.Column="0"
                                    Style="{StaticResource ContentTextStyle}" />
                         <smc:AutoCompleteTextBox Name="txttk_gv"
-                                                 Grid.Row="12"
+                                                 Grid.Row="14"
                                                  Grid.Column="1"
                                                  TabIndex="17"
                                                  Text="{smc:BindingEx tk_gv, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -632,11 +667,11 @@
                                                  Style="{StaticResource AutoCompleteTextBoxReadOnly}" />
                         <TextBlock Text="Tài khoản sản phẩm dở dang"
                                    Name="tbltk_spdd"
-                                   Grid.Row="12"
+                                   Grid.Row="14"
                                    Grid.Column="3"
                                    Style="{StaticResource ContentTextStyle}" />
                         <smc:AutoCompleteTextBox Name="txttk_spdd"
-                                                 Grid.Row="12"
+                                                 Grid.Row="14"
                                                  Grid.Column="5"
                                                  TabIndex="18"
                                                  Text="{smc:BindingEx tk_spdd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -666,11 +701,11 @@
                         </smc:AutoCompleteTextBox>
                             <TextBlock Text="Tài khoản cp khuyến mãi"
                                    Name="tbltk_km"
-                                   Grid.Row="13"
+                                   Grid.Row="15"
                                    Grid.Column="0"
                                    Style="{StaticResource ContentTextStyle}" />
                         <smc:AutoCompleteTextBox Name="txttk_km"
-                                                 Grid.Row="13"
+                                                 Grid.Row="15"
                                                  Grid.Column="1"
                                                  TabIndex="19"
                                                  Text="{smc:BindingEx tk_km, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -680,27 +715,15 @@
                                                  ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                                  ListID="dmtk"
                                                  Style="{StaticResource AutoCompleteTextBoxReadOnly}" />
-                        <TextBlock Text="Số máy"
-                                   Name="tblso_may"
-                                   Grid.Row="13"
-                                   Grid.Column="3"
-                                   Style="{StaticResource ContentTextStyle}" />
-                        <TextBox x:Name="txtso_may"
-                                 Grid.Column="4"
-                                 Grid.Row="13"
-                                 Grid.ColumnSpan="5"
-                                 TabIndex="3"
-                                 Text="{smc:BindingEx so_may}"
-                                 Style="{StaticResource ReadOnly}" />
                         <TextBlock Text="Nhóm vật tư 1, 2, 3"
                                    Name="tblnh_vt1"
-                                   Grid.Row="14"
+                                   Grid.Row="16"
                                    Grid.Column="0"
                                    Style="{StaticResource ContentTextStyle}" />
                         <smc:AutoCompleteTextBox Name="txtnh_vt1"
                                                  TabIndex="20"
                                                  Grid.Column="1"
-                                                 Grid.Row="14"
+                                                 Grid.Row="16"
                                                  Text="{smc:BindingEx nh_vt1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                  AllowEmty="True"
                                                  AllowWrong="False"
@@ -712,7 +735,7 @@
                         <smc:AutoCompleteTextBox Name="txtnh_vt2"
                                                  TabIndex="21"
                                                  Grid.Column="3"
-                                                 Grid.Row="14"
+                                                 Grid.Row="16"
                                                  Width="140"
                                                  HorizontalAlignment="Left"
                                                  Text="{smc:BindingEx nh_vt2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -725,7 +748,7 @@
                         <smc:AutoCompleteTextBox Name="txtnh_vt3"
                                                  TabIndex="22"
                                                  Grid.Column="5"
-                                                 Grid.Row="14"
+                                                 Grid.Row="16"
                                                  Text="{smc:BindingEx nh_vt3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                  AllowEmty="True"
                                                  AllowWrong="False"
@@ -735,13 +758,13 @@
                                                  Style="{StaticResource AutoCompleteTextBoxReadOnly}" />
                         <TextBlock Text="Số lượng tồn tối thiểu"
                                    Name="tblsl_min"
-                                   Grid.Row="15"
+                                   Grid.Row="17"
                                    Grid.Column="0"
                                    Style="{StaticResource ContentTextStyle}" />
                         <smc:NumericTextBox Name="txtsl_min"
                                             TabIndex="23"
                                             Grid.Column="1"
-                                            Grid.Row="15"
+                                            Grid.Row="17"
                                             Value="{smc:BindingEx sl_min}"
                                             GotFocus="txtNum_GotFocus"
                                             LostFocus="txtsl_min_LostFocus"
@@ -750,27 +773,27 @@
 
                         <TextBlock Text="Số lượng tồn tối đa"
                                    Name="tblsl_max"
-                                   Grid.Row="15"
+                                   Grid.Row="17"
                                    Grid.Column="3"
                                    Style="{StaticResource ContentTextStyle}" />
                         <smc:NumericTextBox Name="txtsl_max"
                                             TabIndex="24"
                                             Grid.Column="5"
-                                            Grid.Row="15"
+                                            Grid.Row="17"
                                             Value="{smc:BindingEx sl_max}"
                                             GotFocus="txtNum_GotFocus"
                                             LostFocus="txtsl_max_LostFocus"
                                             Style="{StaticResource ReadOnlyNumericTextBox}" />
                         <TextBlock Text="Ghi chú"
                                    Name="tblghi_chu"
-                                   Grid.Row="16"
+                                   Grid.Row="18"
                                    Grid.Column="0"
                                    VerticalAlignment="Top"
                                    Margin="0,5,0,0" />
                         <TextBox x:Name="txtghi_chu"
                                  TabIndex="25"
                                  Grid.Column="1"
-                                 Grid.Row="16"
+                                 Grid.Row="18"
                                  Grid.ColumnSpan="5"
                                  Height="45"
                                  VerticalScrollBarVisibility="Auto"
@@ -780,11 +803,11 @@
                         <!--trang thai-->
                         <TextBlock Text="Trạng thái"
                                    Name="tblstatus"
-                                   Grid.Row="17"
+                                   Grid.Row="19"
                                    Grid.Column="0" />
                         <StackPanel  Grid.Column="1"
                                      Grid.ColumnSpan="4"
-                                     Grid.Row="17"
+                                     Grid.Row="19"
                                      Orientation="Horizontal">
                             <smc:MaskedTextBox Name="txtstatus"
                                                Value="{smc:BindingEx status}"
@@ -798,30 +821,6 @@
                                        Text="0 - Không sử dụng, 1 - Sử dụng"
                                        Margin="12,0,0,0" />
                         </StackPanel>
-                        <TextBlock Text="Năm sản xuất"
-                                   Name="tblnam_san_xuat"
-                                   Grid.Row="18"
-                                   Grid.Column="0"
-                                   Style="{StaticResource ContentTextStyle}" />
-                        <TextBox x:Name="txtnam_san_xuat"
-                                 Grid.Column="1"
-                                 Grid.Row="18"
-                                 TabIndex="3"
-                                 PreviewTextInput="TextBox_PreviewTextInput"
-                                 Text="{smc:BindingEx nam_san_xuat}"
-                                 Style="{StaticResource ReadOnly}" />
-                        <TextBlock Text="Nước sản xuất"
-                                   Name="tblnuoc_san_xuat"
-                                   Grid.Row="18"
-                                   Grid.Column="3"
-                                   Style="{StaticResource ContentTextStyle}" />
-                        <TextBox x:Name="txtnuoc_san_xuat"
-                                 Grid.Column="4"
-                                 Grid.Row="18"
-                                 Grid.ColumnSpan="5"
-                                 TabIndex="3"
-                                 Text="{smc:BindingEx nuoc_san_xuat}"
-                                 Style="{StaticResource ReadOnly}" />
                     </smc:GridLayout>
                 </igWindows:TabItemEx>
                 <igWindows:TabItemEx  Name="TabEx"
