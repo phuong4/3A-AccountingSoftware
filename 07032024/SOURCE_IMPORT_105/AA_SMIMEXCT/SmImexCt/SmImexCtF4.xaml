@@ -1,0 +1,148 @@
+<smReport:FormFilter x:Class="AA_SMIMEXCT.AA_SMIMEXCTF4"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+    xmlns:smReport="clr-namespace:SmReport;assembly=SmReport"
+    xmlns:igEditors="http://infragistics.com/Editors"
+    xmlns:local="clr-namespace:AA_SMIMEXCT"
+    LanguageID="AA_SMIMEXCT_0"
+    EscToClose="True"
+    Title="Nhập chứng từ từ Excel"
+    Closed="FrmAA_SMIMEXCTF4_Closed"
+    Height="258" Width="832"
+    x:Name="FrmAA_SMIMEXCTF4" ResizeMode="CanMinimize">
+    <smc:Form.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DateTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/CheckBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/MaskedTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/AutoCompleteTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <smc:NegativeConverter x:Key="mau_bcConverter" />
+        </ResourceDictionary>
+    </smc:Form.Resources>
+    <smc:ConfirmGridView OnOk="ConfirmGridView_OnOk">
+        <GroupBox Name="GroupMain" 
+                  Grid.Row="0" 
+                  Grid.Column="1" 
+                  Margin="12,4,12,0">
+            <smc:GridLayout 
+                RowCount="6"
+                RowHeights="25,25,25,25,25,25"
+                ColumnCount="4" 
+                ColumnWidths="140, 140,*, 38">
+                <TextBlock 
+                    Grid.Row="0" 
+                    Grid.Column="0" 
+                    Name="lblTen" 
+                    Text="Dữ liệu cần chuyển"/>
+                <TextBox Grid.Row="0" Grid.Column="1"
+                         Text ="{smc:BindingEx Path=ten, Path2=ten2}"
+                         Grid.ColumnSpan="2"
+                         IsEnabled="False"
+                         Name="txtName"/>
+                
+                <TextBlock 
+                    Grid.Row="1" 
+                    Grid.Column="0" 
+                    Name="lblFileName" 
+                    Text="Tên tập tin Excel"/>
+                <TextBox Grid.Row="1" 
+                         Grid.Column="1" 
+                         Name="txtFileName"
+                         Grid.ColumnSpan="2"/>
+                <Button Grid.Row="1" 
+                        Grid.Column="3" 
+                        Name="btnOpen" 
+                        HorizontalAlignment="Right"
+                        Width="26" 
+                        Click="btnOpen_Click"
+                        IsTabStop="False">...</Button>
+
+                <TextBlock Grid.Row="2" 
+                           Grid.Column="0" 
+                           Name="lblEx_mau" 
+                           Text="Tập tin mẫu"/>
+                <StackPanel Grid.Row="2" 
+                            Grid.Column="1" 
+                            Orientation="Horizontal"
+                            Grid.ColumnSpan="2">
+                    <TextBox Width="140" Text="{Binding ex_mau}" 
+                             Name="txtdbf_mau"
+                             IsEnabled="False"/>
+                    
+                    <Button Name="btnDbf" 
+                            Width="90" 
+                            Margin="12, 0, 12, 0"
+                            Click="btnDbf_Click"
+                            IsTabStop="False">Xem</Button>
+                    <Button Name="btnMau" 
+                            Width="90" 
+                            Click="btnMau_Click"
+                            IsTabStop="False">Mẫu</Button>
+                    <Button Name="btnXuatMau" 
+                            Width="90" 
+                            Click="btnXuatMau_Click"
+                            IsTabStop="False"
+                            Margin="12, 0,0,0">Xuất mẫu</Button>
+                </StackPanel>
+                
+                <TextBlock Grid.Row="3" 
+                           Name="lblquyenso" >Quyển sổ</TextBlock>
+                <smc:AutoCompleteTextBox Grid.Row="3" Grid.Column="1"  Grid.ColumnSpan="2"
+                                         Width="140"
+                                         HorizontalAlignment="Left"
+                                           Text="{smc:BindingEx ma_qs}"
+                                           AllowEmty="False" AllowWrong="False"            
+                                           SysObj="{Binding ElementName=FrmAA_SMIMEXCTF4, Path=BindingSysObj}"
+                                           ListID="dmqs"
+                                           ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                           Name="txtMa_qs"
+                                           PreviewLostFocus="txtMa_qs_PreviewLostFocus"/>
+                <TextBlock Grid.Row="3" 
+                           Grid.Column="2" 
+                           Margin="12, 0, 0, 0"
+                           Name="lblTen_qs"/>
+                <TextBlock Grid.Row="4" 
+                           Name="lblXyly">Xử lý chứng từ</TextBlock>
+
+                <smc:MaskedTextBox Name="txtXyLy"
+                                   Grid.Row="4" 
+                                   Grid.Column="1"    
+                                   Text="0"
+                                   Format="M"
+                                   InputMask="0,1,2"
+                                   LostFocus="txtXyLy_LostFocus"
+                                   HorizontalContentAlignment="Right" />
+
+                <TextBlock   Grid.Row="4" 
+                             Grid.Column="2"
+                             Text="0 - Không cho trùng, 1 - Chép đè nếu trùng, 2 - Cho trùng"
+                             Margin="12, 0, 0, 0">
+                </TextBlock>
+
+                <TextBlock Grid.Row="5" 
+                           Name="lblExcel">Bảng mã file excel</TextBlock>
+                
+                <smc:MaskedTextBox Name="txtBangMa"
+                                   Grid.Row="5" 
+                                   Grid.Column="1"    
+                                   Text="0"
+                                   Format="M"
+                                   LostFocus="txtBangMa_LostFocus"
+                                   InputMask="0,1" HorizontalContentAlignment="Right" />
+                
+                <TextBlock   Grid.Row="5" 
+                             Grid.Column="2"
+                             Text="0 - Unicode, 1 - TCVN3"
+                             Margin="12, 0, 0, 0">                   
+                </TextBlock>
+            </smc:GridLayout>
+        </GroupBox>
+    </smc:ConfirmGridView>
+</smReport:FormFilter>

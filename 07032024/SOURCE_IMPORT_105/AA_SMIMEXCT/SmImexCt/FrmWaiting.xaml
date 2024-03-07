@@ -1,0 +1,65 @@
+<smc:Form x:Class="AA_SMIMEXCT.FrmWaiting"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          Name="FrmWaitingExecute"
+          Height="218"
+          Width="427"
+          Title="Fast Accounting 11"
+          WindowStyle='None'
+          AllowsTransparency='True'
+          Background='Transparent'
+          ResizeMode="NoResize">
+    <Grid Height="121"
+          Width="314">
+        <Border Background="White"
+                BorderBrush="BlanchedAlmond"
+                BorderThickness='2'
+                CornerRadius='5'
+                Padding='5'
+                Margin="0,0,0,12">
+            <HeaderedContentControl>
+                <!-- New Title Bar -->
+                <HeaderedContentControl.Header>
+
+                    <!-- If you want to move using something else, wire up the event there instead -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width='*' />
+                            <ColumnDefinition Width='Auto' />
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle Grid.ColumnSpan='2'
+                                   Fill="LightBlue" />
+
+                        <TextBlock Grid.Column='0'
+                                   FontSize='12'
+                                   FontWeight='Bold'
+                                   VerticalAlignment='Center'
+                                   Margin='3'
+                                   Name="txtVer"
+                                   Text='Fast Accounting 11' />
+                    </Grid>
+                </HeaderedContentControl.Header>
+
+                <!-- New Content Area -->
+                <HeaderedContentControl.Content>
+                    <smc:GridLayout RowCount="4"
+                                    RowHeights="12,25,25,12"
+                                    ColumnCount="3"
+                                    ColumnWidths="12,*,12">
+                        <TextBlock Name="lblMessage"
+                                   Text="Đang thực hiện ..."
+                                   Grid.Row="1"
+                                   Grid.Column="1" />
+                        <ProgressBar Name="PBar"
+                                     Grid.Row="2"
+                                     Grid.Column="1"
+                                     IsIndeterminate="False">
+                        </ProgressBar>
+                    </smc:GridLayout>
+                </HeaderedContentControl.Content>
+            </HeaderedContentControl>
+        </Border>
+    </Grid>
+</smc:Form>

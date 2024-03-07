@@ -1,0 +1,52 @@
+<smc:Form x:Class="AAA_QLHD3A.Frmcreate"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:smc="clr-namespace:Sm.Windows.Controls;assembly=Sm.Windows.Controls"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          Title="Chon nghiep vu"
+          LanguageID="AA_Socthda_5"
+          Height="212"
+          Width="500"
+          ResizeMode="NoResize"
+          WindowStartupLocation="CenterScreen"
+          KeyUp="Form_KeyUp"
+          Loaded="Form_Loaded">
+    <smc:ConfirmGridView Margin="0"
+                         OnOk="ConfirmGridView_OnOk"
+                         OnCancel="ConfirmGridView_OnCancel">
+        <smc:GridLayout.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBoxStyles.xaml" />
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DataGridViewStyles.xaml" />
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DateTextBoxStyles.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </smc:GridLayout.Resources>
+        <Border Grid.Row="0" 
+                Margin="12,12,12,0"
+                BorderThickness="1"
+                BorderBrush="#FF808080">
+            <smc:GridLayout RowCount="4" 
+                            RowHeights="25,25,25,25"
+                            Margin="12,9.5"
+                            ColumnCount="3"
+                            ColumnWidths="100,140,*">
+                <RadioButton x:Name="radioButton_hda" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Content="Hoá đơn bán hàng"  HorizontalAlignment="Left" Height="20" Width="200" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"  TabIndex="0" 
+                             GotMouseCapture="gotHDA"/>
+                <RadioButton x:Name="radioButton_hd1" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Content="Hoá đơn dịch vụ"  HorizontalAlignment="Left" Height="20" Width="200" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"  TabIndex="1"
+                             GotMouseCapture="gotHD1"/>
+                <RadioButton x:Name="radioButton_pna" Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Content="Phiếu nhập mua hàng" HorizontalAlignment="Left" Height="20" Width="200" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"   TabIndex="2" 
+                             GotMouseCapture="gotPNA"/>
+                <RadioButton x:Name="radioButton_pn1" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Content="Phiếu mua dịch vụ" HorizontalAlignment="Left" Height="20" Width="200" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"  TabIndex="3" 
+                             GotMouseCapture="gotPN1"/>
+                <RadioButton x:Name="radioButton_pc1" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Content="Phiếu chi (loại 8)" HorizontalAlignment="Left" Height="20" Width="200" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"  TabIndex="4" 
+                             GotMouseCapture="gotPC1"/>
+                <RadioButton x:Name="radioButton_PNF" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" Content="Hàng bán bị trả lại" HorizontalAlignment="Left" Height="20" Width="200" Margin="0,0,0,0" VerticalAlignment="Top" FontWeight="Bold"  TabIndex="5" 
+                             GotMouseCapture="gotPNF"/>
+            </smc:GridLayout>
+        </Border>
+    </smc:ConfirmGridView>
+</smc:Form>

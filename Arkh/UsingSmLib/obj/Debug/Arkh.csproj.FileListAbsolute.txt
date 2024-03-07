@@ -20,6 +20,7 @@ D:\FK11.NET\FA11-PROJECT- R07 - Update\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.ex
 D:\FK11.NET\FA11-PROJECT- R07 - Update\AR\Arkh\Arkh\UsingSmLib\obj\Debug\Arkh.pdb
 D:\3A\PROGRAM\PROGRAM\Arkh.exe
 D:\3A\PROGRAM\PROGRAM\Arkh.pdb
+D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.csprojResolveAssemblyReference.cache
 D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\ArkhF10.baml
 D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\newForm.baml
 D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\App.baml
@@ -32,4 +33,3 @@ D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.Properties.Resources.
 D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.csproj.GenerateResource.Cache
 D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.exe
 D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.pdb
-D:\3A\3A-AccountingSoftware\Arkh\UsingSmLib\obj\Debug\Arkh.csprojResolveAssemblyReference.cache

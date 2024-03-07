@@ -952,7 +952,55 @@
                                                                     EditAsType="{x:Type System:String}" />
                                             </igDP:Field.Settings>
                                         </igDP:Field>
-                                        <igDP:Field Label="Mã kho"
+                                    <smc:NotEmptyField Label="Số khung" Name="so_khung" Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings LabelTextAlignment="Center">
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:ExTextEditor}">
+                                                        <Setter Property="CharacterCasing" Value="Normal" />
+                                                        <Setter Property="IsReadOnly" Value="{smc:BindingEx Path=Value, Source={StaticResource IsInEditMode}, Converter={StaticResource BoolInverter}}" />
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </smc:NotEmptyField>
+                                    <smc:NotEmptyField Label="Số máy" Name="so_may" Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings LabelTextAlignment="Center">
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:ExTextEditor}">
+                                                        <Setter Property="CharacterCasing" Value="Normal" />
+                                                        <Setter Property="IsReadOnly" Value="{smc:BindingEx Path=Value, Source={StaticResource IsInEditMode}, Converter={StaticResource BoolInverter}}" />
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </smc:NotEmptyField>
+                                  <smc:NotEmptyField Label="Năm sản xuất" Name="nam_san_xuat" Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings LabelTextAlignment="Center" EditAsType="{x:Type System:String}">
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:ExTextEditor}">
+                                                        <!--<Setter Property="Format" Value="" />-->
+                                                        <Setter Property="IsReadOnly" Value="{smc:BindingEx Path=Value, Source={StaticResource IsInEditMode}, Converter={StaticResource BoolInverter}}" />
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </smc:NotEmptyField>
+                                <smc:NotEmptyField Label="Nước sản xuất" Name="nuoc_san_xuat" Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings LabelTextAlignment="Center">
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:ExTextEditor}">
+                                                        <Setter Property="CharacterCasing" Value="Normal" />
+                                                        <Setter Property="IsReadOnly" Value="{smc:BindingEx Path=Value, Source={StaticResource IsInEditMode}, Converter={StaticResource BoolInverter}}" />
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </smc:NotEmptyField>
+                                    <igDP:Field Label="Mã kho"
                                                     Name="ma_kho_i"
                                                     Width="70">
                                             <igDP:Field.Settings>

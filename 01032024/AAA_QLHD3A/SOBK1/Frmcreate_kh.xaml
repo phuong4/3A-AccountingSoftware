@@ -1,0 +1,106 @@
+<smc:Form x:Class="AAA_QLHD3A.Frmcreate_kh"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:smc="clr-namespace:Sm.Windows.Controls;assembly=Sm.Windows.Controls"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:igDP="http://infragistics.com/DataPresenter"
+          xmlns:System="clr-namespace:System;assembly=mscorlib"
+          xmlns:smvc="clr-namespace:SmVoucherLib;assembly=SmVoucherLib"
+          xmlns:igEditors="http://infragistics.com/Editors"
+          LanguageID="AA_PODMHDM_2"
+          Height="700"
+          Width="1000"
+          WindowStartupLocation="CenterScreen"
+          x:Name="frmcreate_kh">
+    <smc:Form.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DataGridViewStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <smvc:FormatMaskNumberConverter x:Key="MaskNumeric" />
+            <smc:CodeValueBindingObject x:Key="Voucher_Ma_nt0" />
+        </ResourceDictionary>
+    </smc:Form.Resources>
+
+    <smc:ConfirmGridView RowCount="2"
+                         Margin="0"
+                         OnOk="ConfirmGridView_OnOk"
+                         OnCancel="ConfirmGridView_OnCancel"
+                         RowHeights="*,50">
+        
+        <smc:DataGridView Grid.Row="0"
+                          GroupByAreaLocation="None"                               
+                          Name="Grdcreate_kh"
+                          Margin="12,12,12,0">
+            <smc:DataGridView.Resources>
+                <Style TargetType="igEditors:XamTextEditor">
+                   
+                </Style>
+            </smc:DataGridView.Resources>
+            <smc:DataGridView.FieldSettings>
+                <igDP:FieldSettings AllowEdit="False" AllowRecordFiltering="True" />
+            </smc:DataGridView.FieldSettings>
+            <smc:DataGridView.FieldLayoutSettings>
+                <igDP:FieldLayoutSettings       AutoGenerateFields="False"                                                 
+                                                AllowDelete="False" />
+            </smc:DataGridView.FieldLayoutSettings>
+            <smc:DataGridView.FieldLayouts>
+                <igDP:FieldLayout>
+                    <!--Tag-->                    
+                        <!--<igDP:Field Label="Tag"
+                                           Name="tag"
+                                           Width="40">
+                                <igDP:Field.Settings>
+                                    <igDP:FieldSettings  
+                                        AllowEdit="True"
+                                        EditorType="{x:Type igEditors:XamCheckEditor}"/>
+                                </igDP:Field.Settings>
+                            </igDP:Field>-->
+                    
+                    <!--Mã vt-->
+                    <igDP:Field Label="Mã kh"
+                                    Name="ma_kh"
+                                    Width="120">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                    AllowEdit="True"
+                                                 
+                                                    EditAsType="{x:Type System:String}" />
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <!--Ten vt-->
+                    <igDP:Field Label="Tên khách hàng/ncc"
+                                    Name="ten_kh"
+                                    Width="225">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                    EditAsType="{x:Type System:String}" />
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <!--Dvt-->
+                    <igDP:Field Label="Địa chỉ"
+                                    Name="dia_chi"
+                                    Width="225">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                    EditAsType="{x:Type System:String}" />
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Mã số thuế"
+                                    Name="ma_so_thue"
+                                    Width="100">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                    EditAsType="{x:Type System:String}" />
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+
+                </igDP:FieldLayout>
+            </smc:DataGridView.FieldLayouts>
+        </smc:DataGridView>
+    </smc:ConfirmGridView>
+</smc:Form>
+

@@ -2144,7 +2144,10 @@ namespace Socthda
                         {
                             StartUp.DsTrans.Tables[0].DefaultView[0]["ma_so_thue_dmkh"] = txtMa_kh.RowResult["ma_so_thue"].ToString().Trim();
                             StartUp.DsTrans.Tables[0].DefaultView[0]["ma_so_thue"] = txtMa_kh.RowResult["ma_so_thue"].ToString().Trim();
-
+                            StartUp.DsTrans.Tables[0].DefaultView[0]["nguoi_dai_dien_dmkh"] = txtMa_kh.RowResult["nguoi_dai_dien"].ToString().Trim();
+                            StartUp.DsTrans.Tables[0].DefaultView[0]["nguoi_dai_dien"] = txtMa_kh.RowResult["nguoi_dai_dien"].ToString().Trim();
+                            StartUp.DsTrans.Tables[0].DefaultView[0]["chuc_vu_dmkh"] = txtMa_kh.RowResult["chuc_vu"].ToString().Trim();
+                            StartUp.DsTrans.Tables[0].DefaultView[0]["chuc_vu"] = txtMa_kh.RowResult["chuc_vu"].ToString().Trim();
                         }
                     }
                     if (!string.IsNullOrEmpty(txtMa_kh.RowResult["doi_tac"].ToString().Trim()))
@@ -2546,7 +2549,11 @@ namespace Socthda
                                         e.Cell.Record.Cells["ten_vt"].Value = txt.RowResult["ten_vt"];
                                         e.Cell.Record.Cells["ten_vt2"].Value = txt.RowResult["ten_vt2"];
                                         e.Cell.Record.Cells["dvt"].Value = txt.RowResult["dvt"];
-
+                                        e.Cell.Record.Cells["so_khung"].Value = txt.RowResult["so_khung"];
+                                        e.Cell.Record.Cells["so_may"].Value = txt.RowResult["so_may"];
+                                        e.Cell.Record.Cells["nam_san_xuat"].Value = txt.RowResult["nam_san_xuat"];
+                                        e.Cell.Record.Cells["nuoc_san_xuat"].Value = txt.RowResult["nuoc_san_xuat"];
+                                        e.Cell.Record.Cells["bao_hanh"].Value = txt.RowResult["bao_hanh"];
                                         //var dtCT = (from ct in StartUp.DsTrans.Tables[1].AsEnumerable()
                                         //            where ct["stt_rec"].ToString().Trim() == StartUp.DsTrans.Tables[0].Rows[iRow]["stt_rec"].ToString().Trim()
                                         //            && ct["ma_vt"].ToString().Trim()==txt.RowResult["ma_vt"].ToString().Trim()
