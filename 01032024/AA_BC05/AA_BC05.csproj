@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProjectGuid>{3F5F9294-923F-4733-9437-21C7B5F81657}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>AA_BC05</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\..\Program\PROGRAM\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SmReport">
+      <HintPath>.\AA_BC05References\SmReport.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Sm.Windows.Controls">
+      <HintPath>.\AA_BC05References\Sm.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="InfragisticsWPF3.Editors.v10.2">
+      <HintPath>.\AA_BC05References\InfragisticsWPF3.Editors.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="SmLib">
+      <HintPath>.\AA_BC05References\SmLib.dll</HintPath>
+    </Reference>
+    <Reference Include="SysLib">
+      <HintPath>.\AA_BC05References\SysLib.dll</HintPath>
+    </Reference>
+    <Reference Include="SmErrorLib">
+      <HintPath>.\AA_BC05References\SmErrorLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="InfragisticsWPF3.DataPresenter.v10.2">
+      <HintPath>.\AA_BC05References\InfragisticsWPF3.DataPresenter.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="SmDefine">
+      <HintPath>.\AA_BC05References\SmDefine.dll</HintPath>
+    </Reference>
+    <Reference Include="SmVoucherLib">
+      <HintPath>.\AA_BC05References\SmVoucherLib.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF3.v10.2">
+      <HintPath>.\AA_BC05References\InfragisticsWPF3.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <AutoGen>false</AutoGen>
+      <DependentUpon>App.xaml</DependentUpon>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AA_AA_BC05.Properties\Settings.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="FrmTaoPN.xaml.cs">
+      <AutoGen>false</AutoGen>
+      <DependentUpon>FrmTaoPN.xaml</DependentUpon>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frminsd2ck.xaml.cs">
+      <AutoGen>false</AutoGen>
+      <DependentUpon>frminsd2ck.xaml</DependentUpon>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrmTaoPX.xaml.cs">
+      <AutoGen>false</AutoGen>
+      <DependentUpon>FrmTaoPX.xaml</DependentUpon>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AA_BC05\StartUp.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="FrmTaoPN.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="frminsd2ck.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FrmTaoPX.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

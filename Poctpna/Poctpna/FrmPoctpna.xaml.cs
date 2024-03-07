@@ -45,7 +45,7 @@ namespace Poctpna
         //Lưu lại dữ liệu khi thêm sửa
         private DataSet DsVitual;
         DataSet dsCheckData;
-        
+
         public FrmPoctpna()
         {
             InitializeComponent();
@@ -92,10 +92,10 @@ namespace Poctpna
 
                 //Gán ngôn ngữ messagebox
                 M_LAN = StartUp.M_LAN;
-                GrdCt.Lan= StartUp.M_LAN;
+                GrdCt.Lan = StartUp.M_LAN;
                 GrdCtgt.Lan = StartUp.M_LAN;
                 LanguageProvider.Language = StartUp.M_LAN;
-                
+
                 //Them cac truong tu do
                 SmVoucherLib.FreeCodeFieldLib.InitFreeCodeField(StartUp.SysObj, GrdCt, StartUp.Ma_ct, 1);
                 SmVoucherLib.FreeCodeFieldLib.InitFreeCodeField(StartUp.SysObj, GrdCtgt, StartUp.Ma_ct, 2);
@@ -107,11 +107,11 @@ namespace Poctpna
                     IsVisibilityFieldsXamDataGrid(StartUp.DsTrans.Tables[0].DefaultView[0]["ma_nt"].ToString());
                     IsCheckedSua_tien.Value = (StartUp.DsTrans.Tables[0].DefaultView[0]["sua_tien"].ToString() == "1");
                 }
-                
+
                 Voucher_Ma_nt0.Text = StartUp.DsTrans.Tables[0].DefaultView[0]["ma_nt"].ToString();
                 Voucher_Ma_nt0.Value = (StartUp.DsTrans.Tables[0].DefaultView[0]["ma_nt"].ToString().Equals(StartUp.M_ma_nt0));
                 Voucher_Lan0.Value = M_LAN.Equals("V");
-                
+
                 //Lấy số dư khách hàng tức thời
                 loaddataDu13();
                 UpdateTonKho();
@@ -249,7 +249,7 @@ namespace Poctpna
                     , new Action(() =>
                     {
                         txtMa_kh.IsFocus = true;
-                    })); 
+                    }));
                     DsVitual = StartUp.DsTrans.Copy();
 
                     //Them moi dong trong Ph
@@ -303,13 +303,13 @@ namespace Poctpna
                     NewRecord["t_tt_nt"] = 0;
                     NewRecord["t_tt"] = 0;
                     NewRecord["t_so_luong"] = 0;
-                    
+
                     StartUp.DsTrans.Tables[0].Rows.Add(NewRecord);
 
                     StartUp.DsTrans.Tables[0].DefaultView.RowFilter = "stt_rec= '" + newSttRec + "'";
                     StartUp.DsTrans.Tables[1].DefaultView.RowFilter = "stt_rec= '" + newSttRec + "'";
                     StartUp.DsTrans.Tables[2].DefaultView.RowFilter = "stt_rec= '" + newSttRec + "'";
-                    
+
                     //Them moi dong trong CT
                     NewRowCt();
 
@@ -317,7 +317,7 @@ namespace Poctpna
                     StartUp.DsTrans.Tables[0].DefaultView.RowFilter = "stt_rec= '" + newSttRec + "'";
                     StartUp.DsTrans.Tables[1].DefaultView.RowFilter = "stt_rec= '" + newSttRec + "'";
                     StartUp.DsTrans.Tables[2].DefaultView.RowFilter = "stt_rec= '" + newSttRec + "'";
-                    
+
                     txtngay_lct.Text = "";
                     OldiRow = iRow;
                     iRow = StartUp.DsTrans.Tables[0].Rows.Count - 1;
@@ -387,7 +387,7 @@ namespace Poctpna
                     NewRecord["so_cttmp"] = NewRecord["so_ct"];
                     NewRecord["ma_kh_i"] = "";
                     NewRecord["tk_i"] = "";
-                    
+
                     StartUp.DsTrans.Tables[0].Rows.Add(NewRecord);
 
                     //add các row trong GrdCp
@@ -423,12 +423,12 @@ namespace Poctpna
         private void V_Sua()
         {
             if (StartUp.DsTrans.Tables[0].Rows.Count == 0)
-                ExMessageBox.Show( 345,StartUp.SysObj, "Không có dữ liệu!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                ExMessageBox.Show(345, StartUp.SysObj, "Không có dữ liệu!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
             else
             {
                 if (!SmLib.SysFunc.CheckValidNgayKs(StartUp.SysObj, txtNgay_ct.dValue))
                 {
-                    ExMessageBox.Show( 350,StartUp.SysObj, "Ngày hạch toán phải sau ngày khóa sổ!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ExMessageBox.Show(350, StartUp.SysObj, "Ngày hạch toán phải sau ngày khóa sổ!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
                 Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Background
@@ -447,7 +447,7 @@ namespace Poctpna
                 Voucher_Ma_nt0.Text = StartUp.DsTrans.Tables[0].DefaultView[0]["ma_nt"].ToString();
                 Voucher_Ma_nt0.Value = (StartUp.DsTrans.Tables[0].DefaultView[0]["ma_nt"].ToString().Equals(StartUp.M_ma_nt0));
                 //IsVisibilityFieldsXamDataGridBySua_Tien();
-            
+
             }
         }
         #endregion
@@ -618,22 +618,22 @@ namespace Poctpna
         #region V_Xem
         private void V_Xem()
         {
-           currActionTask = ActionTask.View;
+            currActionTask = ActionTask.View;
             //  set lai stringbrowse 
-           //string stringBrowse1 = StartUp.CommandInfo["Vbrowse1"].ToString().Split('|')[0];//"ngay_ct:fl:100:h=Ngày c.từ;so_ct:fl:70:h=Số c.từ;ma_kh:100:h=Mã khách;ten_kh:180:h=Tên khách;t_tien_nt0:130:n1:h=Tiền hàng nt;t_cp_nt:130:n1:h=Chi phí nt;t_thue_nt:130:n1:h=Tiền thuế nt;t_tt_nt:130:n1:h=Tổng tiền nt;ma_nx:80:h=Mã nx;tk_thue_no:80:h=Tk thuế;dien_giai:225:h=Diễn giải;t_tien0:130:n0:h=Tiền hàng;t_cp:130:n0:h=Chi phí;t_thue:130:h=Tiền thuế:n0;t_tt:130:h=Tổng tiền:n0;ma_nt:80:h=Mã nt;ty_gia:130:h=Tỷ giá:r;[date]:140:h=Ngày cập nhật;[time]:140:h=Giờ cập nhật;[user_name]:180:h=Tên NSD";
-           //string stringBrowse2 = StartUp.CommandInfo["Vbrowse1"].ToString().Split('|')[1];//"ma_vt:fl:100:h=Mã vật tư; ten_vt:fl:270:h=Tên vật tư;dvt:60:h=Đvt;ma_kho_i:70:h=Mã kho;so_luong:q:130:h=Số lượng;gia_nt0:130:p1:h=Giá gốc nt;cp_nt:130:n1:h=Chi phí nt;gia_nt:p1:130:h=Giá nt;tien_nt:130:n1:h=Tiền nt;tk_vt:80:h=Tk vật tư;gia0:130:p0:h=Giá gốc;cp:130:n0:h=Chi phí;gia:130:p0:h=Giá;tien:130:n0:h=Tiền";
+            //string stringBrowse1 = StartUp.CommandInfo["Vbrowse1"].ToString().Split('|')[0];//"ngay_ct:fl:100:h=Ngày c.từ;so_ct:fl:70:h=Số c.từ;ma_kh:100:h=Mã khách;ten_kh:180:h=Tên khách;t_tien_nt0:130:n1:h=Tiền hàng nt;t_cp_nt:130:n1:h=Chi phí nt;t_thue_nt:130:n1:h=Tiền thuế nt;t_tt_nt:130:n1:h=Tổng tiền nt;ma_nx:80:h=Mã nx;tk_thue_no:80:h=Tk thuế;dien_giai:225:h=Diễn giải;t_tien0:130:n0:h=Tiền hàng;t_cp:130:n0:h=Chi phí;t_thue:130:h=Tiền thuế:n0;t_tt:130:h=Tổng tiền:n0;ma_nt:80:h=Mã nt;ty_gia:130:h=Tỷ giá:r;[date]:140:h=Ngày cập nhật;[time]:140:h=Giờ cập nhật;[user_name]:180:h=Tên NSD";
+            //string stringBrowse2 = StartUp.CommandInfo["Vbrowse1"].ToString().Split('|')[1];//"ma_vt:fl:100:h=Mã vật tư; ten_vt:fl:270:h=Tên vật tư;dvt:60:h=Đvt;ma_kho_i:70:h=Mã kho;so_luong:q:130:h=Số lượng;gia_nt0:130:p1:h=Giá gốc nt;cp_nt:130:n1:h=Chi phí nt;gia_nt:p1:130:h=Giá nt;tien_nt:130:n1:h=Tiền nt;tk_vt:80:h=Tk vật tư;gia0:130:p0:h=Giá gốc;cp:130:n0:h=Chi phí;gia:130:p0:h=Giá;tien:130:n0:h=Tiền";
             //StartUp.DsTrans.Tables[0].AcceptChanges();
             DataTable PhViewTablev = StartUp.DsTrans.Tables[0].Copy();
             PhViewTablev.Rows.RemoveAt(0);
             SmVoucherLib.FormView _frmView = new SmVoucherLib.FormView(StartUp.SysObj, PhViewTablev.DefaultView, StartUp.DsTrans.Tables[1].DefaultView, StartUp.stringBrowse1, StartUp.stringBrowse2, "stt_rec");
             _frmView.ListFieldSum = "t_tt_nt;t_tt";
             _frmView.frmBrw.Title = SmLib.SysFunc.Cat_Dau(StartUp.CommandInfo["bar"].ToString()).ToString();
-            if(M_LAN != "V")
+            if (M_LAN != "V")
                 _frmView.frmBrw.Title = SmLib.SysFunc.Cat_Dau(StartUp.CommandInfo["bar2"].ToString()).ToString();
 
             SmVoucherLib.FreeCodeFieldLib.InitFreeCodeField(StartUp.SysObj, _frmView.frmBrw.oBrowseCt, StartUp.Ma_ct, 1);
 
-            _frmView.frmBrw.LanguageID  = "PoctpnaXem";
+            _frmView.frmBrw.LanguageID = "PoctpnaXem";
             _frmView.ShowDialog();
 
             // Set lai irow va rowfilter ...
@@ -673,7 +673,7 @@ namespace Poctpna
         {
             //MessageBox.Show(menuItemName.ToString());
             IsVisibilityFieldsXamDataGrid(StartUp.DsTrans.Tables[0].DefaultView[0]["ma_nt"].ToString());
-            
+
             if (StartUp.DsTrans.Tables[0].DefaultView.Count > 0)
             {
                 Voucher_Ma_nt0.Text = StartUp.DsTrans.Tables[0].DefaultView[0]["ma_nt"].ToString();
@@ -846,6 +846,10 @@ namespace Poctpna
                                     e.Cell.Record.Cells["ten_vt2"].Value = txt.RowResult["ten_vt2"];
 
                                     e.Cell.Record.Cells["dvt"].Value = txt.RowResult["dvt"];
+                                    e.Cell.Record.Cells["so_khung"].Value = txt.RowResult["so_khung"];
+                                    e.Cell.Record.Cells["so_may"].Value = txt.RowResult["so_may"];
+                                    e.Cell.Record.Cells["nam_san_xuat"].Value = txt.RowResult["nam_san_xuat"];
+                                    e.Cell.Record.Cells["nuoc_san_xuat"].Value = txt.RowResult["nuoc_san_xuat"];
                                     ////Lấy mã kho dòng trên
                                     //if (e.Cell.Record.Index > 0 && string.IsNullOrEmpty(e.Cell.Record.Cells["ma_kho_i"].Value.ToString().Trim()))
                                     //{
@@ -975,7 +979,7 @@ namespace Poctpna
                                         {
                                             if (txtMavt.RowResult["gia_ton"].ToString().Trim().Equals("3"))
                                             {
-                                                ExMessageBox.Show( 355,StartUp.SysObj, "Vật tư tính tồn theo phương pháp NTXT không được nhập số lượng = 0!", "", MessageBoxButton.OK);
+                                                ExMessageBox.Show(355, StartUp.SysObj, "Vật tư tính tồn theo phương pháp NTXT không được nhập số lượng = 0!", "", MessageBoxButton.OK);
                                                 GrdCt.Dispatcher.BeginInvoke(new Action(() =>
                                                     {
                                                         e.Cell.Record.Cells["so_luong"].IsActive = true;
@@ -1130,7 +1134,7 @@ namespace Poctpna
                                 }
                                 break;
                             }
-                        #endregion
+                            #endregion
                     }
                 }
             }
@@ -1183,7 +1187,7 @@ namespace Poctpna
 
                 case Key.F8:
                     {
-                        if (ExMessageBox.Show( 360,StartUp.SysObj, "Có xóa dòng ghi hiện thời không?", "Fast Book 11 .NET", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.No)
+                        if (ExMessageBox.Show(360, StartUp.SysObj, "Có xóa dòng ghi hiện thời không?", "Fast Book 11 .NET", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.No)
                         {
                             return;
                         }
@@ -1362,7 +1366,7 @@ namespace Poctpna
                                     if (e.Editor.Value.ToString().Trim() != "")
                                     {
                                         //if (!string.IsNullOrEmpty(txt.RowResult["ten_kh"].ToString()))
-                                            e.Cell.Record.Cells["ten_kh"].Value = txt.RowResult["ten_kh"];
+                                        e.Cell.Record.Cells["ten_kh"].Value = txt.RowResult["ten_kh"];
 
                                         if (!string.IsNullOrEmpty(txt.RowResult["dia_chi"].ToString()))
                                             e.Cell.Record.Cells["dia_chi"].Value = txt.RowResult["dia_chi"];
@@ -1378,7 +1382,7 @@ namespace Poctpna
 
                                 break;
                             }
-                       
+
                         #endregion
 
                         case "ma_ms":
@@ -1555,7 +1559,7 @@ namespace Poctpna
                                         // cập nhật tk_thue_no 
                                         e.Cell.Record.Cells["tk_thue_no"].Value = txt.RowResult["tk_thue_no"];
                                         StartUp.DsTrans.Tables[0].DefaultView[0]["tk_thue_no"] = e.Cell.Record.Cells["tk_thue_no"].Value.ToString();
-                                        
+
                                         CellValuePresenter cellTkThueNo = CellValuePresenter.FromCell(e.Cell.Record.Cells["tk_thue_no"]);
                                         AutoCompleteTextBox txtTkThueNo = Sm.Windows.Controls.ControlLib.ControlFunction.GetAutoCompleteControl(cellTkThueNo.Editor as ControlHostEditor);
                                         if (txtTkThueNo.RowResult == null)
@@ -1676,7 +1680,7 @@ namespace Poctpna
         {
             GrdCtgt.ExecuteCommand(DataPresenterCommands.EndEditModeAndAcceptChanges);
             txt_thck.IsFocus = true;
-            
+
 
         }
         #endregion
@@ -1701,7 +1705,7 @@ namespace Poctpna
                     break;
                 case Key.F8:
                     {
-                        if (ExMessageBox.Show( 365,StartUp.SysObj, "Có xóa dòng ghi hiện thời không?", "Fast Book 11 .NET", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.No)
+                        if (ExMessageBox.Show(365, StartUp.SysObj, "Có xóa dòng ghi hiện thời không?", "Fast Book 11 .NET", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.No)
                         {
                             return;
                         }
@@ -1850,32 +1854,32 @@ namespace Poctpna
 
                     if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[0].DefaultView[0]["ma_kh"].ToString()))
                     {
-                        ExMessageBox.Show( 370,StartUp.SysObj, "Chưa vào mã khách hàng!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                        ExMessageBox.Show(370, StartUp.SysObj, "Chưa vào mã khách hàng!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                         txtMa_kh.IsFocus = true;
                         isError = true;
                     }
                     else if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[0].DefaultView[0]["ma_nx"].ToString()))
                     {
-                        ExMessageBox.Show( 375,StartUp.SysObj, "Chưa vào tài khoản có!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                        ExMessageBox.Show(375, StartUp.SysObj, "Chưa vào tài khoản có!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                         txtMa_nx.IsFocus = true;
                         isError = true;
                     }
                     else if (string.IsNullOrEmpty(txtNgay_ct.Text.ToString()))
                     {
-                        ExMessageBox.Show( 380,StartUp.SysObj, "Chưa vào ngày hạch toán!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                        ExMessageBox.Show(380, StartUp.SysObj, "Chưa vào ngày hạch toán!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                         txtNgay_ct.Focus();
                         isError = true;
                     }
 
-                    else if ( StartUp.M_NGAY_BAT_DAU != null && (!txtNgay_ct.IsValueValid || txtNgay_ct.dValue < StartUp.M_NGAY_BAT_DAU || txtNgay_ct.dValue > StartUp.M_NGAY_KET_THUC))
-                        {
-                            ExMessageBox.Show(1024, StartUp.SysObj, "Ngày hạch toán không hợp lệ!", "", MessageBoxButton.OK, MessageBoxImage.Information);
-                            isError = true;
-                            txtNgay_ct.Focus();
-                        }
+                    else if (StartUp.M_NGAY_BAT_DAU != null && (!txtNgay_ct.IsValueValid || txtNgay_ct.dValue < StartUp.M_NGAY_BAT_DAU || txtNgay_ct.dValue > StartUp.M_NGAY_KET_THUC))
+                    {
+                        ExMessageBox.Show(1024, StartUp.SysObj, "Ngày hạch toán không hợp lệ!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                        isError = true;
+                        txtNgay_ct.Focus();
+                    }
                     else if (StartUp.DsTrans.Tables[1].DefaultView.Count == 0 || string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[0]["ma_vt"].ToString()))
                     {
-                        ExMessageBox.Show( 385,StartUp.SysObj, "Chưa vào chi tiết vật tư, không lưu được!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                        ExMessageBox.Show(385, StartUp.SysObj, "Chưa vào chi tiết vật tư, không lưu được!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                         TabInfo.SelectedIndex = 0;
                         GrdCt.ExecuteCommand(DataPresenterCommands.CellFirstOverall);
                         GrdCt.Focus();
@@ -1892,7 +1896,7 @@ namespace Poctpna
                     //}
                     else if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[0].DefaultView[0]["so_ct"].ToString()))
                     {
-                        ExMessageBox.Show( 395,StartUp.SysObj, "Chưa vào số chứng từ!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                        ExMessageBox.Show(395, StartUp.SysObj, "Chưa vào số chứng từ!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                         txtSo_ct.Focus();
                         isError = true;
                     }
@@ -1919,7 +1923,7 @@ namespace Poctpna
                     //so sánh tổng chi phí nt của các vật tư với tổng chi phí nt
                     else if ((_tong_cp_nt_vt != _t_cp_nt) || (_tong_cp_vt != _t_cp))
                     {
-                        ExMessageBox.Show( 410,StartUp.SysObj, "Tổng chi phí khác với chi phí tổng cộng của các vật tư!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                        ExMessageBox.Show(410, StartUp.SysObj, "Tổng chi phí khác với chi phí tổng cộng của các vật tư!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                         SmLib.WinAPISenkey.SenKey(ModifierKeys.Alt, Key.D2);
                         GrdCp.ActiveCell = (GrdCp.Records[0] as DataRecord).Cells["cp_nt"];
                         GrdCp.Focus();
@@ -1937,7 +1941,7 @@ namespace Poctpna
                             {
                                 if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["ma_vt"].ToString().Trim()))
                                 {
-                                    ExMessageBox.Show( 415,StartUp.SysObj, "Chưa vào chi tiết vật tư, không lưu được!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    ExMessageBox.Show(415, StartUp.SysObj, "Chưa vào chi tiết vật tư, không lưu được!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                                     GrdCt.ActiveCell = (GrdCt.Records[i] as DataRecord).Cells["ma_vt"];
                                     GrdCt.Focus();
                                     return;
@@ -1945,7 +1949,7 @@ namespace Poctpna
 
                                 if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["ma_kho_i"].ToString().Trim()))
                                 {
-                                    ExMessageBox.Show( 420,StartUp.SysObj, "Chưa vào mã kho, không lưu được!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    ExMessageBox.Show(420, StartUp.SysObj, "Chưa vào mã kho, không lưu được!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                                     GrdCt.ActiveCell = (GrdCt.Records[i] as DataRecord).Cells["ma_kho_i"];
                                     GrdCt.Focus();
                                     return;
@@ -1953,7 +1957,7 @@ namespace Poctpna
 
                                 if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["tk_vt"].ToString().Trim()))
                                 {
-                                    ExMessageBox.Show( 425,StartUp.SysObj, "Chưa vào tài khoản vật tư, không lưu được!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    ExMessageBox.Show(425, StartUp.SysObj, "Chưa vào tài khoản vật tư, không lưu được!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                                     GrdCt.ActiveCell = (GrdCt.Records[i] as DataRecord).Cells["tk_vt"];
                                     GrdCt.Focus();
                                     return;
@@ -1995,7 +1999,7 @@ namespace Poctpna
                                 }
                             }
                         }
-                        
+
                         if (StartUp.DsTrans.Tables[2].DefaultView.Count > 0)
                         {
                             //Kiem tra ma so thue
@@ -2013,7 +2017,7 @@ namespace Poctpna
                                 {
                                     if (!SmLib.SysFunc.CheckSumMaSoThue(drv.Row["ma_so_thue"].ToString().Trim()) && !string.IsNullOrEmpty(drv.Row["ma_so_thue"].ToString().Trim()) && !showMessage)
                                     {
-                                        ExMessageBox.Show( 435,StartUp.SysObj, "Mã số thuế không hợp lệ!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                                        ExMessageBox.Show(435, StartUp.SysObj, "Mã số thuế không hợp lệ!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                                         showMessage = true;
                                         if (StartUp.M_MST_CHECK.Equals("2"))
                                         {
@@ -2044,7 +2048,7 @@ namespace Poctpna
 
                                 if (drv["tk_cn"].ToString().Trim().Equals("1") && string.IsNullOrEmpty(drv["ma_kh2"].ToString().Trim()))
                                 {
-                                    ExMessageBox.Show( 445,StartUp.SysObj, "Chưa vào cục thuế!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    ExMessageBox.Show(445, StartUp.SysObj, "Chưa vào cục thuế!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                                     GrdCtgt.ActiveCell = (GrdCtgt.Records[i] as DataRecord).Cells["ma_kh2"];
                                     GrdCtgt.Focus();
                                     return;
@@ -2083,7 +2087,7 @@ namespace Poctpna
                             }
 
                             if ((t_tien_hang_Ph_nt != t_tien_hang_CtGt_nt) || (t_tien_hang_Ph != t_tien_hang_CtGt))
-                                ExMessageBox.Show( 460,StartUp.SysObj, "Tổng tiền/ tiền ngoại tệ khác với tổng tiền/ tiền ngoại tệ trong các hóa đơn giá trị gia tăng!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                                ExMessageBox.Show(460, StartUp.SysObj, "Tổng tiền/ tiền ngoại tệ khác với tổng tiền/ tiền ngoại tệ trong các hóa đơn giá trị gia tăng!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                     }
                 }
@@ -2219,12 +2223,12 @@ namespace Poctpna
                     }
                     if (DataProvider.UpdateCtTable(StartUp.SysObj, StartUp.DmctInfo["m_ctdbf"].ToString(), tbCtToSave, StartUp.DsTrans.Tables[0].DefaultView[0]["stt_rec"].ToString()) == false)
                     {
-                        ExMessageBox.Show( 465,StartUp.SysObj, "Lưu không thành công, kiểm tra lại dữ liệu!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                        ExMessageBox.Show(465, StartUp.SysObj, "Lưu không thành công, kiểm tra lại dữ liệu!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                         return;
                     }
                     if (DataProvider.UpdateCtTable(StartUp.SysObj, StartUp.DmctInfo["m_ctgtdbf"].ToString(), tbCtGtToSave, StartUp.DsTrans.Tables[0].DefaultView[0]["stt_rec"].ToString()) == false)
                     {
-                        ExMessageBox.Show( 470,StartUp.SysObj, "Lưu không thành công, kiểm tra lại dữ liệu!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                        ExMessageBox.Show(470, StartUp.SysObj, "Lưu không thành công, kiểm tra lại dữ liệu!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
                         return;
                     }
 
@@ -2234,7 +2238,7 @@ namespace Poctpna
                         if (!isError)
                         {
                             //if (dsCheckData == null || dsCheckData.Tables[0].Rows.Count == 0)
-                                dsCheckData = StartUp.CheckData();
+                            dsCheckData = StartUp.CheckData();
 
                             dsCheckData.Tables[0].AcceptChanges();
                             if (dsCheckData.Tables.Count > 0)
@@ -2251,7 +2255,7 @@ namespace Poctpna
                                             {
                                                 if (StartUp.M_trung_so.Equals("1"))
                                                 {
-                                                    if (ExMessageBox.Show( 475,StartUp.SysObj, "Có chứng từ trùng số. Số cuối cùng là: " + "[" + GetLastSoct(StartUp.SysObj, txtMa_qs.Text).Trim() + "]" + ". Có lưu chứng từ này không?", "Xac nhan nhap lieu", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.No)
+                                                    if (ExMessageBox.Show(475, StartUp.SysObj, "Có chứng từ trùng số. Số cuối cùng là: " + "[" + GetLastSoct(StartUp.SysObj, txtMa_qs.Text).Trim() + "]" + ". Có lưu chứng từ này không?", "Xac nhan nhap lieu", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.No)
                                                     {
                                                         txtSo_ct.SelectAll();
                                                         txtSo_ct.Focus();
@@ -2260,7 +2264,7 @@ namespace Poctpna
                                                 }
                                                 else if (StartUp.M_trung_so.Equals("2"))
                                                 {
-                                                    ExMessageBox.Show( 480,StartUp.SysObj, "Số chứng từ đã tồn tại!", "Xac nhan nhap lieu", MessageBoxButton.OK, MessageBoxImage.Information);
+                                                    ExMessageBox.Show(480, StartUp.SysObj, "Số chứng từ đã tồn tại!", "Xac nhan nhap lieu", MessageBoxButton.OK, MessageBoxImage.Information);
                                                     txtSo_ct.SelectAll();
                                                     txtSo_ct.Focus();
                                                     isError = true;
@@ -2269,7 +2273,7 @@ namespace Poctpna
                                             }
                                         case "PH02":
                                             {
-                                                ExMessageBox.Show( 485,StartUp.SysObj, "Tk có là tk tổng hợp, không lưu được!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                                                ExMessageBox.Show(485, StartUp.SysObj, "Tk có là tk tổng hợp, không lưu được!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                                                 isError = true;
                                                 txtMa_nx.IsFocus = true;
                                                 break;
@@ -2277,7 +2281,7 @@ namespace Poctpna
                                         case "CT01":
                                             {
                                                 int index = Convert.ToInt16(dv[1]);
-                                                ExMessageBox.Show( 490,StartUp.SysObj, "Tk vật tư là tk tổng hợp, không lưu được!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                                                ExMessageBox.Show(490, StartUp.SysObj, "Tk vật tư là tk tổng hợp, không lưu được!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                                                 isError = true;
                                                 tiHT.Focus();
                                                 GrdCt.ActiveCell = (GrdCt.Records[index] as DataRecord).Cells["tk_vt"];
@@ -2287,7 +2291,7 @@ namespace Poctpna
                                         case "GT01":
                                             {
                                                 int index = Convert.ToInt16(dv[1]);
-                                                ExMessageBox.Show( 495,StartUp.SysObj, "Tk thuế là tk tổng hợp, không lưu được!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                                                ExMessageBox.Show(495, StartUp.SysObj, "Tk thuế là tk tổng hợp, không lưu được!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                                                 isError = true;
                                                 tiThue.Focus();
                                                 GrdCtgt.ActiveCell = (GrdCtgt.Records[index] as DataRecord).Cells["tk_thue_no"];
@@ -2305,7 +2309,7 @@ namespace Poctpna
                     if (!isError)
                     {
                         string _stt_rec1 = StartUp.DsTrans.Tables[1].DefaultView[0]["stt_rec"].ToString();
-                        ThreadStart start = delegate()
+                        ThreadStart start = delegate ()
                         {
                             Post();
 
@@ -2410,7 +2414,7 @@ namespace Poctpna
                 if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[0].DefaultView[0]["ma_thck"].ToString().Trim()))
                 {
                     StartUp.DsTrans.Tables[0].DefaultView[0]["ma_thck"] = txtMa_kh.RowResult["ma_thck"];
-                } 
+                }
                 if (string.IsNullOrEmpty(txtMa_kh.RowResult["dia_chi"].ToString().Trim()))
                 {
                     txtDiaChiFocusable = true;
@@ -2637,7 +2641,7 @@ namespace Poctpna
         #region txtngay_lct_GotFocus
         private void txtngay_lct_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (StartUp.M_ngay_lct.Equals("0")  && !string.IsNullOrEmpty(txtNgay_ct.Text.ToString()))
+            if (StartUp.M_ngay_lct.Equals("0") && !string.IsNullOrEmpty(txtNgay_ct.Text.ToString()))
             {
                 txtngay_lct.Value = txtNgay_ct.Value;
             }
@@ -2660,7 +2664,7 @@ namespace Poctpna
                 {
                     if (!txtNgay_ct.dValue.Date.Equals(txtngay_lct.dValue.Date))
                     {
-                        ExMessageBox.Show( 505,StartUp.SysObj, "Ngày lập chứng từ khác với ngày hạch toán!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                        ExMessageBox.Show(505, StartUp.SysObj, "Ngày lập chứng từ khác với ngày hạch toán!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
             }
@@ -2795,7 +2799,7 @@ namespace Poctpna
             ChangeLanguage();
         }
         #endregion
-       
+
         #region IsVisibilityFieldsXamDataGridBySua_Tien
         void IsVisibilityFieldsXamDataGridBySua_Tien()
         {
@@ -2845,7 +2849,7 @@ namespace Poctpna
                         }
                     }
                     break;
-                #endregion
+                    #endregion
             }
             IsCheckedSua_tien.Value = ChkSuaTien.IsChecked.Value;
         }
@@ -3052,23 +3056,23 @@ namespace Poctpna
         {
             if (currActionTask == ActionTask.Delete || currActionTask == ActionTask.View)
                 return;
-                IsVisibilityFieldsXamDataGridBySua_Tien();
-                //tính lại giá trị của tổng thanh toán nguyên tệ
-                if ((txttong_cp_nt.OldValue != txttong_cp_nt.nValue) || (ChkSuaTien.IsChecked==false))
+            IsVisibilityFieldsXamDataGridBySua_Tien();
+            //tính lại giá trị của tổng thanh toán nguyên tệ
+            if ((txttong_cp_nt.OldValue != txttong_cp_nt.nValue) || (ChkSuaTien.IsChecked == false))
+            {
+                if (cbMa_nt.Text == StartUp.M_ma_nt0)
                 {
-                    if (cbMa_nt.Text == StartUp.M_ma_nt0)
-                    {
-                        txttong_cp.nValue = txttong_cp_nt.nValue;
-                    }
-                    else
-                    {
-                        if (txttong_cp_nt.nValue * txtTy_gia.nValue != 0)
-                        {
-                            txttong_cp.nValue = txttong_cp_nt.nValue * txtTy_gia.nValue;
-                        }
-                    }
-                    Sum_ALL();
+                    txttong_cp.nValue = txttong_cp_nt.nValue;
                 }
+                else
+                {
+                    if (txttong_cp_nt.nValue * txtTy_gia.nValue != 0)
+                    {
+                        txttong_cp.nValue = txttong_cp_nt.nValue * txtTy_gia.nValue;
+                    }
+                }
+                Sum_ALL();
+            }
         }
         #endregion
 
@@ -3078,12 +3082,12 @@ namespace Poctpna
             if (currActionTask == ActionTask.Delete || currActionTask == ActionTask.View)
                 return;
 
-                decimal _T_Tien0 = 0, _T_Cp = 0, _T_Thue = 0;
-                decimal.TryParse(StartUp.DsTrans.Tables[0].DefaultView[0]["t_tien0"].ToString(), out _T_Tien0);
-                decimal.TryParse(StartUp.DsTrans.Tables[0].DefaultView[0]["t_cp"].ToString(), out _T_Cp);
-                decimal.TryParse(StartUp.DsTrans.Tables[0].DefaultView[0]["t_thue"].ToString(), out _T_Thue);
-                //tính lại giá trị của tổng thanh toán hoạch toán
-                StartUp.DsTrans.Tables[0].DefaultView[0]["t_tt"] = _T_Tien0 + _T_Cp + _T_Thue;
+            decimal _T_Tien0 = 0, _T_Cp = 0, _T_Thue = 0;
+            decimal.TryParse(StartUp.DsTrans.Tables[0].DefaultView[0]["t_tien0"].ToString(), out _T_Tien0);
+            decimal.TryParse(StartUp.DsTrans.Tables[0].DefaultView[0]["t_cp"].ToString(), out _T_Cp);
+            decimal.TryParse(StartUp.DsTrans.Tables[0].DefaultView[0]["t_thue"].ToString(), out _T_Thue);
+            //tính lại giá trị của tổng thanh toán hoạch toán
+            StartUp.DsTrans.Tables[0].DefaultView[0]["t_tt"] = _T_Tien0 + _T_Cp + _T_Thue;
         }
         #endregion
 
@@ -3091,7 +3095,7 @@ namespace Poctpna
         private void btnPhanBo_Click(object sender, RoutedEventArgs e)
         {
             PhanBo();
-            ExMessageBox.Show( 510,StartUp.SysObj, "Đã thực hiện xong phân bổ chi phí!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+            ExMessageBox.Show(510, StartUp.SysObj, "Đã thực hiện xong phân bổ chi phí!", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         #endregion
 
@@ -3256,7 +3260,7 @@ namespace Poctpna
         public void CanBangTien()
         {
             decimal t_tien_nt0_InPH = 0, t_tien0_InPH = 0, t_tien_nt0_InGrdCT = 0, t_tien0_InGrdCT = 0, ty_gia = 1;
-            
+
             StartUp.DsTrans.Tables[0].AcceptChanges();
             StartUp.DsTrans.Tables[1].AcceptChanges();
             StartUp.DsTrans.Tables[2].AcceptChanges();
@@ -3279,7 +3283,7 @@ namespace Poctpna
                     break;
                 }
             }
-            
+
             //Tính lại tổng thanh toán
             decimal t_tien_nt0 = 0, t_tien0 = 0, t_cp_nt = 0, t_cp = 0, t_thue_nt = 0, t_thue = 0;
 
@@ -3498,7 +3502,7 @@ namespace Poctpna
 
         private void btnDetailInfo_Click(object sender, RoutedEventArgs e)
         {
-            switch(GrdInfoCP.Visibility)
+            switch (GrdInfoCP.Visibility)
             {
                 case Visibility.Collapsed:
                     GrdInfoCP.Visibility = Visibility.Visible;
@@ -3510,4 +3514,3 @@ namespace Poctpna
         }
     }
 }
-

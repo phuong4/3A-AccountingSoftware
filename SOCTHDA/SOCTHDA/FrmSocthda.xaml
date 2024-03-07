@@ -277,8 +277,8 @@
                       Grid.ColumnSpan="3"
                       Grid.Row="0">
                 <smc:GridLayout Name="GrdLayout10"
-                                RowCount="7"
-                                RowHeights="25,25,25,25,25,25,25"
+                                RowCount="8"
+                                RowHeights="25,25,25,25,25,25,25,25"
                                 ColumnCount="5"
                                 ColumnWidths="100,140,*,100,140">
                     <!--loai hoa don-->
@@ -334,15 +334,37 @@
                                Grid.ColumnSpan="3"
                                Style="{StaticResource ContentTextStyle}"
                                Text="{smc:BindingEx Path=ten_kh, Path2 = ten_kh2}" />
+                    <!--Nguoi dai dien-->
+                    <TextBlock Text="Người đại diện"
+                               Name="tblnguoi_dai_dien"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               Style="{StaticResource ContentTextStyle}" />
+                    <TextBox x:Name="txtnguoi_dai_dien"
+                             Grid.Column="1"
+                             Grid.Row="2"
+                             TabIndex="24"
+                             Text="{smc:BindingEx Path=nguoi_dai_dien}" />
+                    <!--Chuc vu-->
+                    <TextBlock Text="Chức vụ"
+                               Name="tblchuc_vu"
+                               Grid.Row="2"
+                               Grid.Column="3"
+                               Style="{StaticResource ContentTextStyle}" />
+                    <TextBox x:Name="txtchuc_vu"
+                             Grid.Column="4"
+                             Grid.Row="2"
+                             TabIndex="27"
+                             Text="{smc:BindingEx Path=chuc_vu}" />
                     <!--dia chi-->
                     <TextBlock Text="Địa chỉ"
                                Name="tbldia_chi"
-                               Grid.Row="2"
+                               Grid.Row="3"
                                Grid.Column="0"
                                Style="{StaticResource ContentTextStyle}" />
                     <TextBox x:Name="txtDia_chi"
                              Grid.Column="1"
-                             Grid.Row="2"
+                             Grid.Row="3"
                              Grid.ColumnSpan="2"
                              TabIndex="30"
                              Text="{smc:BindingEx Path=dia_chi}"
@@ -351,24 +373,24 @@
                     <!--ma so thue-->
                     <TextBlock Text="MST"
                                Name="tblma_so_thue"
-                               Grid.Row="2"
+                               Grid.Row="3"
                                Grid.Column="3"
                                Style="{StaticResource ContentTextStyle}"
                                Margin="12,0,0,0" />
                     <TextBox x:Name="txtma_so_thue"
                              Grid.Column="4"
-                             Grid.Row="2"
+                             Grid.Row="3"
                              Text="{smc:BindingEx Path=ma_so_thue}"
                              IsReadOnly="True" />
                     <!--nguoi mua hang-->
                     <TextBlock Text="Ng. mua hàng"
                                Name="tblong_ba"
-                               Grid.Row="3"
+                               Grid.Row="4"
                                Grid.Column="0"
                                Style="{StaticResource ContentTextStyle}" />
                     <TextBox x:Name="txtOng_ba"
                              Grid.Column="1"
-                             Grid.Row="3"
+                             Grid.Row="4"
                              Grid.ColumnSpan="2"
                              TabIndex="40"
                              Text="{smc:BindingEx Path=ong_ba}">
@@ -413,26 +435,26 @@
                     <!--dien giai-->
                     <TextBlock Text="Diễn giải"
                                Name="tbldien_giai"
-                               Grid.Row="4"
+                               Grid.Row="5"
                                Grid.Column="0"
                                Style="{StaticResource ContentTextStyle}" />
                     <TextBox Name="txtDien_giai"
                              TabIndex="50"
                              Text="{smc:BindingEx Path=dien_giai}"
                              Grid.Column="1"
-                             Grid.Row="4"
+                             Grid.Row="5"
                              Grid.ColumnSpan="4"
                              Style="{StaticResource TextBoxEditModeEnable}" />
                     <!--ma nhap xuat-->
                     <TextBlock Text="Mã nx (tk nợ)"
                                Name="tblma_nx"
-                               Grid.Row="5"
+                               Grid.Row="6"
                                Grid.Column="0"
                                Style="{StaticResource ContentTextStyle}" />
 
                     <smc:AutoCompleteTextBox x:Name="txtMa_nx"
                                              Grid.Column="1"
-                                             Grid.Row="5"
+                                             Grid.Row="6"
                                              TabIndex="60"
                                              Text="{smc:BindingEx Path=ma_nx}"
                                              ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -443,7 +465,7 @@
                                              Style="{StaticResource AutoCompleteTextBoxEditModeEnable}" 
                                              PreviewLostFocus="txtMa_nx_PreviewLostFocus"/>
                     <TextBlock Name="txtTen_nx"
-                               Grid.Row="5"
+                               Grid.Row="6"
                                Grid.Column="2"
                                Grid.ColumnSpan="3"
                                Margin="12,0,0,0"
@@ -451,14 +473,14 @@
                                Text="{smc:BindingEx Path=ten_nx, Path2=ten_nx2}" />
                     <!--NVBH-->
                     <TextBlock Grid.Column="0"
-                               Grid.Row="6"
+                               Grid.Row="7"
                                Name="tblma_bp"
                                Style="{StaticResource ContentTextStyle}"
                                Text="NVBH" />
                    
                     <smc:AutoCompleteTextBox x:Name="txtma_bp"
                                              Grid.Column="1"
-                                             Grid.Row="6"
+                                             Grid.Row="7"
                                              TabIndex="65"
                                              Text="{smc:BindingEx Path=ma_bp}"
                                              ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -470,7 +492,7 @@
                                              PreviewLostFocus="txtma_bp_PreviewLostFocus"
                                              GotFocus="txtma_bp_GotFocus"/>
                     <TextBlock Name="txtTen_bp"
-                               Grid.Row="6"
+                               Grid.Row="7"
                                Grid.Column="2"
                                Grid.ColumnSpan="3"
                                Margin="12,0,0,0"
@@ -983,9 +1005,67 @@
                                                 <igDP:FieldSettings CellMaxWidth="0" />
                                             </igDP:Field.Settings>
                                         </igDP:Field>
-
-
-                                        <igDP:Field Label="Mã kho"
+                                <smc:NotEmptyField Label="Số khung" Name="so_khung" Width="100">
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings LabelTextAlignment="Center">
+                                            <igDP:FieldSettings.EditorStyle>
+                                                <Style TargetType="{x:Type smc:ExTextEditor}">
+                                                    <Setter Property="CharacterCasing" Value="Normal" />
+                                                    <Setter Property="IsReadOnly" Value="{smc:BindingEx Path=Value, Source={StaticResource IsInEditMode}, Converter={StaticResource BoolInverter}}" />
+                                                </Style>
+                                            </igDP:FieldSettings.EditorStyle>
+                                        </igDP:FieldSettings>
+                                    </igDP:Field.Settings>
+                                </smc:NotEmptyField>
+                                <smc:NotEmptyField Label="Số máy" Name="so_may" Width="100">
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings LabelTextAlignment="Center">
+                                            <igDP:FieldSettings.EditorStyle>
+                                                <Style TargetType="{x:Type smc:ExTextEditor}">
+                                                    <Setter Property="CharacterCasing" Value="Normal" />
+                                                    <Setter Property="IsReadOnly" Value="{smc:BindingEx Path=Value, Source={StaticResource IsInEditMode}, Converter={StaticResource BoolInverter}}" />
+                                                </Style>
+                                            </igDP:FieldSettings.EditorStyle>
+                                        </igDP:FieldSettings>
+                                    </igDP:Field.Settings>
+                                </smc:NotEmptyField>
+                            <smc:NotEmptyField Label="Năm sản xuất" Name="nam_san_xuat" Width="100">
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings LabelTextAlignment="Center" EditAsType="{x:Type System:String}">
+                                            <igDP:FieldSettings.EditorStyle>
+                                                <Style TargetType="{x:Type smc:ExTextEditor}">
+                                                    <Setter Property="Format" Value="" />
+                                                    <Setter Property="IsReadOnly" Value="{smc:BindingEx Path=Value, Source={StaticResource IsInEditMode}, Converter={StaticResource BoolInverter}}" />
+                                                </Style>
+                                            </igDP:FieldSettings.EditorStyle>
+                                        </igDP:FieldSettings>
+                                    </igDP:Field.Settings>
+                                </smc:NotEmptyField>
+                          <smc:NotEmptyField Label="Nước sản xuất" Name="nuoc_san_xuat" Width="100">
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings LabelTextAlignment="Center">
+                                            <igDP:FieldSettings.EditorStyle>
+                                                <Style TargetType="{x:Type smc:ExTextEditor}">
+                                                    <Setter Property="CharacterCasing" Value="Normal" />
+                                                    <Setter Property="IsReadOnly" Value="{smc:BindingEx Path=Value, Source={StaticResource IsInEditMode}, Converter={StaticResource BoolInverter}}" />
+                                                </Style>
+                                            </igDP:FieldSettings.EditorStyle>
+                                        </igDP:FieldSettings>
+                                    </igDP:Field.Settings>
+                                </smc:NotEmptyField>
+                                <smc:NotEmptyField Label="Bảo hành" Name="bao_hanh" Width="100">
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings LabelTextAlignment="Center" EditAsType="{x:Type System:String}">
+                                            <igDP:FieldSettings.EditorStyle>
+                                                <Style TargetType="{x:Type smc:ExTextEditor}">
+                                                    <Setter Property="Format" Value="" />
+                                                    <Setter Property="IsReadOnly" Value="{smc:BindingEx Path=Value, Source={StaticResource IsInEditMode}, Converter={StaticResource BoolInverter}}" />
+                                                </Style>
+                                            </igDP:FieldSettings.EditorStyle>
+                                        </igDP:FieldSettings>
+                                    </igDP:Field.Settings>
+                                </smc:NotEmptyField>
+                                <igDP:Field Label="Mã kho"
                                             Name="ma_kho_i"
                                             Width="100">
                                             <igDP:Field.Settings>
