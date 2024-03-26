@@ -1,0 +1,69 @@
+<smc:Form x:Class="SOCTPNF.FrmCopy"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:smc="clr-namespace:Sm.Windows.Controls;assembly=Sm.Windows.Controls"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          Title="Sao chep chung tu"
+          LanguageID="SOCTPNF_0"
+          Height="164"
+          Width="500"
+          ResizeMode="NoResize"
+          WindowStartupLocation="CenterScreen"
+          KeyUp="Form_KeyUp">
+<smc:ConfirmGridView RowCount="2"
+                         Margin="0"
+                         RowHeights="*,49"
+                         OnOk="ConfirmGridView_OnOk"
+                         OnCancel="ConfirmGridView_OnCancel">
+        <smc:GridLayout.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBoxStyles.xaml" />
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DataGridViewStyles.xaml" />
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DateTextBoxStyles.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </smc:GridLayout.Resources>
+        <Border Grid.Row="0"
+                Margin="12,12,12,0"
+                BorderThickness="1"
+                BorderBrush="#FF808080">
+            <smc:GridLayout RowCount="2"
+                            RowHeights="25,25"
+                            Margin="12,9.5"
+                            ColumnCount="2"
+                            ColumnWidths="100,140">
+                <TextBlock Name="tblngay_ct_old"
+                           Text="Ngày c.từ cũ"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           Style="{StaticResource ContentTextStyle}" />
+                <smc:DateTextBox DisplayMode="IncludeBoth"
+                                 Grid.Column="1"
+                                 Grid.Row="0"
+                                 Margin="0"
+                                 IsReadOnly="True"
+                                 IsAlwaysInEditMode="True"
+                                 Name="txtNgay_ct_old" />
+                <TextBlock Name="tblngay_ct_new"
+                           Text="Ngày c.từ mới"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           Style="{StaticResource ContentTextStyle}" />
+                <smc:DateTextBox DisplayMode="IncludeBoth"
+                                 Grid.Column="1"
+                                 Grid.Row="1"
+                                 Margin="0,0,0,2.417"
+                                 IsAlwaysInEditMode="True"
+                                 Name="txtNgay_ct_new"
+                                 TabIndex="10"
+                                 Height="20"
+                                 VerticalAlignment="Bottom"
+                                 Width="140"
+                                 />
+            </smc:GridLayout>
+        </Border>
+    </smc:ConfirmGridView>
+</smc:Form>

@@ -1,0 +1,320 @@
+<smc:Form x:Class="CACTBN1.FrmIn"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+          xmlns:igDP="http://infragistics.com/DataPresenter"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:smReport="clr-namespace:SmReport;assembly=SmReport"
+          xmlns:igEditors="http://infragistics.com/Editors"
+          Title="Danh mục mẫu báo cáo"
+          LanguageID="CACTBN1_2"
+          Loaded="Form_Loaded"
+          KeyDown="Form_KeyDown"
+          Closing="Form_Closing"
+          Height="700"
+          Width="849">
+    <smc:Form.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DataGridViewStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/CheckBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DateTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/NumericTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/MaskedTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/AutoCompleteTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/XamComboEditorStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ExRateTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TabItemExStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </smc:Form.Resources>
+    <smc:GridLayout RowCount="7"
+                    RowHeights="*,20,2,25,25,378,49"
+                    ColumnCount="5"
+                    Margin="12,4,12,0"
+                    ColumnWidths="132,120,140,120,*">
+        <smReport:ControlFilterReport Grid.ColumnSpan="5"
+                                      Name="GridSearch" />
+        <TextBlock Name="lblctu0"
+                   Grid.Row="3"
+                   Text="Số c.từ gốc kèm theo" />
+        <smc:NumericTextBox Name="txtctu0"
+                            Format="#,0"
+                            Grid.Column="1"
+                            Grid.Row="3"
+                            TabIndex="2"
+                            InvalidValueBehavior="RevertValue"
+                            Value="{smc:BindingEx Path=so01}">
+            <smc:NumericTextBox.ValueConstraint>
+                <igEditors:ValueConstraint ValidateAsType="Integer32"
+                                           MinInclusive="0"
+                                           MaxInclusive="99" />
+            </smc:NumericTextBox.ValueConstraint>
+        </smc:NumericTextBox>
+
+        <TextBlock Name="lbldiengiaict0"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Text="Diễn giải c.từ gốc" />
+        <TextBox  Name="txtdiengiaict0"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="4"
+                  TabIndex="1"
+                  Text="{smc:BindingEx Path=gc01}"/>
+
+        <TextBlock Name="lbllien"
+                   Grid.Row="4"
+                   Text="Số liên" />
+        <smc:NumericTextBox Name="txtlien"
+                            Format="#,0"
+                            Grid.Column="1"
+                            Grid.Row="4"
+                            TabIndex="3"
+                            InvalidValueBehavior="RevertValue"
+                            Value="{smc:BindingEx Path=so02}">
+            <smc:NumericTextBox.ValueConstraint>
+                <igEditors:ValueConstraint ValidateAsType="Integer16"
+                                           MinInclusive="1"
+                                           MaxInclusive="9" />
+            </smc:NumericTextBox.ValueConstraint>
+        </smc:NumericTextBox>
+
+        <GroupBox Grid.Column="0"
+                  Grid.ColumnSpan="5"
+                  Grid.Row="5"
+                  Name="grp00"
+                  Margin="0">
+            <smc:GridLayout RowCount="14"
+                            HeightPerRow="25"
+                            ColumnCount="3"
+                            ColumnWidths="158,120,*"
+                            Name="GrdTT">
+                <TextBlock Name="lblTenNH"
+                           Text="Tên ngân hàng"
+                           Grid.Column="0"
+                           Grid.Row="0" />
+                <TextBox Name="txtTenNH"
+                         Grid.Column="1"
+                         TabIndex="4"
+                         Grid.ColumnSpan="2"
+                         Grid.Row="0"
+                         Text="{smc:BindingEx Path=gc02}"/>
+                
+                <TextBlock Name="lblTK"
+                           Text="Tài khoản"
+                           Grid.Column="0"
+                           Grid.Row="1" />
+                <TextBox Name="txtTK"
+                         Grid.Column="1"
+                         TabIndex="5"
+                         Grid.ColumnSpan="2"
+                         Grid.Row="1"
+                         Text="{smc:BindingEx Path=gc03}"/>
+
+                <TextBlock Name="lblDVNT"
+                           Text="Tên đơn vị nhận tiền"
+                           Grid.Column="0"
+                           Grid.Row="2" />
+                <TextBox Name="txtDVNT"
+                         Grid.Column="1"
+                         TabIndex="6"
+                         Grid.ColumnSpan="2"
+                         Grid.Row="2"
+                         Text="{smc:BindingEx Path=gc04}"/>
+
+                <TextBlock Name="lblDiaChi"
+                           Text="Địa chỉ"
+                           Grid.Column="0"
+                           Grid.Row="3" />
+                <TextBox Name="txtDiaChi"
+                         Grid.Column="1"
+                         TabIndex="7"
+                         Grid.ColumnSpan="2"
+                         Grid.Row="3"
+                         Text="{smc:BindingEx Path=gc05}"/>
+
+                <TextBlock Name="lblSOTK"
+                           Text="Số tài khoản"
+                           Grid.Column="0"
+                           Grid.Row="4" />
+                <TextBox Name="txtSOTK"
+                         Grid.Column="1"
+                         TabIndex="8"
+                         Grid.ColumnSpan="2"
+                         Grid.Row="4"
+                         Text="{smc:BindingEx Path=gc06}"/>
+
+                <TextBlock Name="lblTaiNH"
+                           Text="Tại ngân hàng"
+                           Grid.Column="0"
+                           Grid.Row="5" />
+                <TextBox Name="txtTaiNH"
+                         Grid.Column="1"
+                         TabIndex="9"
+                         Grid.ColumnSpan="2"
+                         Grid.Row="5"
+                         Text="{smc:BindingEx Path=gc07}"/>
+
+                <TextBlock Name="lblDCNH"
+                           Text="Địa chỉ"
+                           Grid.Column="0"
+                           Grid.Row="6" />
+                <TextBox Name="txtDCNH"
+                         Grid.Column="1"
+                         TabIndex="10"
+                         Grid.ColumnSpan="2"
+                         Grid.Row="6"
+                         Text="{smc:BindingEx Path=gc08}"/>
+
+                <TextBlock Name="lblTinhThanh"
+                           Text="Tỉnh thành"
+                           Grid.Column="0"
+                           Grid.Row="7" />
+                <TextBox Name="txtTinhThanh"
+                         Grid.Column="1"
+                         TabIndex="11"
+                         Grid.ColumnSpan="2"
+                         Grid.Row="7"
+                         Text="{smc:BindingEx Path=gc09}"/>
+
+                <TextBlock Name="lblNoiDung"
+                           Text="Nội dung thanh toán"
+                           Grid.Column="0"
+                           Grid.Row="8" />
+                <TextBox Name="txtNoiDung"
+                         Grid.Column="1"
+                         TabIndex="12"
+                         Grid.ColumnSpan="2"
+                         Grid.Row="8"
+                         Text="{smc:BindingEx Path=gc10}"/>
+                
+                <TextBlock Name="lblMDTT"
+                           Text="Mục đích thanh toán "
+                           Grid.Column="0"
+                           Grid.Row="9" />
+                <smc:MaskedTextBox Grid.Column="1"
+                                   Grid.Row="9"
+                                   TabIndex="13"
+                                   Name="txtMDTT"
+                                   InputMask="1,2"
+                                   Format="M"
+                                   Text="{smc:BindingEx Path=gc11}"
+                                   PreviewLostKeyboardFocus="MaskedTextBox_PreviewLostKeyboardFocus" />
+                <TextBlock Name="lblGTMDTT"
+                           Text="1 - Ứng trước thanh toán, 2 - Thực hiện thanh toán "
+                           Margin="12,0,0,0"
+                           Grid.Column="2"
+                           Grid.Row="9" />
+
+                <TextBlock Name="lblHTTT"
+                           Text="Hình thức thanh toán "
+                           Grid.Column="0"
+                           Grid.Row="10" />
+                <smc:MaskedTextBox Grid.Column="1"
+                                   Grid.Row="10"
+                                   Name="txtHTTT"
+                                   TabIndex="14"
+                                   Text="{smc:BindingEx Path=gc12}"
+                                   InputMask="1,2,3,4"
+                                   Format="M"
+                                   PreviewLostKeyboardFocus="MaskedTextBox_PreviewLostKeyboardFocus" />
+                <TextBlock Name="lblGTHTTT"
+                           Text="1 - Thư, 2 - Điện, 3 - Telex, Swift, 4 - Sec "
+                           Margin="12,0,0,0"
+                           Grid.Column="2"
+                           Grid.Row="10" />
+
+                <TextBlock Name="lblTPTN"
+                           Text="Tính phí trong nước vào "
+                           Grid.Column="0"
+                           Grid.Row="11" />
+                <smc:MaskedTextBox Grid.Column="1"
+                                   Grid.Row="11"
+                                   Name="txtTPTN"
+                                   TabIndex="15"
+                                   InputMask="1,2"
+                                   Format="M"
+                                   Text="{smc:BindingEx Path=gc13}"
+                                   PreviewLostKeyboardFocus="MaskedTextBox_PreviewLostKeyboardFocus" />
+                <TextBlock Name="lblGTTPTN"
+                           Text="1 - Chúng tôi, 2 - Người hưởng thụ "
+                           Margin="12,0,0,0"
+                           Grid.Column="2"
+                           Grid.Row="11" />
+
+                <TextBlock Name="lblTPNN"
+                           Text="Tính phí ngoài nước vào "
+                           Grid.Column="0"
+                           Grid.Row="12" />
+                <smc:MaskedTextBox Grid.Column="1"
+                                   Grid.Row="12"
+                                   Name="txtTPNN"
+                                   TabIndex="16"
+                                   InputMask="1,2"
+                                   Format="M"
+                                   Text="{smc:BindingEx Path=gc14}"
+                                   PreviewLostKeyboardFocus="MaskedTextBox_PreviewLostKeyboardFocus" />
+                <TextBlock Name="lblGTTPNN"
+                           Text="1 - Chúng tôi, 2 - Người hưởng thụ "
+                           Margin="12,0,0,0"
+                           Grid.Column="2"
+                           Grid.Row="12" />
+
+                <TextBlock Name="lblCamKet"
+                           Text="Cam kết"
+                           Grid.Column="0"
+                           Grid.Row="13" />
+                <TextBox Name="txtCamKet"
+                         Grid.Column="1"
+                         TabIndex="17"
+                         Grid.ColumnSpan="2"
+                         Grid.Row="13"
+                         Text="{smc:BindingEx Path=gc15}"/>
+            </smc:GridLayout>
+        </GroupBox>
+
+        <smc:GridLayout Grid.Row="6"
+                        Grid.ColumnSpan="5"
+                        ColumnCount="5"
+                        ColumnWidths="104,104,104,200,*">
+            <Button Name="BtnIn"
+                    Grid.Column="0"
+                    Width="92"
+                    Height="25"
+                    HorizontalAlignment="Left"
+                    TabIndex="18"
+                    Click="BtnIn_Click">In</Button>
+            <Button Name="BtnInLT"
+                    Grid.Column="1"
+                    Width="92"
+                    Height="25"
+                    HorizontalAlignment="Left"
+                    TabIndex="19"
+                    Click="BtnInLT_Click">In liên tục</Button>
+            <Button Name="BtnXem"
+                    Grid.Column="2"
+                    Width="92"
+                    Height="25"
+                    HorizontalAlignment="Left"
+                    TabIndex="20"
+                    Click="BtnXem_Click">Xem</Button>
+            <Button Name="btnExport"
+                    Grid.Column="3"
+                    Width="188"
+                    HorizontalAlignment="Left"
+                    TabIndex="6"
+                    Click="btnExport_Click" />
+            <Button Name="BtnThoat"
+                    Grid.Column="4"
+                    Width="92"
+                    Height="25"
+                    HorizontalAlignment="Left"
+                    TabIndex="22"
+                    Click="BtnThoat_Click">Quay ra</Button>
+        </smc:GridLayout>
+    </smc:GridLayout>
+</smc:Form>

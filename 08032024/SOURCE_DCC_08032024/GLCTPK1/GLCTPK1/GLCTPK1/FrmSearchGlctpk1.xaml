@@ -1,0 +1,196 @@
+<smReport:FormFilter x:Class="Glctpk1.FrmSearchGlctpk1"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:src="clr-namespace:Glctpk1"
+          xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+          xmlns:igDP="http://infragistics.com/DataPresenter"
+          xmlns:my="clr-namespace:System;assembly=mscorlib"
+          xmlns:smReport="clr-namespace:SmReport;assembly=SmReport"
+          Name="FrmFilter"
+          LanguageID="Glctpk1F9"
+          EscToClose="True"
+          Title="Loc chung tu"
+          Height="680"
+          Width="960"
+          Theme="Voucher"
+          Loaded="FrmSearchGlctpk1_Loaded">
+    <smc:Form.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DataGridViewStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DateTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/NumericTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/AutoCompleteTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/MaskedTextBoxStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <smc:NotNullConverter x:Key="NotNullControl" />
+            <src:IdRecordConverterXamDataGrid x:Key="IdRecordXamDataGrid" />
+        </ResourceDictionary>
+    </smc:Form.Resources>
+    <smc:ConfirmGridView Name="grdConfirm"
+                         OnOk="grdConfirm_OnOk">
+        <smc:GridLayout RowCount="2"
+                        RowHeights="175,*"
+                        Margin="12,4,12,0"
+                        Name="grdLayout">
+            <GroupBox Header="Điều kiện lọc"
+                      Name="grpLocCT"
+                      Grid.Column="0"
+                      Grid.Row="0"
+                      Margin="0,0,0,4">
+
+                <smc:GridLayout Name="GrdPhLoc"
+                                RowCount="6"
+                                HeightPerRow="25"
+                                ColumnCount="6"
+                                ColumnWidths="100,140,12,100,140,*">
+                    <!--so chung tu-->
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="0"
+                               Text="Số c.từ từ số"
+                               Name="tblso_ct1" />
+                    <TextBox Grid.Column="1"
+                             Grid.Row="0"
+                             TabIndex="10"
+                             Name="txtSo_ct1"
+                             CharacterCasing="Upper"/>
+                    <!--so chung tu-->
+                    <TextBlock Grid.Column="3"
+                               Grid.Row="0"
+                               Text="Đến số"
+                               Name="tblso_ct2" />
+                    <TextBox Grid.Column="4"
+                             Grid.Row="0"
+                             TabIndex="12"
+                             Name="txtSo_ct2"
+                             CharacterCasing="Upper"/>
+                    <!--chung tu tu ngay-->
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="1"
+                               Text="C.từ từ ngày"
+                               Name="tblngay_ct1" />
+                    <smc:DateTextBox DisplayMode="IncludeBoth"
+                                     Grid.Column="1"
+                                     Grid.Row="1"
+                                     AllowEmpty="False"
+                                     IsAlwaysInEditMode="True"
+                                     Value="{smc:BindingEx Path=M_NGAY_CT1,ElementName=FrmFilter}"
+                                     Name="txtNgay_ct1"
+                                     TabIndex="20" />
+                    <!--den ngay-->
+                    <TextBlock Grid.Column="3"
+                               Grid.Row="1"
+                               Text="Đến ngày"
+                               Name="tblngay_ct2" />
+                    <smc:DateTextBox DisplayMode="IncludeBoth"
+                                     Grid.Column="4"
+                                     Grid.Row="1"
+                                     AllowEmpty="False"
+                                     IsAlwaysInEditMode="True"
+                                     Value="{smc:BindingEx Path=M_NGAY_CT2,ElementName=FrmFilter}"
+                                     Name="txtNgay_ct2"
+                                     TabIndex="30" />
+									 
+					<!-- Tai khoan -->							
+                    <TextBlock Text="Tài khoản"
+                               Name="tbltk"
+                               Grid.Column="0"
+                               Grid.Row="2" />
+                    <smc:AutoCompleteTextBox Name="txttk"
+                                             Grid.Column="1"
+                                             Grid.Row="2"
+                                             TabIndex="40"
+                                             Text="{smc:BindingEx Path=M_TK, ElementName=FrmFilter}"
+                                             ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                             SysObj="{Binding Path=BindingSysObj,RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                             AllowEmty="True"
+                                             AllowWrong="False"
+                                             ListID="dmtk"
+                                             LostFocus="txttk_LostFocus" />
+                    <TextBlock Name="tblten_tk"
+                               Grid.Column="3"
+                               Grid.ColumnSpan="3"
+                               Grid.Row="2" />
+							   
+				    <!-- Ma DVCS -->
+					 <TextBlock Text="Mã ĐVCS"
+                               Name="lblMaDVCS"
+                               Grid.Column="0"
+                               Grid.Row="3" />
+                    <smc:AutoCompleteTextBox Name="txtMaDVCS"
+                                             Grid.Column="1"
+                                             Grid.Row="3"
+                                             TabIndex="40"
+                                             Text="{smc:BindingEx Path=M_MA_DVCS,ElementName=FrmFilter}"
+                                             ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                             SysObj="{Binding Path=BindingSysObj,RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                             AllowEmty="True"
+                                             AllowWrong="False"
+                                             ListID="dmdvcs"
+                                             LostFocus="txtMaDVCS_LostFocus" />
+                    <TextBlock Name="lblTenDVCS"
+                               Grid.Column="3"
+                               Grid.ColumnSpan="4"
+                               Grid.Row="3" />
+							   
+					<!-- Ghi no/co -->		   
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="4"
+                               Text="Ghi nợ/có/*"
+                               Name="tblt_tien1" />
+
+                        <smc:MaskedTextBox Name="txtghi_no_co"
+                                           TabIndex="45"
+                                           Format="M"
+                                           InputMask="1,2,*"
+                                           Grid.Column="1"
+                                           Grid.Row="4"
+                                           LostFocus="txtghi_no_co_LostFocus" />
+                        <TextBlock Name="tblCommentghi_no_co"
+                                   Text="1 - Ghi nợ, 2 - Ghi có, * - Cả 2"
+                                   Grid.Column="3"
+                                   Grid.ColumnSpan="2"
+                                   Grid.Row="4"
+                                    />
+                    <!--loc_nsd-->
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="5"
+                               Text="Lọc theo nsd"
+                               Name="lblLocNSD"/>
+
+                        <smc:MaskedTextBox Name="txtloc_nsd"
+                                           TabIndex="45"
+                                           Format="M"
+                                           InputMask="0,1"
+                                           Grid.Column="1"
+                                           Grid.Row="5"
+                                           LostFocus="txtloc_nsd_LostFocus" />
+                        <TextBlock Name="tblCommentloc_nsd"
+                                   Text="0 - Không lọc theo nsd, 1 - Lọc theo nsd"
+                                   Grid.Column="3"
+                                   Grid.Row="5"
+                                   Grid.ColumnSpan="2"
+                                   />
+
+                </smc:GridLayout>
+
+            </GroupBox>
+
+            <smReport:ControlDetailFilter3 x:Name="GridSearch"
+                                           Grid.Row="1"
+                                           FontWeight="Normal" />
+        </smc:GridLayout>
+        <!--Thong tin chi tiet-->
+        <Canvas Grid.Row="2"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Margin="0,0,100,33"
+                Name="pnl">
+            <TextBlock Text="F5 - Tra cứu" Name="lblSearch"/>
+        </Canvas>
+    </smc:ConfirmGridView>
+    </smReport:FormFilter>
