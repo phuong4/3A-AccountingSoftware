@@ -1,0 +1,270 @@
+<smc:Form x:Class="CACTPC1.FrmCACTPC1DSHD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        LanguageID ="CACTPC1_1"
+        Title="Danh sach cac hoa don" 
+        xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+        xmlns:igDP="http://infragistics.com/DataPresenter"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        Width="1000"
+        Height="600"
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        PreviewKeyUp="Window_PreviewKeyUp"
+        PreviewKeyDown="Window_PreviewKeyDown"
+        Closed="Window_Closed">
+    <smc:GridLayout Name="grdMain">
+        <smc:DataGridView Name="grdDSHD">
+            <smc:DataGridView.FieldSettings>
+                <igDP:FieldSettings SummaryDisplayArea="BottomFixed"
+                                    SummaryUIType="MultiSelect"
+                                    AllowEdit="False" />
+            </smc:DataGridView.FieldSettings>
+            <smc:DataGridView.FieldLayoutSettings>
+                <igDP:FieldLayoutSettings HeaderPrefixAreaStyle="{StaticResource StyleHeaderPrefixArea}"
+                                          RecordSelectorStyle="{StaticResource StyleRecordSelector}"
+                                          AllowDelete="False"
+                                          AutoGenerateFields="False" />
+            </smc:DataGridView.FieldLayoutSettings>
+            <smc:DataGridView.FieldLayouts>
+                <igDP:FieldLayout>
+                    <igDP:Field Label="Số hoá đơn"
+                                Name="so_ct"
+                                Width="100">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+                    
+                    <igDP:Field Label="Ngày hoá đơn"
+                                Name="ngay_ct"
+                                Width="140"
+                                >
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                                    AllowEdit="False"
+                                                                    EditAsType="{x:Type System:DateTime}"
+                                                                    EditorType="{x:Type smc:DateTextBox}" />
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+                    
+                    <igDP:Field Label="Mã n.tệ"
+                                Name="ma_nt"
+                                Width="80">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+                    
+                    <igDP:Field Label="Diễn giải"
+                                Name="dien_giai"
+                                Width="225">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Tỷ giá"
+                                Name="ty_giaf"
+                                Width="140">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False">
+                                <igDP:FieldSettings.EditorStyle>
+                                    <Style TargetType="{x:Type smc:ExRateTextBox}">
+                                    </Style>
+                                </igDP:FieldSettings.EditorStyle>
+                            </igDP:FieldSettings>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Tiền phải tt"
+                                Name="tc_tt"
+                                Width="140">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False">
+                                <igDP:FieldSettings.EditorStyle>
+                                    <Style TargetType="{x:Type smc:NumericTextBox}">
+                                    </Style>
+                                </igDP:FieldSettings.EditorStyle>
+                            </igDP:FieldSettings>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Tiền đã tt"
+                                Name="t_tt_qd"
+                                Width="140">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False">
+                                <igDP:FieldSettings.EditorStyle>
+                                    <Style TargetType="{x:Type smc:NumericTextBox}">
+                                    </Style>
+                                </igDP:FieldSettings.EditorStyle>
+                            </igDP:FieldSettings>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+                    
+                    <igDP:Field Label="Còn lại"
+                                Name="cl_tt"
+                                Width="140">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False">
+                                <igDP:FieldSettings.EditorStyle>
+                                    <Style TargetType="{x:Type smc:NumericTextBox}">
+                                    </Style>
+                                </igDP:FieldSettings.EditorStyle>
+                            </igDP:FieldSettings>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Mã ĐVCS"
+                                Name="ma_dvcs"
+                                Width="100">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <!--Các cột ẩn-->
+                    <igDP:Field Label="Tk"
+                                Name="tk"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+                    
+                    <igDP:Field Label="Stt Rec"
+                                Name="stt_rec"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Ma vv"
+                                Name="ma_vv"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Ma td"
+                                Name="ma_td"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Ma td2"
+                                Name="ma_td2"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Ma td3"
+                                Name="ma_td3"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="So lsx"
+                                Name="so_lsx"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="so dh"
+                                Name="so_dh"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Ma bpht"
+                                Name="ma_bpht"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Ma hd"
+                                Name="ma_hd"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Ma ku"
+                                Name="ma_ku"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Ma phí"
+                                Name="ma_phi"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+
+                    <igDP:Field Label="Ma sp"
+                                Name="ma_sp"
+                                Width="0"
+                                Visibility="Hidden">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                AllowEdit="False"/>
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+                    
+                </igDP:FieldLayout>
+            </smc:DataGridView.FieldLayouts>
+        </smc:DataGridView>
+    </smc:GridLayout>
+</smc:Form>

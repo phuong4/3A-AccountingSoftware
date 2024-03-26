@@ -1,0 +1,347 @@
+<SmReport:FormFilter x:Class="NN_BCLIN.FormLoc"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                LanguageID ="SOBK1_0"
+          xmlns:local="clr-namespace:NN_BCLIN"
+          xmlns:diagnostics="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+          Title="Bang ke hóa đơn ban hang"
+          Height="650"
+          Width="870"
+          Theme="Standard"
+          xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+          xmlns:igEditors="http://infragistics.com/Editors"
+          xmlns:SmReport="clr-namespace:SmReport;assembly=SmReport"
+          xmlns:igWindows="http://infragistics.com/Windows"
+          WindowStartupLocation="CenterScreen"
+          xmlns:sysData="clr-namespace:System.Data;assembly=System.Data"
+          xmlns:sys="clr-namespace:System;assembly=mscorlib"
+          ShowInTaskbar="True"
+          ResizeMode="NoResize"
+          Loaded="TransactionFrm_Loaded"
+          KeyDown="TransactionFrm_KeyDown"
+          Name="TransactionFrm"
+          Closed="TransactionFrm_Closed">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DataGridViewStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/CheckBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DateTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/NumericTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/MaskedTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/AutoCompleteTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/XamComboEditorStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ExRateTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TabItemExStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <smc:ConfirmGridView Height="Auto"
+                         OnOk="btnNhan_Click"
+                         OnCancel="btnHuy_Click">
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+
+                    <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <smc:ExTabControl Name="TabInfor"
+                          Margin="12,12,12,0"
+                          Height="Auto"
+                          Theme="Generic">
+            <smc:ExTabItem Header="Thông tin chính"
+                           Name="TabMain">
+                <smc:GridLayout Name="GrdLayOut"
+                                Margin="8,0,8,8"
+                                ColumnCount="3"
+                                ColumnWidths="*,12,290"
+                                RowCount="3"
+                                RowHeights="183,4,*">
+
+                    <GroupBox Grid.Row="0"
+                              Grid.Column="0"
+                              Style="{StaticResource TabGroupBoxStyle}"
+                              Header="Điều kiện lọc"
+                              Name="gbDKLoc">
+                        <smc:GridLayout ColumnCount="5"
+                                        ColumnWidths="100,140,12,*,140"
+                                        RowCount="6"
+                                        RowHeights="25,25,25,25,25,25">
+                            <TextBlock Text="Từ ngày"
+                                       Grid.Row="0"
+                                       Grid.Column="0"
+                                       Name="lblTuNgay"
+                                       
+                                       VerticalAlignment="Center" />
+                            <smc:DateTextBox Grid.Column="1"
+                                             Grid.Row="0"
+                                             Name="TxtStartDateTime"
+                                             TabIndex="1"
+                                             Value="{smc:BindingEx Path=M_NGAY_CT1,ElementName=TransactionFrm}"
+                                             IsTabStop="True" />
+
+                            <TextBlock Text="Đến ngày"
+                                       Grid.Row="0"
+                                       Grid.Column="3"
+                                       Name="lblDenNgay"
+                                       
+                                       VerticalAlignment="Center" />
+                            <smc:DateTextBox Grid.Row="0"
+                                             Name="TxtEndDateTime"
+                                             Grid.Column="4"
+                                             TabIndex="2"
+                                             Value="{smc:BindingEx Path=M_NGAY_CT2,ElementName=TransactionFrm}"
+                                             IsTabStop="True" />
+
+                            <!--<TextBlock Text="Chứng từ từ số"
+                                       Grid.Row="1"
+                                       Grid.Column="0"
+                                       Name="lblSoCtBatDau"
+                                       
+                                       VerticalAlignment="Center" />
+                            <TextBox Grid.Column="1"
+                                     Grid.Row="1"
+                                     Name="txtSoCtBatDau"
+                                     TabIndex="4"
+                                     IsTabStop="True" />
+                            <TextBlock Text="Đến số"
+                                       Grid.Row="1"
+                                       Grid.Column="3"
+                                       Name="lblSoCtKetThuc"
+                                       
+                                       VerticalAlignment="Center" />
+                            <TextBox Grid.Column="4"
+                                     Grid.Row="1"
+                                     Name="txtSoCtKetThuc"
+                                     TabIndex="5"
+                                     IsTabStop="True"
+                                     Height="20"/>
+                            <TextBlock Grid.Row="2"
+                                       Name="lblLoaiHD"
+                                       Text="Loại hóa đơn"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center" />-->
+                            
+                            <!--<smc:MaskedTextBox Grid.Column="1"
+                                               Grid.Row="2"
+                                               Name="txtLoaiPN"
+                                               TabIndex="6"
+                                               InputMask="1,2"
+                                               Format="M"
+                                               IsTabStop="True"
+                                               />
+                            
+                            <TextBlock Grid.ColumnSpan="2"
+                                       Grid.Row="2"                                       
+                                       Text="1 - Xuất bán, 2 - Xuất bán nội bộ"
+                                       Name="lblDetailPS"
+                                       Grid.Column="3" />-->
+                            
+                            <TextBlock Text="Mã khách"
+                                       Grid.Row="1"
+                                       Grid.Column="0"
+                                       Name="lblMaKhach"
+                                       
+                                       VerticalAlignment="Center" />
+                            <TextBlock Grid.ColumnSpan="1"
+                                       Grid.Row="2"
+                                       
+                                       Name="lblMaVatTu"
+                                       Text="Mã vật tư"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center" />
+                            <smc:AutoCompleteTextBox Name="txtMaKhach"
+                                                     Grid.Column="1"
+                                                     Grid.Row="1"
+                                                     ListID="dmkh"
+                                                     Text="{smc:BindingEx Path=M_MA_KH, ElementName=TransactionFrm}"
+                                                     SysObj="{Binding ElementName=TransactionFrm,Path=BindingSysObj}"
+                                                     AllowEmty="True"
+                                                     AllowWrong="True"
+                                                     ParentControl="{Binding ElementName=TransactionFrm}"
+                                                     LostFocus="txtMaKhach_LostFocus"
+                                                     TabIndex="7"
+                                                     IsTabStop="True" />
+                            <smc:AutoCompleteTextBox AllowEmty="True"
+                                                     AllowWrong="True"
+                                                     Grid.Column="1"
+                                                     Grid.ColumnSpan="1"
+                                                     Grid.Row="2"
+                                                     ListID="dmvt"
+                                                     Name="txtMaVT"
+                                                     Text="{smc:BindingEx Path=M_MA_VT,ElementName=TransactionFrm}"
+                                                     ParentControl="{Binding ElementName=TransactionFrm}"
+                                                     SysObj="{Binding ElementName=TransactionFrm, Path=BindingSysObj}"
+                                                     TabIndex="8"
+                                                     LostFocus="txtMaVT_LostFocus"
+                                                     IsTabStop="True" />
+                            <TextBlock Grid.Column="3"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="2"
+                                       Name="lblTenVT"
+                                       ClipToBounds="False" />
+                            <TextBlock Grid.Column="3"
+                                       Grid.Row="1"
+                                       Grid.ColumnSpan="2"
+                                       Name="lblTenKhach"
+                                       ClipToBounds="False" />
+                            <!--<TextBlock Grid.ColumnSpan="1"
+                                       Grid.Row="5" 
+                                       Name="lblMaKho"
+                                       Text="Mã Kho"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center" />
+                            <smc:AutoCompleteTextBox AllowEmty="True"
+                                                     AllowWrong="True"
+                                                     Grid.Column="1"
+                                                     Grid.ColumnSpan="1"
+                                                     Grid.Row="5"
+                                                     ListID="dmkho"
+                                                     Name="txtMaKho"
+                                                     Text="{smc:BindingEx Path=M_MA_KHO,ElementName=TransactionFrm}"
+                                                     ParentControl="{Binding ElementName=TransactionFrm}"
+                                                     SysObj="{Binding ElementName=TransactionFrm, Path=BindingSysObj}"
+                                                     TabIndex="9"                                                     
+                                                     IsTabStop="True" 
+                                                     LostFocus="txtMaKho_LostFocus"/>
+                            <TextBlock Grid.Column="3"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="5"
+                                       Name="lblTenKho"
+                                       ClipToBounds="False" />-->
+                        </smc:GridLayout>
+                    </GroupBox>
+                    <smc:GridLayout Grid.Row="0"
+                                    Grid.RowSpan="1"
+                                    Grid.Column="2"
+                                    RowCount="3"
+                                    RowHeights="77,4,*">
+                        <GroupBox Grid.Row="0"
+                              Name="GroupDVCS"
+                              Header=""
+                              Style="{StaticResource TabGroupBoxStyle}"
+                              Margin="0,0,0,0">
+                            <smc:GridLayout RowCount="2"
+                                        ColumnCount="2"
+                                        ColumnWidths="100*,140"
+                                        RowHeights="25,25*">
+                                <!--<TextBlock Text="Kiểu lọc"
+                                       Grid.Row="0"
+                                       Grid.Column="0"
+                                       Name="lblKieuLoc"
+                                       VerticalAlignment="Center" />
+                                <igEditors:XamComboEditor Name="cbKieuLoc"
+                                                      Grid.Column="1"
+                                                      Grid.Row="0"
+                                                      SelectedIndex="0"
+                                                      Height="20"
+                                                      Margin="0"
+                                                      TabIndex="14">
+                                    <igEditors:XamComboEditor.ItemsProvider>
+                                        <igEditors:ComboBoxItemsProvider>
+                                            <igEditors:ComboBoxItemsProvider.Items>
+                                                <smc:ExComboBoxDataItem DisplayText="Tất cả các vật tư trong phiếu"
+                                                                    DisplayText2="All items in voucher"
+                                                                    Value="0" />
+                                                <smc:ExComboBoxDataItem DisplayText="Chỉ các vật tư theo mã trên"
+                                                                    DisplayText2="Only items above"
+                                                                    Value="1" />
+                                            </igEditors:ComboBoxItemsProvider.Items>
+                                        </igEditors:ComboBoxItemsProvider>
+                                    </igEditors:XamComboEditor.ItemsProvider>
+                                </igEditors:XamComboEditor>-->
+                                
+                                <TextBlock Text="Mã ĐVCS"
+		                       Name="lblMaDVCS"
+		                       Grid.Column="0"
+		                       Grid.Row="0" />
+                                <smc:AutoCompleteTextBox Name="txtMaDVCS"
+						 Grid.Column="1"
+						 Grid.Row="0"
+						 TabIndex="15"
+                         Text="{smc:BindingEx Path=M_MA_DVCS,ElementName=TransactionFrm}"
+						 ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+						 SysObj="{Binding Path=BindingSysObj,RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+						 AllowEmty="True"
+						 AllowWrong="False"
+						 ListID="dmdvcs" />
+                            </smc:GridLayout>
+                        </GroupBox>
+                        <GroupBox Grid.Row="2"
+                              Grid.Column="2"
+                              Header="Mẫu báo cáo"
+                              Style="{StaticResource TabGroupBoxStyle}"
+                              Margin="0,0,0,0"
+                              Name="gbMauBC">
+                            <smc:GridLayout ColumnCount="2"
+                                        ColumnWidths="*,140"
+                                        RowCount="3"
+                                        RowHeights="25,25,25*">
+                                
+                                <TextBlock Grid.Row="0"
+                                       Name="lblKindReport"
+                                       Text="Mẫu VND/ngoại tệ"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center" />
+                                <igEditors:XamComboEditor Name="cbMauBaoCao2"
+                                                      Grid.Column="1"
+                                                      Grid.Row="0"
+                                                      SelectedIndex="{smc:BindingEx Path=M_MAU_BC_NT,ElementName=TransactionFrm}"
+                                                      Height="20"
+                                                      Margin="0"
+                                                      TabIndex="24"
+                                                      IsTabStop="False">
+                                    <igEditors:XamComboEditor.ItemsProvider>
+                                        <igEditors:ComboBoxItemsProvider>
+                                            <igEditors:ComboBoxItemsProvider.Items>
+                                                <smc:ExComboBoxDataItem DisplayText="{x:Static local:StartUp.M_ma_nt0}"
+                                                                    Value="0" />
+                                                <smc:ExComboBoxDataItem DisplayText="Ngoại tệ"
+                                                                    DisplayText2="FC"
+                                                                    Value="1" />
+                                            </igEditors:ComboBoxItemsProvider.Items>
+                                        </igEditors:ComboBoxItemsProvider>
+                                    </igEditors:XamComboEditor.ItemsProvider>
+                                </igEditors:XamComboEditor>
+                            </smc:GridLayout>
+                        </GroupBox>
+                    </smc:GridLayout>
+                    <!--Danh Sach Cac Label-->
+                    <!--Danh Sach Cac TextBox-->
+                    <!--Danh Sach cac Label dien giai-->
+                    <!--, 2-Nhập khẩu, 3-Nhập chi phí-->
+                    <!--Cac button-->
+                    <SmReport:ControlDetailFilter3 Name="GridSearch"
+                                                   GroupBoxStyleResourceKey="TabGroupBoxStyle"
+                                                   Grid.Column="0"
+                                                   Grid.ColumnSpan="3"
+                                                   Grid.Row="2"
+                                                   IsShowCheckTableList="True"
+                                                   filterID="NN_BCLIN"
+                                                   IsTabStop="False" />
+                    <!--GroupBoxStyle="{Binding Source ={DynamicResource TabGroupBoxStyle},diagnostics:PresentationTraceSources.TraceLevel=high}"-->
+
+                </smc:GridLayout>
+
+            </smc:ExTabItem>
+        </smc:ExTabControl>
+        <Canvas Grid.Row="1"
+                Width="150"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Margin="0,0,12,33">
+            <TextBlock Text="F5 - Tra cứu"
+                       Width="150"
+                       HorizontalAlignment="Right"
+                       TextAlignment="Right"
+                       Name="lblF5"/>
+        </Canvas>
+    </smc:ConfirmGridView >
+</SmReport:FormFilter>

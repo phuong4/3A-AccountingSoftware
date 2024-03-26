@@ -1,0 +1,110 @@
+﻿<smc:Form x:Class="HTQ_CNHTHANH.FrmTaoHDA"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          Height="240"
+          LanguageID="Socthda_10InfoCash"
+          Width="600"
+          Loaded="Form_Loaded"
+        xmlns:smc="clr-namespace:Sm.Windows.Controls;assembly=Sm.Windows.Controls"
+    Title="Thong tin hoa don">
+    <smc:Form.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DateTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/AutoCompleteTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ExRateTextBoxStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </smc:Form.Resources>
+    <Grid>
+        <smc:ConfirmGridView OnOk="ConfirmGridView_OnOk"
+                         Name="GrdOkCancel">
+            <GroupBox Margin="12,4,12,0" Style="{StaticResource NonHeaderGroupBoxStyle}"
+                  Name="Grdgroup">
+                <smc:GridLayout RowCount="5"
+                            ColumnCount="5"
+                            ColumnWidths="120,140,120,*"
+                            Name="GrdInfo">
+                    
+                    <TextBlock Name="tblma_may"
+                           Text="Stt phiếu"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           Style="{StaticResource ContentTextStyle}" />
+
+                    <smc:AutoCompleteTextBox Name="txtstt_rec" x:FieldModifier="public"
+                                             AllowEmty="True"
+                                             AllowWrong="False"                                             
+                                             Grid.Column="1"
+                                             IsEnabled="False"
+                                             Grid.Row="0"
+                                             TabIndex="10"                                                
+                                             SelectAllOnFocus="True"
+                                             ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=smc:Form}}"
+                                             SysObj="{Binding Path=BindingSysObj,RelativeSource={RelativeSource FindAncestor, AncestorType=smc:Form}}"
+/>
+                    
+                    <TextBlock Text="Stt0 phiếu"
+                                   Name="tblma_ca"
+                                   Grid.Row="1"
+                                   Grid.Column="0" />
+                    <smc:AutoCompleteTextBox Name="txtstt_rec0" x:FieldModifier="public"
+                                             AllowEmty="True"
+                                             AllowWrong="False"                                             
+                                             Grid.Column="1"
+                                             IsEnabled="False"
+                                             Grid.Row="1"
+                                             TabIndex="11"                                                
+                                             SelectAllOnFocus="True"
+                                             ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=smc:Form}}"
+                                             SysObj="{Binding Path=BindingSysObj,RelativeSource={RelativeSource FindAncestor, AncestorType=smc:Form}}"
+
+/>
+
+                    <TextBlock Text="Số hoá đơn"
+                                   Name="tblma_px"
+                                   Grid.Row="2"
+                                   Grid.Column="0" />
+                    <!--<smc:AutoCompleteTextBox Name="txtso_hd" x:FieldModifier="public"
+                                             AllowEmty="True"
+                                             AllowWrong="False"                                             
+                                             Grid.Column="1"
+                                             Grid.Row="2"
+                                             TabIndex="11"                                                
+                                             SelectAllOnFocus="True"
+                                             ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=smc:Form}}"
+                                             SysObj="{Binding Path=BindingSysObj,RelativeSource={RelativeSource FindAncestor, AncestorType=smc:Form}}"
+                                             />-->
+
+                    <TextBox Name="txtso_hd"
+                             TabIndex="30"
+                             Grid.Column="1"
+                             Grid.Row="2"
+                             
+                             Grid.ColumnSpan="1"
+                             
+                             Height="20"
+                             FontWeight="Normal"
+                             />
+
+  
+                    <TextBlock Text="Ngày hoá đơn"
+                                       Grid.Row="3"
+                                       Grid.Column="0"
+                                       Name="lblNgay_ct"
+                                       Margin="0,2"
+                                       VerticalAlignment="Center" />
+                    <smc:DateTextBox Grid.Column="1"
+                                             Grid.Row="3"
+                                             Name="txtNgay_hd"
+                                             TabIndex="50"                                             
+                                             IsTabStop="True" />
+
+                </smc:GridLayout>
+            </GroupBox>
+        </smc:ConfirmGridView>
+    </Grid>
+</smc:Form>

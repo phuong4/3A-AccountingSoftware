@@ -1,0 +1,32 @@
+<smc:Form x:Class="ARCTHD1.FrmLogin"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+          LanguageID="ARCTHD1_3"
+          EscToClose="True"
+          Height="143" Width="430">
+    <smc:Form.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </smc:Form.Resources>
+    <smc:ConfirmGridView OnOk="ConfirmGridView_OnOk">
+        <GroupBox Margin="12,4,12,0" Name="gbLogin">
+            <smc:GridLayout  Name="gridMain" ColumnCount="2" ColumnWidths="*,140" >
+                <TextBlock Text="Gõ vào mật khẩu đăng nhập hệ thống"
+                                   Name="tblpassword"
+                                   Grid.Column="0"
+                                   />
+
+                <PasswordBox x:Name="txtPassword"
+                                     Grid.Column="1"
+                                     Width="140"
+                                     Height="20"
+                                     HorizontalAlignment="Left" />
+            </smc:GridLayout>
+        </GroupBox>
+    </smc:ConfirmGridView>
+</smc:Form>

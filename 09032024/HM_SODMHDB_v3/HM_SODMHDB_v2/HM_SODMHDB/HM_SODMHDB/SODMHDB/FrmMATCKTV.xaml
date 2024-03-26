@@ -1,0 +1,82 @@
+﻿<smc:FormList x:Class="AAA_SODMHDB.FrmMATCKTV"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+              xmlns:igDP="http://infragistics.com/DataPresenter"
+              xmlns:local="clr-namespace:AAA_SODMHDB"
+              Title="Danh muc ky thuat vien"
+              LanguageID="AAA_SODMHDB_KTV"
+              ResizeMode="NoResize"
+              Theme="Voucher"
+              WindowStartupLocation="CenterScreen"
+              Height="300"
+              Width="550"
+              xmlns:igWindows="http://infragistics.com/Windows"
+              Name="FormDMMATC"
+              EscToClose="True"
+              Loaded="FormDMMATC_Loaded"
+              Closed="FormDMMATC_Closed"
+              PreviewKeyUp="FormDMMATC_PreviewKeyUp"
+              PreviewKeyDown="FormDMMATC_PreviewKeyDown">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <smc:GridLayout             Name="GridLayout00"
+                                Margin="1,3,0,4">
+        <smc:DataGridView Name="GrdMaTCKTV">
+            <smc:DataGridView.Resources>
+                <Style TargetType="{x:Type igDP:RecordSelector}"
+                                   BasedOn="{x:Null}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type igDP:RecordSelector}">
+                                <CheckBox HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          IsChecked="{Binding Path=DataItem.is_check, Mode=TwoWay}" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </smc:DataGridView.Resources>
+
+            <smc:DataGridView.FieldLayoutSettings>
+                <igDP:FieldLayoutSettings AutoGenerateFields="False"
+                                                      />
+            </smc:DataGridView.FieldLayoutSettings>
+
+            <smc:DataGridView.FieldLayouts>
+                <igDP:FieldLayout>
+                    <igDP:Field         Name="ma_ktv"
+                                        Label="Mã kỹ thuật viên"                                
+                                        Width="95">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings  LabelTextAlignment="Center" AllowEdit="False" />
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+                    <igDP:Field             Name="ten_ktv"
+                                            Label="Tên kỹ thuật viên"
+                                            Width="400">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings  LabelTextAlignment="Center" AllowEdit="False" />
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+                    <igDP:Field             Name="ten_ktv2"
+                                            Label="Tên kỹ thuật viên"
+                                            Width="400">
+                        <igDP:Field.Settings>
+                            <igDP:FieldSettings  LabelTextAlignment="Center" AllowEdit="False" />
+                        </igDP:Field.Settings>
+                    </igDP:Field>
+                </igDP:FieldLayout>
+            </smc:DataGridView.FieldLayouts>
+        </smc:DataGridView>
+    </smc:GridLayout>
+
+</smc:FormList>

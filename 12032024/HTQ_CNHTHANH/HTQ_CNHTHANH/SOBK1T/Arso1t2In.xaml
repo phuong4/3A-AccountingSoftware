@@ -1,0 +1,99 @@
+<smc:Form x:Class="HTQ_CNHTHANH.Arso1t2In"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+          xmlns:igDP="http://infragistics.com/DataPresenter"
+          xmlns:smReport="clr-namespace:SmReport;assembly=SmReport"
+          xmlns:igEditors="http://infragistics.com/Editors"
+          Title="Danh muc mau bao cao"
+          LanguageID="Arso1t2_0"
+          Loaded="Form_Loaded"
+          KeyDown="Form_KeyDown"
+          Height="450"
+          Width="750"
+          Name="FrmArso1t2In">
+    <smc:Form.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DataGridViewStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/CheckBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DateTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/NumericTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/MaskedTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/AutoCompleteTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/XamComboEditorStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ExRateTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TabItemExStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </smc:Form.Resources>
+    <smc:GridLayout RowCount="3"
+                    RowHeights="*,20,49"
+                    ColumnCount="5"
+                    Margin="12,4,12,0"
+                    ColumnWidths="132,112,120,120,*">
+        <smReport:ControlFilterReport Grid.ColumnSpan="5"
+                                      Name="GridSearch"
+                                      ReportPreviewMouseDoubleClick="GridSearch_ReportPreviewMouseDoubleClick"
+                                     
+                                      />
+        <!--SubReportGroupName="{smc:BindingEx Kieu_in, ElementName=FrmArso1t2In,Mode=TwoWay}"-->
+        <TextBlock Name="lblKieuIn"
+                   Grid.Row="1"
+                   Text="Kiểu in"/>
+        <smc:MaskedTextBox Name="txtKieuIn"
+                            Width="38"
+                            Format="M"
+                            InputMask="1,2"
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            TabIndex="2" HorizontalAlignment="Left"
+                           Value="{smc:BindingEx Kieu_in, ElementName=FrmArso1t2In,Mode=TwoWay}"
+                           LostFocus="txtKieuIn_LostFocus"/>
+        <TextBlock Name="lblKieuIn2"
+                   Grid.Column="1" Grid.ColumnSpan="4"
+                   Grid.Row="1"
+                   Margin="50, 0"
+                   Text="1 - In từng trang, 2 - In liên tục" />
+        
+        <smc:GridLayout Grid.Row="3"
+                        Grid.ColumnSpan="5"
+                        ColumnCount="5"
+                        ColumnWidths="104,104,200,104,*">
+            <Button Name="btnin"
+                    Content="_In"
+                    Grid.Column="0"
+                    Width="92"
+                    HorizontalAlignment="Left"
+                    TabIndex="4"
+                    Click="btnin_Click" />
+            <Button Name="btXem"
+                    Content="_Xem"
+                    Grid.Column="1"
+                    Width="92"
+                    HorizontalAlignment="Left"
+                    TabIndex="4"
+                    Click="btXem_Click" />
+            <Button
+                        Name="BtnExport"
+                        Grid.Column="2"
+                        Width="188"
+                        Click="BtnExport_Click"
+    TabIndex="7"
+                        Height="25"
+                        HorizontalAlignment="Left"
+                        Grid.Row="2">Xuất PDF</Button>
+            <Button Name="btnthoat"
+                    Content="_Quay ra"
+                    Grid.Column="3"
+                    Width="92"
+                    HorizontalAlignment="Left"
+                    TabIndex="7"
+                    Click="btnthoat_Click" />
+        </smc:GridLayout>
+    </smc:GridLayout>
+</smc:Form>

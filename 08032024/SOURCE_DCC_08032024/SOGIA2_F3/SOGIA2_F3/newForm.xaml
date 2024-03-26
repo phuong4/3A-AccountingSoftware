@@ -1,0 +1,213 @@
+<smc:FormList x:Class="SOGIA2_F3.newForm"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+              xmlns:igWindows="http://infragistics.com/Windows"
+              xmlns:igEditors="clr-namespace:Infragistics.Windows.Editors.Events;assembly=InfragisticsWPF3.Editors.v10.2"
+              Title="Them gia ban"
+              LanguageID="SOGIA2_F3_0"
+              Width="747"
+              Height="258"
+              Loaded="newForm_Loaded"
+              Closed="FormList_Closed"
+              PreviewKeyUp="FormList_PreviewKeyUp">
+    <smc:FormList.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/MaskedTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/AutoCompleteTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DateTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/NumericTextBoxStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <smc:EditModeBindingObject x:Key="IsInEditMode"
+                                       IsEditMode="False" />
+            <smc:CodeValueBindingObject x:Key="M_IP_GIA" />
+            <smc:CodeValueBindingObject x:Key="M_IP_GIA_NT" />
+            
+            <Style x:Key="TextBoxReadOnly"
+               TargetType="{x:Type smc:NumericTextBox}">
+                <Setter Property="IsReadOnly"
+                    Value="True" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=IsEditMode, Source={StaticResource IsInEditMode}}"
+                             Value="True">
+                        <Setter Property="IsReadOnly"
+                            Value="False" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="ReadOnly"
+                   TargetType="{x:Type TextBox}"
+                   BasedOn="{StaticResource TextBoxStyle}">
+                <Setter Property="IsReadOnly"
+                        Value="True" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=IsEditMode, Source={StaticResource IsInEditMode}}"
+                                 Value="True">
+                        <Setter Property="IsReadOnly"
+                                Value="False" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        
+            <Style x:Key="ReadOnlyNumericTextBox"
+                   TargetType="{x:Type smc:NumericTextBox}"
+                   BasedOn="{StaticResource NumericTextBoxStyle}">
+                <Setter Property="IsReadOnly"
+                        Value="True" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=IsEditMode, Source={StaticResource IsInEditMode}}"
+                                 Value="True">
+                        <Setter Property="IsReadOnly"
+                                Value="False" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            
+            <Style x:Key="ReadOnlyDateTime"
+                   TargetType="{x:Type smc:DateTextBox}"
+                   BasedOn="{StaticResource DateTextBoxStyle}">
+                <Setter Property="IsReadOnly"
+                        Value="True" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=IsEditMode, Source={StaticResource IsInEditMode}}"
+                                 Value="True">
+                        <Setter Property="IsReadOnly"
+                                Value="False" />
+                       
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="AutoCompleteReadOnly"
+                   TargetType="{x:Type smc:AutoCompleteTextBox}"
+                   BasedOn="{StaticResource AutoCompleteTextBoxStyle}">
+                <Setter Property="IsReadOnly"
+                        Value="True" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=IsEditMode, Source={StaticResource IsInEditMode}}"
+                                 Value="True">
+                        <Setter Property="IsReadOnly"
+                                Value="False" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </smc:FormList.Resources>
+    <smc:ConfirmGridView Name="ConfirmGV"
+                         OnCancel="ConfirmGV_OnCancel"
+                         OnOk="ConfirmGridView_OnOk">
+        <smc:GridLayout Margin="12,12,12,0">
+            <igWindows:XamTabControl Name="TabInfor"
+                                     Theme="Generic">
+                <igWindows:TabItemEx Header="_1. Thông tin chính"
+                                     IsTabStop="False"
+                                     Name="TabMain">
+                    <smc:GridLayout Name="gridMain"
+                                    Margin="8,5.5,8,5.5"
+                                    ColumnCount="5"
+                                    ColumnWidths="130,140,*,90,140"
+                                    RowCount="5"
+                                    RowHeights="25,25,25,25,25">
+                        <TextBlock Text="Mã vật tư"
+                                   Name="tblvat_tu"
+                                   Grid.Row="0"
+                                   Grid.Column="0" />
+                        <smc:DateTextBox x:Name="txtNgayHL"
+                                             Grid.Row="1"
+                                             AllowEmpty="False"
+                                             Grid.Column="1"
+                                                 
+                                             TabIndex="13"
+                                             Style="{StaticResource ReadOnlyDateTime}"
+                                             Value="{smc:BindingEx ngay_ban}" IsInEditMode="True" IsTabStop="True" />
+                                           
+  <!--Value="{smc:BindingEx Path=ngay_ban, ElementName=frmLoc}"/>-->
+
+
+                        <smc:AutoCompleteTextBox Name="txtMa_vt"
+                                                 Grid.Column="1"
+                                                 Grid.Row="0"
+                                                 TabIndex="10"
+                                                 AllowEmty="False"
+                                                 AllowWrong="False"
+                                                 Text="{smc:BindingEx ma_vt, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                 SysObj="{Binding BindingSysObj,RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                 ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                 ListID="dmvt"
+                                                 Style="{StaticResource AutoCompleteReadOnly}"
+                                                 LostFocus="txtMa_vt_LostFocus" />
+                        <TextBlock x:Name="txtten_vt"
+                                   Text="{smc:BindingEx Path=ten_vt, Path2=ten_vt2}"
+                                   Margin="12,0,0,0"
+                                   Grid.Column="2"
+                                   Grid.ColumnSpan="3"
+                                   Grid.Row="0" />
+
+                        <TextBlock Text="Ngày hiệu lực"
+                                   Name="tblNgay"
+                                   Grid.Row="1"
+                                   Grid.Column="0" />
+                        <TextBlock Text="Giá bán VND"
+                                   Name="tblGia_VND"
+                                   Grid.Row="2"
+                                   Grid.Column="0" />
+
+                        <TextBlock Text="Giá bán n.tệ"
+                                   Name="tblnh_kh2"
+                                   Grid.Row="3"/>
+                        <smc:NumericTextBox  x:Name="txtGia_VND"
+                                        Grid.Column="1"
+                                        Grid.Row="2"
+                                        Style="{StaticResource ReadOnlyNumericTextBox}"
+                                        Value="{smc:BindingEx gia2}"
+                                        TabIndex="24"
+                                        Format="{Binding Path=Text, Source={StaticResource M_IP_GIA}, Mode=OneWay}"
+                                        Height="20" IsInEditMode="True"></smc:NumericTextBox>
+
+                        <smc:NumericTextBox x:Name="txtGia_NT"
+                                        Grid.Column="1"
+                                        Grid.Row="3"
+                                        Style="{StaticResource ReadOnlyNumericTextBox}"
+                                        Value="{smc:BindingEx gia_nt2}"
+                                        Format="{Binding Path=Text, Source={StaticResource M_IP_GIA_NT}, Mode=OneWay}"
+                                        TabIndex="24"
+                                        Height="20" IsInEditMode="True"></smc:NumericTextBox>
+
+                        <TextBlock Text="Nhóm khách hàng 3"
+                                   Name="tblNh_kh3"
+                                   Grid.Row="4"
+                                   Grid.Column="0" />
+
+                        <smc:AutoCompleteTextBox Name="txtNh_kh3"
+                                                 Grid.Column="1"
+                                                 Grid.Row="4"
+                                                 TabIndex="50"
+                                                 AllowEmty="True"
+                                                 AllowWrong="False"
+                                                 Text="{smc:BindingEx nh_kh3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                 SysObj="{Binding BindingSysObj,RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                 ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                 ListID="dmnhkh"
+                                                 Filter="loai_nh = 3"
+                                                 Style="{StaticResource AutoCompleteReadOnly}"
+                                                 LostFocus="txtNh_kh3_LostFocus" />
+                        <TextBlock x:Name="txtten_kh3"
+                                   Text="{smc:BindingEx Path=ten_nh_kh, Path2=ten_nh_kh2}"
+                                   Margin="12,0,0,0"
+                                   Grid.Column="2"
+                                   Grid.ColumnSpan="3"
+                                   Grid.Row="4" />
+                    </smc:GridLayout>
+                </igWindows:TabItemEx>
+                <igWindows:TabItemEx  Name="TabEx" IsTabStop="False"
+                                      Header="_2. Thông tin khác">
+
+                </igWindows:TabItemEx>
+            </igWindows:XamTabControl>
+        </smc:GridLayout>
+    </smc:ConfirmGridView>
+</smc:FormList>

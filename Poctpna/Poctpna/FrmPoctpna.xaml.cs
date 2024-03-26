@@ -24,6 +24,7 @@ using Sm.Windows.Controls.ControlLib;
 using System.Windows.Threading;
 using System.Threading;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Poctpna
 {
@@ -850,6 +851,7 @@ namespace Poctpna
                                     e.Cell.Record.Cells["so_may"].Value = txt.RowResult["so_may"];
                                     e.Cell.Record.Cells["nam_san_xuat"].Value = txt.RowResult["nam_san_xuat"];
                                     e.Cell.Record.Cells["nuoc_san_xuat"].Value = txt.RowResult["nuoc_san_xuat"];
+                                    
                                     ////Lấy mã kho dòng trên
                                     //if (e.Cell.Record.Index > 0 && string.IsNullOrEmpty(e.Cell.Record.Cells["ma_kho_i"].Value.ToString().Trim()))
                                     //{
@@ -1134,7 +1136,30 @@ namespace Poctpna
                                 }
                                 break;
                             }
-                            #endregion
+                        #endregion
+
+                        #region nam_san_xuat
+                        //case "nam_san_xuat":
+                        //    {
+                        //        // Kiểm tra nếu ô nhập vào là ô "nam_san_xuat"
+                        //        if (e.Editor.Value != null && e.Cell.IsDataChanged)
+                        //        {
+                        //            // Lấy giá trị nhập vào từ ô "nam_san_xuat"
+                        //            string nam_san_xuat = e.Editor.Value.ToString();
+
+                        //            // Kiểm tra xem chuỗi nhập vào có phải là số và có độ dài từ 1 đến 4 ký tự không
+                        //            Regex regex = new Regex(@"^\d{1,4}$");
+                        //            if (!regex.IsMatch(nam_san_xuat))
+                        //            {
+                        //                // Nếu không đáp ứng yêu cầu, hiển thị thông báo và không cho phép lưu giá trị
+                        //                ExMessageBox.Show("Error", "Please enter a numeric value with length between 1 and 4 characters.");
+                        //                e.Handled = true;
+                        //                return;
+                        //            }
+                        //        }
+                        //        break;
+                        //    }
+                        #endregion
                     }
                 }
             }

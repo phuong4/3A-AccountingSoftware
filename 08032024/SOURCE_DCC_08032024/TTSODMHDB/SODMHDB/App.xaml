@@ -1,0 +1,12 @@
+﻿<Application x:Class="TTSODMHDB.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:src="clr-namespace:TTSODMHDB"
+             xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+             Startup="Application_Startup"
+             ShutdownMode="OnMainWindowClose">
+    <Application.Resources>
+        <!--<src:BindingXamDataGridIdField x:Key="IdRecordXamDataGrid" />
+        <smc:NotNullConverter x:Key="NotNullControl" />-->
+    </Application.Resources>
+</Application>
