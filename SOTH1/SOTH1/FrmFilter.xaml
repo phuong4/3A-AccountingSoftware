@@ -38,7 +38,7 @@
                                 ColumnCount="3"
                                 ColumnWidths="*,12,320"
                                 RowCount="3"
-                                RowHeights="152,4,*">
+                                RowHeights="200,4,*">
                     <GroupBox Header="Điều kiện lọc"
                               Name="gbdk_loc"
                               Style="{StaticResource TabGroupBoxStyle}"
@@ -46,8 +46,8 @@
                               Grid.Row="0">
                         <smc:GridLayout ColumnCount="5"
                                         ColumnWidths="90,140,12,*,140"
-                                        RowCount="5"
-                                        RowHeights="25,25,25,25,25">
+                                        RowCount="7"
+                                        RowHeights="25,25,25,25,25,25,25">
 
                             <TextBlock Text="Từ ngày"
                                        Name="tblngay_ct1"
@@ -168,6 +168,42 @@
                                        Grid.Row="4"
                                        Name="lblTenKho"
                                        ClipToBounds="False" />
+                            
+                            <TextBlock Grid.ColumnSpan="1"
+                                       Grid.Row="5" 
+                                       Name="lblSoChungTu"
+                                       Text="Số chứng từ"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center" />
+                            <TextBox x:Name="txtso_ct"
+                                       Grid.Column="1"
+                                       Grid.Row="5"
+                                       TabIndex="24"
+                                       Text="{smc:BindingEx Path=so_ct}" />
+
+                            <TextBlock Grid.ColumnSpan="1"
+                                       Grid.Row="5" 
+                                       Name="lblSoKhung"
+                                       Text="Số khung"
+                                       Grid.Column="3"
+                                       VerticalAlignment="Center" />
+                            <TextBox x:Name="txtso_khung"
+                                       Grid.Column="4"
+                                       Grid.Row="5"
+                                       TabIndex="24"
+                                       Text="{smc:BindingEx Path=so_khung}" />
+                                       
+                            <TextBlock Grid.ColumnSpan="1"
+                                       Grid.Row="6" 
+                                       Name="lblSoMay"
+                                       Text="Số máy"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center" />
+                            <TextBox x:Name="txtso_may"
+                                       Grid.Column="1"
+                                       Grid.Row="6"
+                                       TabIndex="24"
+                                       Text="{smc:BindingEx Path=so_may}" />
                         </smc:GridLayout>
                     </GroupBox>
                     <smc:GridLayout Grid.Row="0"
@@ -281,4 +317,3 @@
         </Canvas>
     </smc:ConfirmGridView>
 </smr:FormFilter>
-

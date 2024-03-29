@@ -1958,6 +1958,34 @@ namespace Poctpna
                             }));
                         isError = true;
                     }
+                    else if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[0]["so_khung"].ToString()))
+                    {
+                        ExMessageBox.Show(StartUp.SysObj, "Chưa vào số khung", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                        GrdCt.ActiveCell = (GrdCt.Records[0] as DataRecord).Cells["so_khung"];
+                        GrdCt.Focus();
+                        isError = true;
+                    }
+                    else if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[0]["so_may"].ToString()))
+                    {
+                        ExMessageBox.Show(StartUp.SysObj, "Chưa vào số máy", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                        GrdCt.ActiveCell = (GrdCt.Records[0] as DataRecord).Cells["so_may"];
+                        GrdCt.Focus();
+                        isError = true;
+                    }
+                    else if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[0]["nam_san_xuat"].ToString()))
+                    {
+                        ExMessageBox.Show(StartUp.SysObj, "Chưa vào năm sản xuất", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                        GrdCt.ActiveCell = (GrdCt.Records[0] as DataRecord).Cells["nam_san_xuat"];
+                        GrdCt.Focus();
+                        isError = true;
+                    }
+                    else if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[0]["nuoc_san_xuat"].ToString()))
+                    {
+                        ExMessageBox.Show(StartUp.SysObj, "Chưa vào nước sản xuất", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                        GrdCt.ActiveCell = (GrdCt.Records[0] as DataRecord).Cells["nuoc_san_xuat"];
+                        GrdCt.Focus();
+                        isError = true;
+                    }
                     if (!isError)
                     {
                         if (StartUp.DsTrans.Tables[1].DefaultView.Count > 0)
@@ -1988,6 +2016,37 @@ namespace Poctpna
                                     return;
                                 }
 
+                                if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["so_khung"].ToString().Trim()))
+                                {
+                                    ExMessageBox.Show(StartUp.SysObj, "Chưa vào số khung", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    GrdCt.ActiveCell = (GrdCt.Records[i] as DataRecord).Cells["so_khung"];
+                                    GrdCt.Focus();
+                                    return;
+                                }
+
+                                if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["so_may"].ToString().Trim()))
+                                {
+                                    ExMessageBox.Show(StartUp.SysObj, "Chưa vào số máy", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    GrdCt.ActiveCell = (GrdCt.Records[i] as DataRecord).Cells["so_may"];
+                                    GrdCt.Focus();
+                                    return;
+                                }
+
+                                if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["nam_san_xuat"].ToString().Trim()))
+                                {
+                                    ExMessageBox.Show(StartUp.SysObj, "Chưa vào năm sản xuất", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    GrdCt.ActiveCell = (GrdCt.Records[i] as DataRecord).Cells["nam_san_xuat"];
+                                    GrdCt.Focus();
+                                    return;
+                                }
+
+                                if (string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["nuoc_san_xuat"].ToString().Trim()))
+                                {
+                                    ExMessageBox.Show(StartUp.SysObj, "Chưa vào nước sản xuất", "Fast Book 11 .NET", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    GrdCt.ActiveCell = (GrdCt.Records[i] as DataRecord).Cells["nuoc_san_xuat"];
+                                    GrdCt.Focus();
+                                    return;
+                                }
                                 //if (StartUp.IsTkMe(StartUp.DsTrans.Tables[1].DefaultView[i]["tk_vt"].ToString().Trim()))
                                 //{
                                 //    ExMessageBox.Show( 430,StartUp.SysObj, "Tk nợ là tk tổng hợp, không lưu được!", "", MessageBoxButton.OK, MessageBoxImage.Information);
