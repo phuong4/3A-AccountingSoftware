@@ -71,7 +71,12 @@ namespace SOTH1
             {
                 result += " and ma_dvcs Like '" + txtMaDVCS.Text + "%'";
             }
-
+            if (!string.IsNullOrEmpty(txtso_ct.Text))
+                result += " AND so_ct LIKE '%" + txtso_ct.Text.Trim() + "%'";
+            if (!string.IsNullOrEmpty(txtso_khung.Text))
+                result += " AND so_khung LIKE '" + txtso_khung.Text.Trim() + "%'";
+            if (!string.IsNullOrEmpty(txtso_may.Text))
+                result += " AND so_may LIKE '" + txtso_may.Text.Trim() + "%'";
             if (!string.IsNullOrEmpty(GridSearch.arrStrFilter[0]))
                 result += " AND " + GridSearch.arrStrFilter[0];
             return result;

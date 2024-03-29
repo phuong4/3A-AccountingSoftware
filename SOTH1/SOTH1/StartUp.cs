@@ -145,7 +145,7 @@ namespace SOTH1
                         oBrowse.frmBrw.oBrowse.FieldSettings.AllowEdit = false;
 
                         SmLib.SysFunc.InsertListGroup(dsSoth1.Tables[1], DtGroupInfo, "nh_vt", "", "ten_vt;ten_vt2", "ma_vt", SumFields);
-                        oBrowse.SetRowColorByTag("ftag", "1", System.Windows.Media.Color.FromRgb(0, 0, 0), true);
+                        oBrowse.SetRowColorByTag("ftag", "1"/*, System.Windows.Media.Color.FromRgb(255, 0, 0), true*/);
 
                         #region load style
                         //ResourceDictionary rd = Application.LoadComponent(

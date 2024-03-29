@@ -1364,7 +1364,60 @@ namespace Socthda
                         //}
                         #endregion
 
-                       
+                        if (result && string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["so_khung"].ToString().Trim()))
+                        {
+                            ExMessageBox.Show(StartUp.SysObj, "Chưa vào số khung", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                            result = false;
+                            GrdCt.ActiveCell = (GrdCt.Records[i] as DataRecord).Cells["so_khung"];
+                            this.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
+                            {
+                                GrdCt.Focus();
+                            }));
+                        }
+
+                        if (result && string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["so_may"].ToString().Trim()))
+                        {
+                            ExMessageBox.Show(StartUp.SysObj, "Chưa vào số máy", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                            result = false;
+                            GrdCt.ActiveCell = (GrdCt.Records[i] as DataRecord).Cells["so_may"];
+                            this.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
+                            {
+                                GrdCt.Focus();
+                            }));
+                        }
+
+                        if (result && string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["nam_san_xuat"].ToString().Trim()))
+                        {
+                            ExMessageBox.Show(StartUp.SysObj, "Chưa vào năm sản xuất", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                            result = false;
+                            GrdCt.ActiveCell = (GrdCt.Records[i] as DataRecord).Cells["nam_san_xuat"];
+                            this.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
+                            {
+                                GrdCt.Focus();
+                            }));
+                        }
+
+                        if (result && string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["nuoc_san_xuat"].ToString().Trim()))
+                        {
+                            ExMessageBox.Show(StartUp.SysObj, "Chưa vào nước sản xuất", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                            result = false;
+                            GrdCt.ActiveCell = (GrdCt.Records[i] as DataRecord).Cells["nuoc_san_xuat"];
+                            this.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
+                            {
+                                GrdCt.Focus();
+                            }));
+                        }
+
+                        if (result && string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["bao_hanh"].ToString().Trim()))
+                        {
+                            ExMessageBox.Show(StartUp.SysObj, "Chưa vào thời hạn bảo hành (đơn vị: tháng)", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                            result = false;
+                            GrdCt.ActiveCell = (GrdCt.Records[i] as DataRecord).Cells["bao_hanh"];
+                            this.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
+                            {
+                                GrdCt.Focus();
+                            }));
+                        }
 
                         #region kiểm tra tk_gv
                         if (result && string.IsNullOrEmpty(StartUp.DsTrans.Tables[1].DefaultView[i]["tk_gv"].ToString().Trim()))
