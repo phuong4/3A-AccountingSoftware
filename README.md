@@ -10,6 +10,8 @@ Socthda: Bán hàng -> Hoá đơn bán hàng
 
 Soth1: Bán hàng -> Báo cáo bán hàng -> Báo cáo tổng hợp bán hàng
 
+Arso1t2: Bán hàng -> Báo cáo công nợ khách hàng -> Sổ chi tiết công nợ (lên cho tất cả khách hàng) OR Mua hàng -> Báo cáo công nợ nhà cung cấp -> Sổ chi tiết công nợ (lên cho tất cả nhà cung cấp)
+
 01032024\AA_BC05: 
 
 01032024\AAA_QLHD3A: Bán hàng -> ... -> Bảng kê hóa đơn bán hàng?

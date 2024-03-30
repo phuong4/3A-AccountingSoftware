@@ -16,7 +16,7 @@ namespace SOTH1
         {
             SysLib.RemotingClient.InitClientRemoteObject(ref StartUp.SysObj);
             StartUp oStartUp = new StartUp();
-            StartUp.Menu_Id = e.Args.Count() > 0 ? e.Args[0].ToString() : "04.02.20";
+            StartUp.Menu_Id = e.Args.Count() > 0 ? e.Args[0].ToString() : "04.02.23";
             oStartUp.Run();
         }
     }

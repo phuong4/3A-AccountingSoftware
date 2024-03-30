@@ -145,7 +145,8 @@ namespace SOTH1
                         oBrowse.frmBrw.oBrowse.FieldSettings.AllowEdit = false;
 
                         SmLib.SysFunc.InsertListGroup(dsSoth1.Tables[1], DtGroupInfo, "nh_vt", "", "ten_vt;ten_vt2", "ma_vt", SumFields);
-                        oBrowse.SetRowColorByTag("ftag", "1"/*, System.Windows.Media.Color.FromRgb(255, 0, 0), true*/);
+                        //Cái dòng dưới có sẵn là cột ftag rồi nhưng khi mình để tên cột trong database là ftag thì ko báo đỏ mà lại ẩn đi, phải đổi tên cột thành một tên khác (ví dụ phuong) thì mới được
+                        oBrowse.SetRowColorByTag("phuong", "1", System.Windows.Media.Color.FromRgb(255, 0, 0), true);
 
                         #region load style
                         //ResourceDictionary rd = Application.LoadComponent(
