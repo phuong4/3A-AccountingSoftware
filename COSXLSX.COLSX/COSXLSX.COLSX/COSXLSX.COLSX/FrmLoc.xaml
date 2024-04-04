@@ -1,0 +1,147 @@
+<SmReport:FormFilter x:Class="COSXLSX.COLSX.FrmLoc"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+    xmlns:SmReport="clr-namespace:SmReport;assembly=SmReport"
+    xmlns:igEditors="http://infragistics.com/Editors"
+    xmlns:local="clr-namespace:COSXLSX.COLSX"
+    LanguageID="COSXLSX.COLSX_2"
+    Title="Window1" 
+    Name="FrmcodmnvlLoc"
+    Loaded="FrmcodmnvlLoc_Loaded"
+    Height="185" Width="602"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    >
+    <SmReport:FormFilter.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DateTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/CheckBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/MaskedTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/AutoCompleteTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/XamComboEditorStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </SmReport:FormFilter.Resources>
+
+    <smc:ConfirmGridView OnOk="ConfirmGridView_OnOk" OnCancel="ConfirmGridView_OnCancel">
+        <GroupBox Margin="12,4,12,0" Name="grb1" >
+            <smc:GridLayout Name="gridLayout"
+                            RowCount="3"                            
+                            RowHeights="25,25,25"
+                            ColumnCount="5"
+                            ColumnWidths="110,140,12,120,140"
+                            Margin="0">
+
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.MergedDictionaries>
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBoxStyles.xaml" />
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DataGridViewStyles.xaml" />
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/CheckBoxStyles.xaml" />
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DateTextBoxStyles.xaml" />
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/NumericTextBoxStyles.xaml" />
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/MaskedTextBoxStyles.xaml" />
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/AutoCompleteTextBoxStyles.xaml" />
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/XamComboEditorStyles.xaml" />
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ExRateTextBoxStyles.xaml" />
+                            <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/XamMaskedEditorStyles.xaml" />
+                        </ResourceDictionary.MergedDictionaries>
+                    </ResourceDictionary>
+                </Grid.Resources>
+
+                <TextBlock Text="Ngày lsx từ"
+                                       Grid.Row="0"
+                                       Grid.Column="0"
+                                       Name="lblTuNgay"
+                                       Margin="0,2"
+                                       VerticalAlignment="Center" />
+                <smc:DateTextBox 
+                                       Grid.Column="1" 
+                                       Grid.Row="0" 
+                                       Name="TxtStartDateTime"
+                                       TabIndex="0"
+                                         />
+
+                <TextBlock Text="Đến "
+                                       Grid.Row="0"
+                                       Grid.Column="3"
+                                       Name="lblDenNgay"
+                                       Margin="0,2"
+                                       VerticalAlignment="Center" />
+                <smc:DateTextBox       Name="TxtEndDateTime"
+                                       Grid.Column="4"
+                                       Grid.Row="0"
+                                       TabIndex="10"
+                                        />
+                
+
+                <TextBlock             Name="tblPx"
+                                       Text="Lệnh sản xuất"
+                                       Grid.Column="0"
+                                       Grid.Row="2" />
+                <smc:AutoCompleteTextBox             AllowEmty="True"
+                                                     AllowWrong="False"
+                                                     Grid.Column="1" 
+                                                     Grid.Row="2"
+                                                     Name="txtLsx"
+                                                     ListID="lsxph"      
+                                                     CharacterCasing="Upper"
+                                                     ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"                                                     
+                                                     SysObj="{Binding BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                     TabIndex="30"
+                                                     PreviewLostFocus="txtLsx_PreviewLostFocus"
+                                                     Style="{StaticResource AutoCompleteTextBoxStyle}" Height="20" Margin="0,0,0,2.5" VerticalAlignment="Bottom" />
+                <TextBlock             Grid.ColumnSpan="2"
+                                       Grid.Row="2"                                       
+                                       Name="lblTenLsx"
+                                       Grid.Column="3" />
+
+                <TextBlock             Name="tblSp"
+                                       Text="Mã phân xưởng"
+                                       Grid.Column="0"
+                                       Grid.Row="1" />
+                
+                <smc:AutoCompleteTextBox             AllowEmty="True"
+                                                     AllowWrong="False"
+                                                     Grid.Column="1" 
+                                                     Grid.Row="1"
+                                                     Name="txtPx"
+                                                     ListID="dmpx"                                                     
+                                                     CharacterCasing="Upper"
+                                                     ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"                                                     
+                                                     SysObj="{Binding BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                     TabIndex="20"
+                                                     PreviewLostFocus="txtPx_PreviewLostFocus"
+                                                     Style="{StaticResource AutoCompleteTextBoxStyle}" Height="20" Margin="0,0,0,2.5" VerticalAlignment="Bottom" />
+                <TextBlock Grid.ColumnSpan="2"
+                                       Grid.Row="1"                                       
+                                       Name="lblTenPx"
+                                       Grid.Column="3" />
+
+
+
+            </smc:GridLayout>
+        </GroupBox>
+        <Canvas Grid.Row="1"
+                Width="150"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Margin="0,0,12,33">
+            <TextBlock Name="lblF5TraCuu"
+                       Text="F5 - Tra cứu"
+                       Width="150"
+                       HorizontalAlignment="Right"
+                       TextAlignment="Right" />
+        </Canvas>
+    </smc:ConfirmGridView>
+    
+</SmReport:FormFilter>
+
