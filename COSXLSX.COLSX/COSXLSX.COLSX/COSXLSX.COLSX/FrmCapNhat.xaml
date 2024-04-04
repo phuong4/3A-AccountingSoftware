@@ -1,0 +1,1524 @@
+<smc:Form x:Class="COSXLSX.COLSX.FrmCapNhat"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:smc="http://Fast.com.vn/Sm/Windows/Controls"
+          ShowInTaskbar="False"
+          xmlns:igDP="http://infragistics.com/DataPresenter"
+          xmlns:System="clr-namespace:System;assembly=mscorlib"
+          xmlns:diagnostics="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+          xmlns:sys="clr-namespace:System;assembly=mscorlib"
+          WindowStartupLocation="CenterScreen"
+          xmlns:igThemes="http://infragistics.com/Themes"
+          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:smvc="clr-namespace:SmVoucherLib;assembly=SmVoucherLib"
+           xmlns:igWindows="http://infragistics.com/Windows"
+          mc:Ignorable="d"
+          LanguageID="COSXLSX.COLSX_1"
+          Loaded="Form_Loaded"
+          Name="frmCapNhat"
+          Theme="Standard"
+          Height="650"
+          Width="1350"
+          ResizeMode="NoResize"
+          KeyDown="Form_KeyDown"
+          Closed="Form_Closed"
+          Closing="Form_Closing">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBlockStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/TextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/ButtonStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DataGridViewStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/GroupBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/CheckBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/DateTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/NumericTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/MaskedTextBoxStyles.xaml" />
+                <smc:CachedResourceDictionary Source="pack://application:,,,/SmStyle;component/AutoCompleteTextBoxStyles.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+            <smvc:BindingVisibility x:Key="VisibilityConverter"/>
+            <smc:CodeValueBindingObject x:Key="Voucher_Lan0" />
+            <smc:EditModeBindingObject x:Key="IsInEditMode"
+                                       IsEditMode="False" />
+
+            <Style x:Key="ReadOnly"
+                   TargetType="{x:Type TextBox}"
+                   BasedOn="{StaticResource TextBoxStyle}">
+                <Setter Property="IsReadOnly"
+                        Value="True" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=IsEditMode, Source={StaticResource IsInEditMode}}"
+                                 Value="True">
+                        <Setter Property="IsReadOnly"
+                                Value="False" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="DateTextBoxEditModeEnable"
+                   TargetType="{x:Type smc:DateTextBox}"
+                   BasedOn="{StaticResource DateTextBoxStyle}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{smc:BindingEx Path=Value, Source={StaticResource IsInEditMode}}"
+                                 Value="False">
+                        <Setter Property="IsReadOnly"
+                                Value="True" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <smc:ConfirmGridView Name="GridOkCancel"
+                         OnOk="ConfirmGridView_OnOk"
+                         OnCancel="ConfirmGridView_OnCancel"
+                         GotFocus="GridOkCancel_GotFocus">
+        <smc:GridLayout Name="gridLayout00"
+                        RowCount="2"
+                        ColumnCount="1"
+                        RowHeights="245,*">
+            <GroupBox Margin="12,4,12,0" Name="grb0">
+                <smc:GridLayout Name="gridLayout10"
+                            Margin="8,5.5,8,5.5"
+                            RowCount="8"
+                            RowHeights="25,25,25,25,25,25,25,25"
+                            ColumnCount="9"
+                            ColumnWidths="140,120,12,100,120,100,100,*"
+                            >
+
+                    <Button Content="_Chọn HĐB" Height="20" Width="80" Click="Button_Click" Grid.Column="1" Name="btnChonHDB" />
+
+                    <!--So lenh san xuat-->
+
+                    <TextBlock Text="Ngày đơn hàng"
+                               Name="tblngay_hd2"
+                               Grid.Row="0"
+                               Visibility="Hidden"
+                               Grid.Column="0"
+                               Style="{StaticResource ContentTextStyle}" />
+
+                    <smc:DateTextBox x:Name="txtNgay_hd2"
+                                     Grid.Column="1"
+                                     AllowEmpty="False"
+                                     Visibility="Hidden"
+                                     Grid.Row="0"
+                                     TabIndex="51"
+                                     Value="{smc:BindingEx Path=ngay_hd2}"
+                                    
+                                     LostFocus="txtNgay_hd_LostFocus"/>
+                    <!--Style="{StaticResource DateTextBoxEditModeEnable}"-->
+
+                    <TextBlock Text="Số đơn hàng"
+                               Name="tblso_hd2"
+                               Visibility="Hidden"
+                               Grid.Row="0"
+                               Grid.Column="3"
+                               Style="{StaticResource ContentTextStyle}" />
+
+                    <TextBox x:Name="txtSo_hd2"
+                             Grid.Column="4"
+                             Grid.Row="0"
+                             Visibility="Hidden"
+                             TabIndex="52"
+                              Text="{smc:BindingEx Path=so_hd2}"
+                             CharacterCasing="Upper"
+                             
+                              LostFocus="txtso_hd2_LostFocus"
+                           />
+
+                    <!--Style="{StaticResource TextBoxEditModeEnable}"-->
+
+                    <TextBlock Name="lblSolsx"
+                           Grid.Row="1"
+                           Text="Số lệnh sản xuất"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+
+
+                    <TextBox x:Name="txtSo_lsx"
+                             TabIndex="0"
+                             IsReadOnly="True"
+                             Grid.Column="1"
+                             Grid.Row="1" 
+                             CharacterCasing="Upper"
+                             Text="{smc:BindingEx Path=so_lsx, Mode=OneWay}"
+                            />
+
+
+                    <!--ma tra cuu-->
+                    <TextBlock Text="Mã tra cứu"
+                               Name="tblma_tra_cuu"
+                               Grid.Row="1"
+                               Grid.Column="3"       
+                               Visibility="Hidden"
+                               Style="{StaticResource ContentTextStyle}" />
+
+                    <TextBox x:Name="txtma_tra_cuu"
+                             Grid.Column="4"
+                             Grid.Row="1"        
+                             Visibility="Hidden"
+                             TabIndex="1"
+                             Text="{smc:BindingEx Path=ma_tra_cuu}"
+                              />
+
+
+                    <!--Ngày lệnh sx-->
+                    <TextBlock Text="Ngày lệnh sản xuất"
+                               Name="tblngay_lsx"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               Style="{StaticResource ContentTextStyle}" />
+
+                    <smc:DateTextBox x:Name="txtngay_lsx"
+                                     Grid.Column="1"
+                                     IsReadOnly="True"
+                                     Grid.Row="2"                                     
+                                     TabIndex="2"
+                                     Value="{smc:BindingEx Path=ngay_lkh}"
+                                     Style="{StaticResource DateTextBoxEditModeEnable}"/>
+
+                    <TextBlock x:Name="lblDien_giai"
+                               Grid.Row="4"
+                                Grid.Column="5"
+                               Text="Diễn giải"
+                               VerticalAlignment="Center"                           
+                               HorizontalAlignment="Left"/>
+
+                    <TextBox x:Name="txtDien_giai"                             
+                             Grid.Column="6"
+                             Grid.Row="4"
+                             Grid.ColumnSpan="3"        
+                             TabIndex="4"
+                             Text="{smc:BindingEx Path=dien_giai}"
+                             />
+
+                    <!--Ma phan xuong-->
+
+                    <TextBlock Name="lblMapx"
+                           Grid.Row="4"
+                           Text="Mã phân xưởng" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+
+                    <smc:AutoCompleteTextBox         AllowEmty="True"
+                                                     AllowWrong="False"
+                                                     Grid.Column="1" 
+                                                     Grid.Row="4"
+                                                     Name="txtMapx"
+                                                     Text="{smc:BindingEx ma_px}"
+                                                     ListID="dmpx"      
+                                                     CharacterCasing="Upper"
+                                                     ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"                                                     
+                                                     SysObj="{Binding BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                     TabIndex="4"
+                                                     PreviewLostFocus="txtMapx_PreviewLostFocus"
+                                                     Style="{StaticResource AutoCompleteTextBoxStyle}"
+                                                     />
+
+                    <TextBlock Name="lblTenpx"
+                               Grid.Row="4"
+                               Grid.Column="2"
+                               Grid.ColumnSpan="4"
+                               Margin="12,0,0,0"
+                               Style="{StaticResource ContentTextStyle}"
+                               Text="{smc:BindingEx Path=ten_px}" />
+
+
+                    <TextBlock Name="lblMa_kh"
+                           Grid.Row="1"
+                               Grid.Column="5"
+                           Text="Mã khách hàng" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+
+                    <smc:AutoCompleteTextBox         AllowEmty="True"
+                                                     AllowWrong="False"
+                                                     Grid.Column="6" 
+                                                     Grid.Row="1"
+                                                     Name="txtMa_kh"
+                                                     IsReadOnly="True"
+                                                     Text="{smc:BindingEx ma_kh}"
+                                                     ListID="dmkh"      
+                                                     CharacterCasing="Upper"
+                                                     ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"                                                     
+                                                     SysObj="{Binding BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                     TabIndex="4"
+                                                     PreviewLostFocus="txtMakh_PreviewLostFocus"
+                                                     Style="{StaticResource AutoCompleteTextBoxStyle}"
+                                                     />
+
+                    <TextBlock Name="lblTenkh"
+                               Grid.Row="1"
+                               Grid.Column="7"
+                               Grid.ColumnSpan="4"
+                               Margin="12,0,0,0"
+                               Style="{StaticResource ContentTextStyle}"
+                               Text="{smc:BindingEx Path=ten_kh}" />
+
+                    <TextBlock x:Name="lbllien_he"
+                               Grid.Row="2"
+                               Text="Người liên hệ"
+                                Grid.Column="5"
+                               VerticalAlignment="Center"                           
+                               HorizontalAlignment="Left"/>
+
+                    <TextBox x:Name="txtng_lien_he"                             
+                             Grid.Column="6"
+                             Grid.Row="2"
+                             Grid.ColumnSpan="3"        
+                             TabIndex="3"
+                             Text="{smc:BindingEx Path=ng_lien_he}"
+                             />
+
+                    <TextBlock x:Name="lbldien_thoai"
+                               Grid.Row="3"
+                               Text="Điện thoại"
+                                Grid.Column="5"
+                               VerticalAlignment="Center"                           
+                               HorizontalAlignment="Left"/>
+
+                    <TextBox x:Name="txtdien_thoai"                             
+                             Grid.Column="6"
+                             Grid.Row="3"
+                             Grid.ColumnSpan="3"        
+                             TabIndex="3"
+                             Text="{smc:BindingEx Path=dien_giai}"
+                             />
+
+                    <!--Chon danh sach bo phan-->
+
+                    <TextBlock Text="Chọn danh sách bộ phận"
+                                   Name="tbldanhsachbophan"
+                                   Grid.Row="5"
+                                   Grid.Column="0" />
+                    <TextBox     x:Name="txtChonBp"
+                                 Grid.Column="1"
+                                 Grid.Row="5"
+                                 TabIndex="5"
+                                 Text="0"                                                    
+                                 LostFocus="txtChonBp_LostFocus"
+                                 TextChanged="txtChonBp_TextChanged" 
+                                 HorizontalAlignment="Stretch" 
+                                 HorizontalContentAlignment="Right" />
+
+
+                    <TextBlock   Name="tblList_Bp"
+                                 Text=""
+                                 Grid.Row="5"
+                                 Grid.Column="3"
+                                 Grid.ColumnSpan="4"
+                                
+                                 />
+
+                    <!--Ngay HT-->
+                    <TextBlock   Text="Ngày bắt đầu (SX)"
+                                 Grid.Row="3"
+                                 Grid.Column="0"
+                                 Name="lblNgaybd_kh"
+                                  Margin="0,2"
+                                 VerticalAlignment="Center" />
+                    <smc:DateTextBox 
+                                 Grid.Column="1" 
+                                 Grid.Row="3" 
+                                 Name="txtNgaybd_kh"
+                                 TabIndex="6"
+                                 Value="{smc:BindingEx Path=ngay_kh1}"
+                                 Style="{StaticResource DateTextBoxEditModeEnable}"/>
+
+                    <TextBlock Text="Ngày kết thúc (SX)"
+                                       Grid.Row="3"
+                                       Grid.Column="3"
+                                       Name="lblNgaykt_kh"
+                                       Margin="0,2"
+                                       VerticalAlignment="Center" />
+                    <smc:DateTextBox   Name="txtNgaykt_kh"
+                                       Grid.Column="4"
+                                       Grid.Row="3"
+                                       TabIndex="7"                                     
+                                       Value="{smc:BindingEx Path=ngay_kh2}"
+                                       Style="{StaticResource DateTextBoxEditModeEnable}"/>
+
+
+                    <!--Ngay TT-->
+                    <TextBlock Text="Ngày bắt đầu (tt)"
+                                       Grid.Row="7"
+                                       Grid.Column="0"
+                                       Name="lblNgaybd_tt"
+                               Visibility="Hidden"
+                                       Margin="0,2"
+                                       VerticalAlignment="Center" />
+                    <smc:DateTextBox   Grid.Column="1" 
+                                       Grid.Row="7" 
+                                       Name="txtNgaybd_tt"
+                                       Visibility="Hidden"
+                                       TabIndex="8"                                     
+                                       Value="{smc:BindingEx Path=ngay_tt1}"
+                                       Style="{StaticResource DateTextBoxEditModeEnable}"/>
+
+                    <TextBlock Text="Ngày kết thúc (tt)"
+                                       Grid.Row="7"
+                                       Grid.Column="3"
+                               Visibility="Hidden"
+                                       Name="lblNgaykt_tt"
+                                       Margin="0,2"
+                                       VerticalAlignment="Center" />
+                    <smc:DateTextBox   Name="txtNgaykt_tt"
+                                       Grid.Column="4"
+                                       Grid.Row="7"
+                                       Visibility="Hidden"
+                                       TabIndex="9"
+                                       Value="{smc:BindingEx Path=ngay_tt2}"
+                                       Style="{StaticResource DateTextBoxEditModeEnable}"/>
+
+
+                    <TextBlock Text="Tk cpsx dở dang"
+                                   Name="tbldoi_tac"
+                                   Grid.Row="6"
+                                   Grid.Column="0" />
+
+                    <smc:AutoCompleteTextBox     AllowEmty="True"
+                                                 AllowWrong="False"
+                                                 Grid.Column="1" 
+                                                 Grid.Row="6"
+                                                 Text="{smc:BindingEx tk_dd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                 Name="txttk_dd"
+                                                 ListID="dmtk1" 
+                                                
+                                                 CharacterCasing="Upper"
+                                                 ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"                                                     
+                                                 SysObj="{Binding BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                 TabIndex="10"
+                                                 PreviewLostFocus="txttk_dd_LostFocus"
+                                                 Style="{StaticResource AutoCompleteTextBoxStyle}"                                                  
+                                                 />
+
+                    <TextBlock Name="tbltk_dd"
+                                   Grid.Row="6"
+                                   Grid.Column="2"
+                                   Margin="12,0,0,0"
+                                   Grid.ColumnSpan="4"
+                                   Text="{smc:BindingEx ten_tk}"
+                                   />
+
+
+
+                    <TextBlock Name="lblnhom_sp"
+                           Grid.Row="7"
+                               Grid.Column="0"
+                           Text="Nhóm sản phẩm" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+
+
+                    <smc:AutoCompleteTextBox         AllowEmty="True"
+                                                     AllowWrong="False"
+                                                     Grid.Column="1" 
+                                                     Grid.Row="7"
+                                                     Name="txtMa_td2"
+                                                     Text="{smc:BindingEx ma_td2}"
+                                                     ListID="dmtd2"      
+                                                     CharacterCasing="Upper"
+                                                     ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"                                                     
+                                                     SysObj="{Binding BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                     TabIndex="5"
+                                                     PreviewLostFocus="txtMatd_PreviewLostFocus"
+                                                     Style="{StaticResource AutoCompleteTextBoxStyle}"
+                                                     />
+                    
+                    <!--<smc:AutoCompleteTextBox   AllowEmty="True"
+                                                     AllowWrong="False"
+                                                     Grid.Column="1" 
+                                                     Grid.Row="7"
+                                                     Name="txtnhom_sp"
+                                                     IsReadOnly="True"
+                                                     Text="{smc:BindingEx ma_td1}"
+                                                     ListID="dmtd1"      
+                                                     CharacterCasing="Upper"
+                                                     ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"                                                     
+                                                     SysObj="{Binding BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                     TabIndex="4"
+                                                     PreviewLostFocus="txtManhomsp_PreviewLostFocus"
+                                                     Style="{StaticResource AutoCompleteTextBoxStyle}"
+                                                     />-->
+
+                    <TextBlock Name="lblTennhomsp"
+                               Grid.Row="7"
+                               Grid.Column="2"
+                               Grid.ColumnSpan="4"
+                               Margin="12,0,0,0"
+                               Style="{StaticResource ContentTextStyle}"
+                               Text="{smc:BindingEx Path=ten_td}" />
+
+
+                    <TextBlock Text="Mã ĐVCS"
+                                   Name="tblMaDVCS"
+                               Visibility="Hidden"
+                                   Grid.Row="9"
+                                   Grid.Column="0" />
+
+                    <smc:AutoCompleteTextBox Name="txtma_dvcs"
+                                                 Grid.Column="1"
+                                                 Grid.Row="9"
+                                             Visibility="Hidden"
+                                                 TabIndex="11"
+                                                 AllowEmty="True"
+                                                 AllowWrong="False"                                                 
+                                                 Text="{smc:BindingEx ma_dvcs}"
+                                                 ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                 SysObj="{Binding BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                 
+                                                 ListID="dmdvcs"
+                                                 Style="{StaticResource AutoCompleteTextBoxStyle}"
+                                             
+                                                 PreviewLostFocus ="txtma_dvcs_PreviewLostFocus" />
+                    <TextBlock Name="tblten_ma_dvcs"
+                                   Visibility="Hidden"
+                                   Grid.Row="9"
+                                   Grid.Column="2"
+                                   Margin="12,0,0,0"
+                                   Grid.ColumnSpan="3" />
+
+
+
+                </smc:GridLayout>
+            </GroupBox>
+
+            <igWindows:XamTabControl Name="TabInfor" Margin="0" Grid.Row="1"
+                              Theme="Generic">
+                <igWindows:XamTabControl.Resources>
+                    <!--<Style TargetType="{x:Type igWindows:TabItemEx}"
+                           BasedOn="{StaticResource TabItemStyle}">
+                    </Style>-->
+                </igWindows:XamTabControl.Resources>
+                <igWindows:TabItemEx Header="_1. Thông tin vật tư" 
+                                     IsTabStop="False"
+                                     Name="TabMain">
+                     <GroupBox Margin="12,4,12,0" Name="grb1" >
+                    
+                         
+                         
+                    <smc:GridLayout Name="gridLayout20"
+                                RowCount="1"
+                                ColumnCount="1"
+                                RowHeights="*"
+                                KeyboardNavigation.TabIndex="20"
+                                KeyboardNavigation.TabNavigation="Local">
+
+
+
+                            <!--<smc:GridLayout.ColumnDefinitions>
+                        <ColumnDefinition Width="78*" />
+                        <ColumnDefinition Width="477*" />
+                    </smc:GridLayout.ColumnDefinitions>-->
+                    <!--<TextBlock Text="F4-Thêm, F8-Xóa"
+                               Name="tblThem_xoa"
+                               HorizontalAlignment="Right"
+                               Grid.ColumnSpan="2"
+                               Margin="12,0,12,0" Grid.Column="1" Height="20" VerticalAlignment="Center"/>-->
+
+                    <smc:DataGridView x:Name="GrdCt"
+                                      PreviewEditModeEnded="GrdCt_EditModeEnded"
+                                      AddNewRecord="GrdCt_AddNewRecord"
+                                      RecordDelete="GrdCt_RecordDelete"
+                                      IsVoucher="True"
+                                      KeyUp="GrdCt_KeyUp"
+                                      KeyDown="GrdCt_KeyDown"
+                                      Grid.Row="1"
+                                      TabIndex="20"
+                                      Margin="12,0,12,12" Grid.ColumnSpan="3">
+                        <smc:DataGridView.Resources>
+                            <DataTemplate x:Key="ControlSearchSp">
+                                <smc:AutoCompleteTextBox nRow="6"
+                                                         AllowEmty="False"
+                                                         AllowWrong="False"
+                                                         Style="{StaticResource AutoCompleteTextBoxStyle}"
+                                                         IsBorderTextBox="False"
+                                                         ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                         SysObj="{Binding Path=BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                         Text="{smc:BindingEx Path=Value, RelativeSource={RelativeSource AncestorType={x:Type igDP:CellValuePresenter}, Mode=FindAncestor}}"
+                                                         Filter="loai_vt=51"
+                                                         ListID="dmvt">
+                                </smc:AutoCompleteTextBox>
+                            </DataTemplate>
+                            <DataTemplate x:Key="ControlSearchHd">
+                                <smc:AutoCompleteTextBox nRow="6"
+                                                         AllowEmty="True"
+                                                         AllowWrong="False"
+                                                         Style="{StaticResource AutoCompleteTextBoxStyle}"
+                                                         IsBorderTextBox="False"
+                                                         ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                         SysObj="{Binding Path=BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                         Text="{smc:BindingEx Path=Value, RelativeSource={RelativeSource AncestorType={x:Type igDP:CellValuePresenter}, Mode=FindAncestor}}"                                                         
+                                                         ListID="dmhd">
+                                </smc:AutoCompleteTextBox>
+                            </DataTemplate>
+                            
+                        </smc:DataGridView.Resources>
+                        <smc:DataGridView.FieldSettings>
+                            <igDP:FieldSettings AllowEdit="True"/>
+                        </smc:DataGridView.FieldSettings>
+                            <smc:DataGridView.FieldLayoutSettings>
+                            <igDP:FieldLayoutSettings HeaderPrefixAreaStyle="{StaticResource StyleHeaderPrefixArea}"
+                                                      RecordSelectorStyle="{StaticResource StyleRecordSelector}"
+                                                      AutoGenerateFields="False"
+                                                      AllowDelete="False"/>
+                        </smc:DataGridView.FieldLayoutSettings>
+                        <smc:DataGridView.FieldLayouts>
+                            <igDP:FieldLayout>
+                                <smc:NotEmptyField Name="ma_sp"
+                                                   Label="Mã sản phẩm"
+                                                   FixedLocation="FixedToNearEdge"
+                                                   Width="100">
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings AllowEdit="False"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False">
+                                            <igDP:FieldSettings.EditorStyle>
+                                                <Style TargetType="{x:Type smc:ControlHostEditor}">
+                                                    <Setter Property="EditDataTemplate"
+                                                            Value="{StaticResource ControlSearchSp}" />
+                                                    <Setter Property="Template"
+                                                            Value="{Binding Path=EditTemplate, RelativeSource={RelativeSource Self}}" />
+                                                </Style>
+                                            </igDP:FieldSettings.EditorStyle>
+                                        </igDP:FieldSettings>
+                                    </igDP:Field.Settings>
+                                </smc:NotEmptyField>
+                                <igDP:Field Label="Tên sản phẩm"
+                                            Name="ten_sp"
+                                            FixedLocation="FixedToNearEdge"
+                                            Width="270">
+                                    <igDP:Field.Visibility>
+                                        <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANV">
+                                            <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                        </MultiBinding>
+                                    </igDP:Field.Visibility>
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings AllowEdit="False"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                    </igDP:Field.Settings>
+                                </igDP:Field>
+                                <igDP:Field Label="Tên sản phẩm"
+                                            Name="ten_sp2"
+                                            FixedLocation="FixedToNearEdge"
+                                            Width="270">
+                                    <igDP:Field.Visibility>
+                                        <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANE">
+                                            <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                        </MultiBinding>
+                                    </igDP:Field.Visibility>
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings AllowEdit="False"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                    </igDP:Field.Settings>
+                                </igDP:Field>
+
+                                
+                                
+                                        <igDP:Field        Name="ma_hd"
+                                                   Label="Số hợp đồng"                                                   
+                                                   Width="100">
+                                            <igDP:Field.Settings>
+                                                <igDP:FieldSettings AllowEdit="False"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False">
+                                                    <igDP:FieldSettings.EditorStyle>
+                                                        <Style TargetType="{x:Type smc:ControlHostEditor}">
+                                                            <Setter Property="EditDataTemplate"
+                                                            Value="{StaticResource ControlSearchHd}" />
+                                                            <Setter Property="Template"
+                                                            Value="{Binding Path=EditTemplate, RelativeSource={RelativeSource Self}}" />
+                                                        </Style>
+                                                    </igDP:FieldSettings.EditorStyle>
+                                                </igDP:FieldSettings>
+                                            </igDP:Field.Settings>
+                                        </igDP:Field>
+
+
+                                        <igDP:Field  Name="so_po"
+                                                   Label="Số PO"                                                   
+                                                   Width="100">
+                                            <igDP:Field.Settings>
+                                                <igDP:FieldSettings AllowEdit="False"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False">
+                                                    <igDP:FieldSettings.EditorStyle>
+                                                        <Style TargetType="{x:Type smc:ControlHostEditor}">
+                                                            <Setter Property="EditDataTemplate"
+                                                            Value="{StaticResource ControlSearchHd}" />
+                                                            <Setter Property="Template"
+                                                            Value="{Binding Path=EditTemplate, RelativeSource={RelativeSource Self}}" />
+                                                        </Style>
+                                                    </igDP:FieldSettings.EditorStyle>
+                                                </igDP:FieldSettings>
+                                            </igDP:Field.Settings>
+                                        </igDP:Field>
+
+                                        <!--<igDP:Field Label="Ghi chú"
+                                            Name="gc_td1_i"
+                                            FixedLocation="FixedToNearEdge"
+                                            Width="270">
+                                    <igDP:Field.Visibility>
+                                        <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANV">
+                                            <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                        </MultiBinding>
+                                    </igDP:Field.Visibility>
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings AllowEdit="False"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                    </igDP:Field.Settings>
+                                </igDP:Field>-->
+
+                                <igDP:Field Label="Ngày bắt đầu"
+                                            Name="ngay_kh1"                                            
+                                            Width="120"                                            
+                                            >
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings EditorType="{x:Type smc:DateTextBox}"
+                                                            LabelTextAlignment="Center" />
+                                    </igDP:Field.Settings>
+                                </igDP:Field>
+                                <igDP:Field Label="Hạn hoàn thành"
+                                            Name="ngay_kh2"
+                                            Width="120"                                           
+                                            >
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings EditorType="{x:Type smc:DateTextBox}"
+                                                            LabelTextAlignment="Center"                                                             
+                                                            />
+                                    </igDP:Field.Settings>
+                                </igDP:Field>
+
+                             
+                                        <igDP:Field Label="Kích thước"
+                                            Name="kich_thuoc"
+                                            Width="270">
+                                            <igDP:Field.Visibility>
+                                                <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANV">
+                                                    <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                                </MultiBinding>
+                                            </igDP:Field.Visibility>
+                                            <igDP:Field.Settings>
+                                                <igDP:FieldSettings AllowEdit="True"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                            </igDP:Field.Settings>
+                                        </igDP:Field>
+                                        <igDP:Field Label="Sl kế hoạch"
+                                            Name="sl_kh"
+                                            Width="100">
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                            <igDP:FieldSettings.EditorStyle>
+                                                <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                </Style>
+                                            </igDP:FieldSettings.EditorStyle>
+                                        </igDP:FieldSettings>
+                                    </igDP:Field.Settings>
+                                </igDP:Field>
+
+
+                                <igDP:Field Label="Sl sản xuất"
+                                            Name="sl_sx"
+                                            Width="100">
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                            <igDP:FieldSettings.EditorStyle>
+                                                <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                </Style>
+                                            </igDP:FieldSettings.EditorStyle>
+                                        </igDP:FieldSettings>
+                                    </igDP:Field.Settings>
+                                </igDP:Field>
+
+                                        <igDP:Field Label="Ghi chú"
+                                            Name="ghi_chu0"
+                                            Width="270">
+                                            <igDP:Field.Visibility>
+                                                <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANV">
+                                                    <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                                </MultiBinding>
+                                            </igDP:Field.Visibility>
+                                            <igDP:Field.Settings>
+                                                <igDP:FieldSettings AllowEdit="True"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                            </igDP:Field.Settings>
+                                        </igDP:Field>
+
+                                        <igDP:Field Label="Sl kiểm tra"
+                                            Name="sl_kt"
+                                            Width="100">
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                            <igDP:FieldSettings.EditorStyle>
+                                                <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                </Style>
+                                            </igDP:FieldSettings.EditorStyle>
+                                        </igDP:FieldSettings>
+                                    </igDP:Field.Settings>
+                                </igDP:Field>
+
+                                <igDP:Field Label="Sl nhập"
+                                            Name="sl_nhap"
+                                            Width="100">
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                            <igDP:FieldSettings.EditorStyle>
+                                                <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                </Style>
+                                            </igDP:FieldSettings.EditorStyle>
+                                        </igDP:FieldSettings>
+                                    </igDP:Field.Settings>
+                                </igDP:Field>
+
+                                <igDP:Field Label="Sl hỏng"
+                                            Name="sl_hong"
+                                            Width="100">
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                            <igDP:FieldSettings.EditorStyle>
+                                                <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                </Style>
+                                            </igDP:FieldSettings.EditorStyle>
+                                        </igDP:FieldSettings>
+                                    </igDP:Field.Settings>
+                                </igDP:Field>
+                                <igDP:Field Label="Sl làm lại"
+                                            Name="sl_ll"
+                                            Width="100">
+                                    <igDP:Field.Settings>
+                                        <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                            <igDP:FieldSettings.EditorStyle>
+                                                <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                </Style>
+                                            </igDP:FieldSettings.EditorStyle>
+                                        </igDP:FieldSettings>
+                                    </igDP:Field.Settings>
+                                </igDP:Field>
+
+
+                            </igDP:FieldLayout>
+                        </smc:DataGridView.FieldLayouts>
+                    </smc:DataGridView>
+
+
+
+                </smc:GridLayout>
+
+
+        </GroupBox>
+                </igWindows:TabItemEx>
+
+
+                <igWindows:TabItemEx Header="_2. Quy cách in" 
+                                     IsTabStop="False"
+                                     Name="TabMain2">
+                    <GroupBox Margin="12,4,12,0" Name="grb2" >
+
+                        
+                        <smc:GridLayout Name="gridLayout201"
+                                RowCount="2"
+                                ColumnCount="1"
+                                RowHeights="50,*"
+                                KeyboardNavigation.TabIndex="20"
+                                KeyboardNavigation.TabNavigation="Local">
+
+                            <smc:GridLayout Name="gridLayout106"
+                            Margin="0,0,5,0"
+                            RowCount="2"
+                            RowHeights="25,25"
+                            ColumnCount="5"
+                            ColumnWidths="80,250,120,120,*"
+                            >
+                                
+                                
+                                <TextBlock x:Name="lblmau_sac"
+                               Grid.Row="0"
+                               Text="Màu sắc"
+                                Grid.Column="0"
+                               VerticalAlignment="Center"                           
+                               HorizontalAlignment="Left"/>
+
+                            <TextBox x:Name="txtmau_sac"                             
+                             Grid.Column="1"
+                             Grid.Row="0"
+                             Grid.ColumnSpan="1"        
+                             TabIndex="3"
+                             Text="{smc:BindingEx Path=mau_sac}"
+                             />
+
+                                <TextBlock x:Name="lblcap_giay"
+                               Grid.Row="1"
+                               Text="Cấp giấy"
+                                Grid.Column="0"
+                               VerticalAlignment="Center"                           
+                               HorizontalAlignment="Left"/>
+
+                                <TextBox x:Name="txtcap_giay"                             
+                             Grid.Column="1"
+                             Grid.Row="1"
+                             Grid.ColumnSpan="1"        
+                             TabIndex="3"
+                             Text="{smc:BindingEx Path=cap_giay}"
+                             />
+
+
+                                <!--Ngày lệnh sx-->
+                                <TextBlock Text="Ngày chốt maket"
+                               Name="tblngay_maket"
+                               Grid.Row="0"
+                               Grid.Column="2"
+                               Style="{StaticResource ContentTextStyle}" />
+
+                                <smc:DateTextBox x:Name="txtngay_maket"
+                                     Grid.Column="3"
+                                     Grid.Row="0"                                     
+                                     TabIndex="4"
+                                     Value="{smc:BindingEx Path=ngay_maket}"
+                                     Style="{StaticResource DateTextBoxEditModeEnable}"/>
+
+
+                                <TextBlock x:Name="lblyc_khac"
+                               Grid.Row="1"
+                               Text="Yêu cầu khác"
+                                Grid.Column="2"
+                               VerticalAlignment="Center"                           
+                               HorizontalAlignment="Left"/>
+
+                                <TextBox x:Name="txtyc_khac"                             
+                             Grid.Column="3"
+                             Grid.Row="1"
+                             Grid.ColumnSpan="2"        
+                             TabIndex="3"
+                             Text="{smc:BindingEx Path=yc_khac}"
+                             />
+
+
+                            </smc:GridLayout>
+
+     
+
+                            <smc:DataGridView x:Name="GrdCt2"
+                                      PreviewEditModeEnded="GrdCt2_EditModeEnded"
+                                      AddNewRecord="GrdCt2_AddNewRecord"
+                                      RecordDelete="GrdCt2_RecordDelete"
+                                      IsVoucher="True"
+                                      KeyUp="GrdCt_KeyUp"
+                                      KeyDown="GrdCt_KeyDown"
+                                      Grid.Row="1"
+                                      TabIndex="20"
+                                      Margin="12,0,12,12" Grid.ColumnSpan="3">
+                            <smc:DataGridView.Resources>
+                                <DataTemplate x:Key="ControlSearchSp">
+                                    <smc:AutoCompleteTextBox nRow="6"
+                                                         AllowEmty="False"
+                                                         AllowWrong="False"
+                                                         Style="{StaticResource AutoCompleteTextBoxStyle}"
+                                                         IsBorderTextBox="False"
+                                                         ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                         SysObj="{Binding Path=BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                         Text="{smc:BindingEx Path=Value, RelativeSource={RelativeSource AncestorType={x:Type igDP:CellValuePresenter}, Mode=FindAncestor}}"
+                                                         Filter="loai_vt=51"
+                                                         ListID="dmvt">
+                                    </smc:AutoCompleteTextBox>
+                                </DataTemplate>
+                                <DataTemplate x:Key="ControlSearchHd">
+                                    <smc:AutoCompleteTextBox nRow="6"
+                                                         AllowEmty="True"
+                                                         AllowWrong="False"
+                                                         Style="{StaticResource AutoCompleteTextBoxStyle}"
+                                                         IsBorderTextBox="False"
+                                                         ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                         SysObj="{Binding Path=BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                         Text="{smc:BindingEx Path=Value, RelativeSource={RelativeSource AncestorType={x:Type igDP:CellValuePresenter}, Mode=FindAncestor}}"                                                         
+                                                         ListID="dmhd">
+                                    </smc:AutoCompleteTextBox>
+                                </DataTemplate>
+
+                            </smc:DataGridView.Resources>
+                            <smc:DataGridView.FieldSettings>
+                                <igDP:FieldSettings AllowEdit="True"/>
+                            </smc:DataGridView.FieldSettings>
+                            <smc:DataGridView.FieldLayoutSettings>
+                                <igDP:FieldLayoutSettings HeaderPrefixAreaStyle="{StaticResource StyleHeaderPrefixArea}"
+                                                      RecordSelectorStyle="{StaticResource StyleRecordSelector}"
+                                                      AutoGenerateFields="False"
+                                                      AllowDelete="False"/>
+                            </smc:DataGridView.FieldLayoutSettings>
+                            <smc:DataGridView.FieldLayouts>
+                                <igDP:FieldLayout>
+                                    <smc:NotEmptyField Name="ma_sp"
+                                                   Label="Mã sản phẩm"
+                                                   FixedLocation="FixedToNearEdge"
+                                                   Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings AllowEdit="True"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False">
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:ControlHostEditor}">
+                                                        <Setter Property="EditDataTemplate"
+                                                            Value="{StaticResource ControlSearchSp}" />
+                                                        <Setter Property="Template"
+                                                            Value="{Binding Path=EditTemplate, RelativeSource={RelativeSource Self}}" />
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </smc:NotEmptyField>
+                                    <igDP:Field Label="Tên sản phẩm"
+                                            Name="ten_sp"
+                                            FixedLocation="FixedToNearEdge"
+                                            Width="270">
+                                        <igDP:Field.Visibility>
+                                            <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANV">
+                                                <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                            </MultiBinding>
+                                        </igDP:Field.Visibility>
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings AllowEdit="False"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+                                    <igDP:Field Label="Tên sản phẩm"
+                                            Name="ten_sp2"
+                                            FixedLocation="FixedToNearEdge"
+                                            Width="270">
+                                        <igDP:Field.Visibility>
+                                            <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANE">
+                                                <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                            </MultiBinding>
+                                        </igDP:Field.Visibility>
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings AllowEdit="False"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+                                    <igDP:Field Label="Hạng mục"
+                                            Name="hang_muc"
+                                            Width="270">
+                                        <igDP:Field.Visibility>
+                                            <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANV">
+                                                <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                            </MultiBinding>
+                                        </igDP:Field.Visibility>
+                                        <igDP:Field.Settings>
+                                                <igDP:FieldSettings AllowEdit="True"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+                                    <igDP:Field Label="Loại giấy"
+                                            Name="loai_giay"
+                                            Width="70">
+                                        <igDP:Field.Visibility>
+                                            <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANV">
+                                                <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                            </MultiBinding>
+                                        </igDP:Field.Visibility>
+                                        <igDP:Field.Settings>
+                                                <igDP:FieldSettings AllowEdit="True"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+                                    <igDP:Field Label="KT1"
+                                            Name="k_thuoc1"
+                                            Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+                                    <igDP:Field Label="KT2"
+                                            Name="k_thuoc2"
+                                            Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+                                    <igDP:Field Label="Số kẽm"
+                                            Name="so_kem"
+                                            Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+                                    <igDP:Field Label="Quy cách in"
+                                            Name="qc_in"
+                                            Width="70">
+                                        <igDP:Field.Visibility>
+                                            <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANV">
+                                                <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                            </MultiBinding>
+                                        </igDP:Field.Visibility>
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings AllowEdit="True"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+                                    <igDP:Field Label="SL giấy cần"
+                                            Name="sl_g_can"
+                                            Width="100">
+                                        <igDP:Field.Settings>
+                                                <igDP:FieldSettings EditAsType="{x:Type System:Decimal}"
+                                                                    LabelTextAlignment="Center"
+                                                                    AllowSummaries="False"
+                                                                    >
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+        
+
+                                        <igDP:Field Label="BH In"
+                                            Name="bh_in"
+                                            Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+                                    <igDP:Field Label="BH GC"
+                                            Name="bh_gc"
+                                            Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+                                    <igDP:Field Label="Tổng giấy"
+                                            Name="tong_giay"
+                                            Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+
+                                    <igDP:Field        Name="ma_hd"
+                                                   Label="Số hợp đồng"                                                   
+                                                   Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings AllowEdit="True"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False">
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:ControlHostEditor}">
+                                                        <Setter Property="EditDataTemplate"
+                                                            Value="{StaticResource ControlSearchHd}" />
+                                                        <Setter Property="Template"
+                                                            Value="{Binding Path=EditTemplate, RelativeSource={RelativeSource Self}}" />
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+
+
+                                </igDP:FieldLayout>
+                            </smc:DataGridView.FieldLayouts>
+                        </smc:DataGridView>
+                            
+                        </smc:GridLayout>
+
+
+                    </GroupBox>
+                </igWindows:TabItemEx>
+
+                <igWindows:TabItemEx Header="_3. Quy cách gia công" 
+                                     IsTabStop="False"
+                                     Name="TabMain3">
+                    <GroupBox Margin="12,4,12,0" Name="grb3" >
+
+                        <smc:GridLayout Name="gridLayout202"
+                                RowCount="1"
+                                ColumnCount="1"
+                                RowHeights="*"
+                                KeyboardNavigation.TabIndex="20"
+                                KeyboardNavigation.TabNavigation="Local">
+
+                            <smc:DataGridView x:Name="GrdCt3"
+                                      PreviewEditModeEnded="GrdCt3_EditModeEnded"
+                                      AddNewRecord="GrdCt3_AddNewRecord"
+                                      RecordDelete="GrdCt_RecordDelete"
+                                      IsVoucher="True"
+                                      KeyUp="GrdCt_KeyUp"
+                                      KeyDown="GrdCt_KeyDown"
+                                      Grid.Row="1"
+                                      TabIndex="20"
+                                      Margin="12,0,12,12" Grid.ColumnSpan="3">
+                            <smc:DataGridView.Resources>
+                                <DataTemplate x:Key="ControlSearchSp">
+                                    <smc:AutoCompleteTextBox nRow="6"
+                                                         AllowEmty="False"
+                                                         AllowWrong="False"
+                                                         Style="{StaticResource AutoCompleteTextBoxStyle}"
+                                                         IsBorderTextBox="False"
+                                                         ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                         SysObj="{Binding Path=BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                         Text="{smc:BindingEx Path=Value, RelativeSource={RelativeSource AncestorType={x:Type igDP:CellValuePresenter}, Mode=FindAncestor}}"
+                                                         Filter="loai_vt=51"
+                                                         ListID="dmvt">
+                                    </smc:AutoCompleteTextBox>
+                                </DataTemplate>
+                                <DataTemplate x:Key="ControlSearchHd">
+                                    <smc:AutoCompleteTextBox nRow="6"
+                                                         AllowEmty="True"
+                                                         AllowWrong="False"
+                                                         Style="{StaticResource AutoCompleteTextBoxStyle}"
+                                                         IsBorderTextBox="False"
+                                                         ParentControl="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                         SysObj="{Binding Path=BindingSysObj, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+                                                         Text="{smc:BindingEx Path=Value, RelativeSource={RelativeSource AncestorType={x:Type igDP:CellValuePresenter}, Mode=FindAncestor}}"                                                         
+                                                         ListID="dmhd">
+                                    </smc:AutoCompleteTextBox>
+                                </DataTemplate>
+
+                            </smc:DataGridView.Resources>
+                            <smc:DataGridView.FieldSettings>
+                                <igDP:FieldSettings AllowEdit="True"/>
+                            </smc:DataGridView.FieldSettings>
+                            <smc:DataGridView.FieldLayoutSettings>
+                                <igDP:FieldLayoutSettings HeaderPrefixAreaStyle="{StaticResource StyleHeaderPrefixArea}"
+                                                      RecordSelectorStyle="{StaticResource StyleRecordSelector}"
+                                                      AutoGenerateFields="False"
+                                                      AllowDelete="False"/>
+                            </smc:DataGridView.FieldLayoutSettings>
+                            <smc:DataGridView.FieldLayouts>
+                                <igDP:FieldLayout>
+                                    <smc:NotEmptyField Name="ma_sp"
+                                                   Label="Mã sản phẩm"
+                                                   FixedLocation="FixedToNearEdge"
+                                                   Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings AllowEdit="True"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False">
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:ControlHostEditor}">
+                                                        <Setter Property="EditDataTemplate"
+                                                            Value="{StaticResource ControlSearchSp}" />
+                                                        <Setter Property="Template"
+                                                            Value="{Binding Path=EditTemplate, RelativeSource={RelativeSource Self}}" />
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </smc:NotEmptyField>
+                                    <igDP:Field Label="Tên sản phẩm"
+                                            Name="ten_sp"
+                                            FixedLocation="FixedToNearEdge"
+                                            Width="270">
+                                        <igDP:Field.Visibility>
+                                            <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANV">
+                                                <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                            </MultiBinding>
+                                        </igDP:Field.Visibility>
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings AllowEdit="False"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+                                    <igDP:Field Label="Tên sản phẩm"
+                                            Name="ten_sp2"
+                                            FixedLocation="FixedToNearEdge"
+                                            Width="270">
+                                        <igDP:Field.Visibility>
+                                            <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANE">
+                                                <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                            </MultiBinding>
+                                        </igDP:Field.Visibility>
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings AllowEdit="False"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+
+                                    <igDP:Field Label="Số bát"
+                                            Name="so_bat"
+                                            Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            >
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:NumericTextBox}">
+
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+
+
+                                    <igDP:Field Label="Khuôn"
+                                            Name="khuon"
+                                            Width="70">
+                                        <igDP:Field.Visibility>
+                                            <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANV">
+                                                <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                            </MultiBinding>
+                                        </igDP:Field.Visibility>
+                                        <igDP:Field.Settings>
+                                                <igDP:FieldSettings AllowEdit="True"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+                                        <igDP:Field Label="Yêu cầu GC"
+                                            Name="yc_gc"
+                                            Width="350">
+                                            <igDP:Field.Visibility>
+                                                <MultiBinding Converter="{StaticResource VisibilityConverter}"
+                                                              ConverterParameter="LANV">
+                                                    <Binding Path="Value" Source="{StaticResource Voucher_Lan0}"/>
+                                                </MultiBinding>
+                                            </igDP:Field.Visibility>
+                                            <igDP:Field.Settings>
+                                                <igDP:FieldSettings AllowEdit="True"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False"
+                                                            EditAsType="{x:Type System:String}" />
+                                            </igDP:Field.Settings>
+                                        </igDP:Field>
+
+
+
+
+                                        <igDP:Field        Name="ma_hd"
+                                                   Label="Số hợp đồng"                                                   
+                                                   Width="100">
+                                        <igDP:Field.Settings>
+                                            <igDP:FieldSettings AllowEdit="True"
+                                                            LabelTextAlignment="Center"
+                                                            AllowSummaries="False">
+                                                <igDP:FieldSettings.EditorStyle>
+                                                    <Style TargetType="{x:Type smc:ControlHostEditor}">
+                                                        <Setter Property="EditDataTemplate"
+                                                            Value="{StaticResource ControlSearchHd}" />
+                                                        <Setter Property="Template"
+                                                            Value="{Binding Path=EditTemplate, RelativeSource={RelativeSource Self}}" />
+                                                    </Style>
+                                                </igDP:FieldSettings.EditorStyle>
+                                            </igDP:FieldSettings>
+                                        </igDP:Field.Settings>
+                                    </igDP:Field>
+
+
+
+                                </igDP:FieldLayout>
+                            </smc:DataGridView.FieldLayouts>
+                        </smc:DataGridView>
+
+                        </smc:GridLayout>
+
+                    </GroupBox>
+                </igWindows:TabItemEx>
+
+                <igWindows:TabItemEx Header="_4. Giao hàng" 
+                                     IsTabStop="False"
+                                     Name="TabMain4">
+                    <GroupBox Margin="12,4,12,0" Name="grb4" >
+
+                        <smc:GridLayout Name="gridLayout108"
+                            Margin="0,0,5,0"
+                            RowCount="4"
+                            RowHeights="25,25,25,25"
+                            ColumnCount="5"
+                            ColumnWidths="80,250,120,120,*"
+                            >
+
+
+                            <TextBlock x:Name="lblgh_time"
+                               Grid.Row="0"
+                               Text="Thời gian GH"
+                                Grid.Column="0"
+                               VerticalAlignment="Center"                           
+                               HorizontalAlignment="Left"/>
+
+                            <TextBox x:Name="txtgh_time"                             
+                             Grid.Column="1"
+                             Grid.Row="0"
+                             Grid.ColumnSpan="2"        
+                             TabIndex="3"
+                             Text="{smc:BindingEx Path=gh_time}"
+                             />
+
+                            <TextBlock x:Name="lblgh_lien_he"
+                               Grid.Row="1"
+                               Text="Người liên hệ"
+                                Grid.Column="0"
+                               VerticalAlignment="Center"                           
+                               HorizontalAlignment="Left"/>
+
+                            <TextBox x:Name="txtgh_lien_he"                             
+                             Grid.Column="1"
+                             Grid.Row="1"
+                             Grid.ColumnSpan="2"        
+                             TabIndex="3"
+                             Text="{smc:BindingEx Path=gh_lien_he}"
+                             />
+
+                            <TextBlock x:Name="lblgh_dia_chi"
+                               Grid.Row="2"
+                               Text="Địa chỉ GH"
+                                Grid.Column="0"
+                               VerticalAlignment="Center"                           
+                               HorizontalAlignment="Left"/>
+
+                            <TextBox x:Name="txtgh_dia_chi"                             
+                             Grid.Column="1"
+                             Grid.Row="2"
+                             Grid.ColumnSpan="2"        
+                             TabIndex="3"
+                             Text="{smc:BindingEx Path=gh_dia_chi}"
+                             />
+
+
+                            <TextBlock x:Name="lblgh_yc_khac"
+                               Grid.Row="3"
+                               Text="Yêu cầu khác"
+                                Grid.Column="0"
+                               VerticalAlignment="Center"                           
+                               HorizontalAlignment="Left"/>
+
+                            <TextBox x:Name="txtgh_yc_khac"                             
+                             Grid.Column="1"
+                             Grid.Row="3"
+                             Grid.ColumnSpan="2"        
+                             TabIndex="3"
+                             Text="{smc:BindingEx Path=gh_yc_khac}"
+                             />
+
+
+                        </smc:GridLayout>
+
+
+
+                    </GroupBox>
+                </igWindows:TabItemEx>
+
+
+            </igWindows:XamTabControl>
+           
+            
+        </smc:GridLayout>
+    </smc:ConfirmGridView>
+</smc:Form>
