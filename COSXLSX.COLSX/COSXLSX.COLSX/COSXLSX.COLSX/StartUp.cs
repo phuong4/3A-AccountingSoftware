@@ -23,7 +23,7 @@ namespace COSXLSX.COLSX
     class StartUp : StartUpTrans
     {
         static public string sqlTableName = "lsxph";
-        static public string SqlTableKey = "so_lsx";        
+        static public string SqlTableKey = "so_lsx"; //index was outside the bound of array
         static public DataSet DataSourceReport = new DataSet();
         static private FormBrowse2 oBrowse;
        // static private DataRow CommandInfo;

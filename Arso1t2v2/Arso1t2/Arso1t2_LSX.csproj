@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0AAA2E31-5E29-471A-8CB9-AFC90A1115CD}</ProjectGuid>
+    <ProjectGuid>{E9759DFF-BC8B-440F-92DC-5DFC27B6F0DF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>COSXLSX.COLSX</RootNamespace>
-    <AssemblyName>COSXLSX.COLSX</AssemblyName>
+    <RootNamespace>Arso1t2_LSX</RootNamespace>
+    <AssemblyName>Arso1t2_LSX</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -39,7 +39,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\PROGRAM\PROGRAM\</OutputPath>
+    <OutputPath>..\..\..\PROGRAM\PROGRAM\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -47,19 +47,13 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\FA11-PROGRAM\</OutputPath>
+    <OutputPath>..\..\..\..\FA11-PROGRAM</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="InfragisticsWPF3.DataPresenter.ExcelExporter.v10.2, Version=10.2.20102.2035, Culture=neutral,  processorArchitecture=MSIL">
-      <Private>False</Private>
-    </Reference>
     <Reference Include="InfragisticsWPF3.DataPresenter.v10.2, Version=10.2.20102.2035, Culture=neutral,  processorArchitecture=MSIL">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="InfragisticsWPF3.DockManager.v10.2, Version=10.2.20102.2035, Culture=neutral,  processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
     <Reference Include="InfragisticsWPF3.Editors.v10.2, Version=10.2.20102.2035, Culture=neutral,  processorArchitecture=MSIL">
@@ -71,16 +65,6 @@
     <Reference Include="Sm.Windows.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\FA11-PROGRAM\Sm.Windows.Controls.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SmDataLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\FA11-PROGRAM\SmDataLib.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SmDefine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\FA11-PROGRAM\SmDefine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SmErrorLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -98,11 +82,6 @@
       <HintPath>..\..\..\..\FA11-PROGRAM\SmLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="SmList, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\FA11-PROGRAM\SmList.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="SmReport, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\FA11-PROGRAM\SmReport.dll</HintPath>
@@ -113,23 +92,16 @@
       <HintPath>..\..\..\..\FA11-PROGRAM\SmStyle.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="SmVoucherLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <Private>False</Private>
-    </Reference>
     <Reference Include="SysLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\FA11-PROGRAM\SysLib.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SysReport, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\FA11-PROGRAM\SysReport.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -152,33 +124,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ChonBPHT.xaml.cs">
-      <DependentUpon>ChonBPHT.xaml</DependentUpon>
+    <Compile Include="Arso1t2Loc.xaml.cs">
+      <DependentUpon>Arso1t2Loc.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FrmCapNhat.xaml.cs">
-      <DependentUpon>FrmCapNhat.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FrmIn.xaml.cs">
-      <DependentUpon>FrmIn.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FrmLoc.xaml.cs">
-      <DependentUpon>FrmLoc.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FrmSocthdaHdm.xaml.cs">
-      <DependentUpon>FrmSocthdaHdm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FrmView.xaml.cs">
-      <DependentUpon>FrmView.xaml</DependentUpon>
+    <Compile Include="Arso1t2In.xaml.cs">
+      <DependentUpon>Arso1t2In.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -193,7 +146,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="StartUp.cs" />
+    <Compile Include="Startup.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -205,27 +158,17 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ChonBPHT.xaml">
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Arso1t2Loc.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="FrmCapNhat.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FrmIn.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="FrmLoc.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="FrmSocthdaHdm.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="FrmView.xaml">
+    <Page Include="Arso1t2In.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

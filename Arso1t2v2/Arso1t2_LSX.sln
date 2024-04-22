@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C# Express 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arso1t2", "Arso1t2\Arso1t2.csproj", "{E9759DFF-BC8B-440F-92DC-5DFC27B6F0DF}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arso1t2_LSX", "Arso1t2\Arso1t2_LSX.csproj", "{E9759DFF-BC8B-440F-92DC-5DFC27B6F0DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
