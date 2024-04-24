@@ -18,8 +18,6 @@ namespace XtraReportSerialization {
         private DevExpress.XtraReports.UI.XRLabel label8;
         private DevExpress.XtraReports.UI.XRLabel label4;
         private DevExpress.XtraReports.UI.XRLabel lbldia_chi;
-        private DevExpress.XtraReports.UI.XRLabel label2;
-        private DevExpress.XtraReports.UI.XRLabel label3;
         private DevExpress.XtraReports.UI.XRLabel lblten_cty;
         private DevExpress.XtraReports.UI.XRLabel lbltitle;
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
@@ -55,23 +53,6 @@ namespace XtraReportSerialization {
         private DevExpress.XtraReports.UI.XRTableCell tableCell12;
         private DevExpress.XtraReports.UI.XRTableCell tableCell1;
         private DevExpress.XtraReports.UI.XRTableCell tableCell3;
-        private DevExpress.XtraReports.UI.CalculatedField FieldFormatMakh;
-        private DevExpress.XtraReports.UI.CalculatedField FieldFormatTk;
-        private DevExpress.XtraReports.UI.CalculatedField FieldStartEndDate;
-        private DevExpress.XtraReports.UI.CalculatedField FieldDuDK;
-        private DevExpress.XtraReports.UI.CalculatedField FieldDuCKLabel;
-        private DevExpress.XtraReports.UI.CalculatedField FieldDuCKValue;
-        private DevExpress.XtraReports.UI.CalculatedField FieldDuDKTien;
-        private DevExpress.XtraReports.UI.CalculatedField FieldNgay_ct;
-        private DevExpress.XtraReports.UI.CalculatedField FieldSoct;
-        private DevExpress.XtraReports.UI.CalculatedField tenkh;
-        private DevExpress.XtraReports.UI.CalculatedField ct;
-        private DevExpress.XtraReports.UI.CalculatedField cclfTK;
-        private DevExpress.XtraReports.UI.CalculatedField cclfTrimSoct;
-        private DevExpress.XtraReports.UI.CalculatedField cclfDau_ky_No;
-        private DevExpress.XtraReports.UI.CalculatedField cclfDau_ky_co;
-        private DevExpress.XtraReports.UI.CalculatedField cclfCuoi_ky_No;
-        private DevExpress.XtraReports.UI.CalculatedField cclfCuoi_ky_co;
         private System.Resources.ResourceManager _resources;
         public xtraReport1() {
             this.InitializeComponent();
@@ -103,8 +84,6 @@ namespace XtraReportSerialization {
             this.label8 = new DevExpress.XtraReports.UI.XRLabel();
             this.label4 = new DevExpress.XtraReports.UI.XRLabel();
             this.lbldia_chi = new DevExpress.XtraReports.UI.XRLabel();
-            this.label2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.label3 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblten_cty = new DevExpress.XtraReports.UI.XRLabel();
             this.lbltitle = new DevExpress.XtraReports.UI.XRLabel();
             this.panel1 = new DevExpress.XtraReports.UI.XRPanel();
@@ -136,23 +115,6 @@ namespace XtraReportSerialization {
             this.tableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.FieldFormatMakh = new DevExpress.XtraReports.UI.CalculatedField();
-            this.FieldFormatTk = new DevExpress.XtraReports.UI.CalculatedField();
-            this.FieldStartEndDate = new DevExpress.XtraReports.UI.CalculatedField();
-            this.FieldDuDK = new DevExpress.XtraReports.UI.CalculatedField();
-            this.FieldDuCKLabel = new DevExpress.XtraReports.UI.CalculatedField();
-            this.FieldDuCKValue = new DevExpress.XtraReports.UI.CalculatedField();
-            this.FieldDuDKTien = new DevExpress.XtraReports.UI.CalculatedField();
-            this.FieldNgay_ct = new DevExpress.XtraReports.UI.CalculatedField();
-            this.FieldSoct = new DevExpress.XtraReports.UI.CalculatedField();
-            this.tenkh = new DevExpress.XtraReports.UI.CalculatedField();
-            this.ct = new DevExpress.XtraReports.UI.CalculatedField();
-            this.cclfTK = new DevExpress.XtraReports.UI.CalculatedField();
-            this.cclfTrimSoct = new DevExpress.XtraReports.UI.CalculatedField();
-            this.cclfDau_ky_No = new DevExpress.XtraReports.UI.CalculatedField();
-            this.cclfDau_ky_co = new DevExpress.XtraReports.UI.CalculatedField();
-            this.cclfCuoi_ky_No = new DevExpress.XtraReports.UI.CalculatedField();
-            this.cclfCuoi_ky_co = new DevExpress.XtraReports.UI.CalculatedField();
             ((System.ComponentModel.ISupportInitialize)(this.table3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -183,8 +145,6 @@ namespace XtraReportSerialization {
                         this.label8,
                         this.label4,
                         this.lbldia_chi,
-                        this.label2,
-                        this.label3,
                         this.lblten_cty,
                         this.lbltitle});
             this.ReportHeader.HeightF = 190F;
@@ -224,7 +184,7 @@ namespace XtraReportSerialization {
             // label20
             // 
             this.label20.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.dien_giai")});
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "TableDetail.dien_giai")});
             this.label20.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.LocationFloat = new DevExpress.Utils.PointFloat(135.5416F, 162.5833F);
             this.label20.Name = "label20";
@@ -265,7 +225,7 @@ namespace XtraReportSerialization {
             // label8
             // 
             this.label8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.so_lsx")});
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "TableDetail.so_lsx")});
             this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.LocationFloat = new DevExpress.Utils.PointFloat(591.6667F, 125.7083F);
             this.label8.Name = "label8";
@@ -293,39 +253,8 @@ namespace XtraReportSerialization {
             this.lbldia_chi.SizeF = new System.Drawing.SizeF(724F, 20F);
             this.lbldia_chi.StylePriority.UseFont = false;
             this.lbldia_chi.StylePriority.UseTextAlignment = false;
-            this.lbldia_chi.Text = "Khu tập thể xí nghiệp in Bản Đồ, ngõ 108 đường Xuân Đỉnh, Phường Xuân Tảo, Quận B" +
-                "ắc Từ Liêm, Thành phố Hà Nội, Việt Nam";
+            this.lbldia_chi.Text = "lbldia_chi";
             this.lbldia_chi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "tblInfo.cclfTK")});
-            this.label2.Font = new System.Drawing.Font("Arial", 10F);
-            this.label2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 85.70832F);
-            this.label2.Name = "label2";
-            this.label2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.label2.SizeF = new System.Drawing.SizeF(722F, 20.00002F);
-            this.label2.StylePriority.UseFont = false;
-            this.label2.StylePriority.UseTextAlignment = false;
-            this.label2.Tag = "NS";
-            this.label2.Text = "label2";
-            this.label2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "tblInfo.tenkh")});
-            this.label3.Font = new System.Drawing.Font("Arial", 10F);
-            this.label3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 105.7083F);
-            this.label3.Name = "label3";
-            this.label3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.label3.SizeF = new System.Drawing.SizeF(722F, 20F);
-            this.label3.StylePriority.UseFont = false;
-            this.label3.StylePriority.UseTextAlignment = false;
-            this.label3.Tag = "NS";
-            this.label3.Text = "label3";
-            this.label3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // lblten_cty
             // 
@@ -336,7 +265,7 @@ namespace XtraReportSerialization {
             this.lblten_cty.SizeF = new System.Drawing.SizeF(659F, 20F);
             this.lblten_cty.StylePriority.UseFont = false;
             this.lblten_cty.StylePriority.UseTextAlignment = false;
-            this.lblten_cty.Text = "CÔNG TY TNHH THƯƠNG MẠI IN BAO BÌ TUẤN BẰNG";
+            this.lblten_cty.Text = "lblten_cty";
             this.lblten_cty.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // lbltitle
@@ -399,7 +328,7 @@ namespace XtraReportSerialization {
             this.label6.BorderColor = System.Drawing.Color.Gray;
             this.label6.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.label6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.tong_cong", "{0:#0.0000000}")});
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "TableDetail.tong_cong", "{0:#0.0000000}")});
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.label6.LocationFloat = new DevExpress.Utils.PointFloat(368.8749F, 0F);
             this.label6.Name = "label6";
@@ -548,7 +477,7 @@ namespace XtraReportSerialization {
             // tableCell8
             // 
             this.tableCell8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.stt")});
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "TableDetail.stt")});
             this.tableCell8.Font = new System.Drawing.Font("Arial", 9F);
             this.tableCell8.Name = "tableCell8";
             this.tableCell8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -561,7 +490,7 @@ namespace XtraReportSerialization {
             // tableCell13
             // 
             this.tableCell13.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.ma_sp")});
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "TableDetail.ma_sp")});
             this.tableCell13.Font = new System.Drawing.Font("Arial", 9F);
             this.tableCell13.Name = "tableCell13";
             this.tableCell13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -574,7 +503,7 @@ namespace XtraReportSerialization {
             // tableCell14
             // 
             this.tableCell14.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.ten_vt")});
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "TableDetail.ten_vt")});
             this.tableCell14.Font = new System.Drawing.Font("Arial", 9F);
             this.tableCell14.Name = "tableCell14";
             this.tableCell14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -587,20 +516,20 @@ namespace XtraReportSerialization {
             // tableCell15
             // 
             this.tableCell15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.sl_kh", "{0:#0.0000000}")});
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "TableDetail.sl_kh", "{0:#0.0000000}")});
             this.tableCell15.Font = new System.Drawing.Font("Arial", 9F);
             this.tableCell15.Name = "tableCell15";
             this.tableCell15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.tableCell15.StylePriority.UsePadding = false;
             this.tableCell15.StylePriority.UseTextAlignment = false;
-            this.tableCell15.Text = "[Table.sl_kh]";
+            this.tableCell15.Text = "tableCell15";
             this.tableCell15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.tableCell15.Weight = 0.72926218264858811;
             // 
             // tableCell16
             // 
             this.tableCell16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.ngay_kh1_ct", "{0:dd-MM-yyyy}")});
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "TableDetail.ngay_kh1_ct", "{0:dd-MM-yyyy}")});
             this.tableCell16.Font = new System.Drawing.Font("Arial", 9F);
             this.tableCell16.Name = "tableCell16";
             this.tableCell16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -614,7 +543,7 @@ namespace XtraReportSerialization {
             // tableCell9
             // 
             this.tableCell9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.ngay_kh2_ct", "{0:dd-MM-yyyy}")});
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "TableDetail.ngay_kh2_ct", "{0:dd-MM-yyyy}")});
             this.tableCell9.Font = new System.Drawing.Font("Arial", 9F);
             this.tableCell9.Name = "tableCell9";
             this.tableCell9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -714,111 +643,6 @@ namespace XtraReportSerialization {
             this.tableCell3.Text = "Ngày hoàn thành";
             this.tableCell3.Weight = 0.48826536374753193;
             // 
-            // FieldFormatMakh
-            // 
-            this.FieldFormatMakh.DataMember = "tbInfo";
-            this.FieldFormatMakh.Expression = "Upper(\'Nhà cung cấp: \'+[ten_kh]+\'(\'+[ma_kh]+\')\')";
-            this.FieldFormatMakh.Name = "FieldFormatMakh";
-            // 
-            // FieldFormatTk
-            // 
-            this.FieldFormatTk.DataMember = "tbInfo";
-            this.FieldFormatTk.Expression = "Upper(\'Tài khoản: \'+[tk] +\'- \'+ [ten_tk])";
-            this.FieldFormatTk.Name = "FieldFormatTk";
-            // 
-            // FieldStartEndDate
-            // 
-            this.FieldStartEndDate.DataMember = "tbInfo";
-            this.FieldStartEndDate.Expression = "Upper(\'Từ ngày: \'+[StartDateTime]+\' đến ngày: \'+[EndDateTime])";
-            this.FieldStartEndDate.Name = "FieldStartEndDate";
-            // 
-            // FieldDuDK
-            // 
-            this.FieldDuDK.DataMember = "tbTotalBalance";
-            this.FieldDuDK.Expression = "Upper(Iif([Du_co_dau_ky]>0,\'Số dư có đầu kỳ: \',Iif([Du_no_dau_ky]>0, \'Số dư nợ đầ" +
-                "u kỳ: \',\'Số dư đầu kỳ: \') ))";
-            this.FieldDuDK.Name = "FieldDuDK";
-            // 
-            // FieldDuCKLabel
-            // 
-            this.FieldDuCKLabel.DataMember = "tbTotalBalance";
-            this.FieldDuCKLabel.Expression = "Upper(Iif([Du_co_cuoi_ky]>0,\'Số dư có cuối kỳ: \',Iif([Du_no_cuoi_ky]>0,  \'Số dư n" +
-                "ợ cuối kỳ: \',\'Số dư cuối kỳ: \')))";
-            this.FieldDuCKLabel.Name = "FieldDuCKLabel";
-            // 
-            // FieldDuCKValue
-            // 
-            this.FieldDuCKValue.DataMember = "tbTotalBalance";
-            this.FieldDuCKValue.Expression = "Iif([Du_co_cuoi_ky]<=0,[Du_no_cuoi_ky],[Du_co_cuoi_ky])";
-            this.FieldDuCKValue.Name = "FieldDuCKValue";
-            // 
-            // FieldDuDKTien
-            // 
-            this.FieldDuDKTien.DataMember = "tbTotalBalance";
-            this.FieldDuDKTien.Expression = "Iif([Du_co_dau_ky]>0,[Du_co_dau_ky],Iif([Du_no_dau_ky]>0, [Du_no_dau_ky] ,0 ) )";
-            this.FieldDuDKTien.Name = "FieldDuDKTien";
-            // 
-            // FieldNgay_ct
-            // 
-            this.FieldNgay_ct.DataMember = "tbDetail";
-            this.FieldNgay_ct.Expression = "Iif(IsNullOrEmpty([ngay_ct0]), [ngay_lct] , [ngay_ct0])";
-            this.FieldNgay_ct.Name = "FieldNgay_ct";
-            // 
-            // FieldSoct
-            // 
-            this.FieldSoct.DataMember = "tbDetail";
-            this.FieldSoct.Expression = "Iif(IsNullOrEmpty(Trim([so_ct0])), [so_ct] ,[so_ct0] )";
-            this.FieldSoct.Name = "FieldSoct";
-            // 
-            // tenkh
-            // 
-            this.tenkh.DataMember = "tblInfo";
-            this.tenkh.Expression = "Upper(\'Khách hàng: \' + Trim([ten_kh]) + \' (\' +Trim( [ma_kh]) + \')\')";
-            this.tenkh.Name = "tenkh";
-            // 
-            // ct
-            // 
-            this.ct.DataMember = "Table1";
-            this.ct.Expression = "Trim([ma_ct0]) + [so_ct]";
-            this.ct.Name = "ct";
-            // 
-            // cclfTK
-            // 
-            this.cclfTK.DataMember = "tblInfo";
-            this.cclfTK.Expression = "Upper(\'Tài khoản: \' + Trim([tk]) + \' - \' + [ten_tk])";
-            this.cclfTK.FieldType = DevExpress.XtraReports.UI.FieldType.String;
-            this.cclfTK.Name = "cclfTK";
-            // 
-            // cclfTrimSoct
-            // 
-            this.cclfTrimSoct.DataMember = "TableDetail";
-            this.cclfTrimSoct.Expression = "Trim(so_ct)";
-            this.cclfTrimSoct.Name = "cclfTrimSoct";
-            // 
-            // cclfDau_ky_No
-            // 
-            this.cclfDau_ky_No.DataMember = "tblInfo";
-            this.cclfDau_ky_No.Expression = "Iif(Trim(no_co_dk) = \'N\', dk, 0)";
-            this.cclfDau_ky_No.Name = "cclfDau_ky_No";
-            // 
-            // cclfDau_ky_co
-            // 
-            this.cclfDau_ky_co.DataMember = "tblInfo";
-            this.cclfDau_ky_co.Expression = "Iif(Trim(no_co_dk) = \'C\', dk, 0)";
-            this.cclfDau_ky_co.Name = "cclfDau_ky_co";
-            // 
-            // cclfCuoi_ky_No
-            // 
-            this.cclfCuoi_ky_No.DataMember = "tblInfo";
-            this.cclfCuoi_ky_No.Expression = "Iif(Trim(no_co_ck) = \'N\', ck, 0)";
-            this.cclfCuoi_ky_No.Name = "cclfCuoi_ky_No";
-            // 
-            // cclfCuoi_ky_co
-            // 
-            this.cclfCuoi_ky_co.DataMember = "tblInfo";
-            this.cclfCuoi_ky_co.Expression = "Iif(Trim(no_co_ck) = \'C\', ck, 0)";
-            this.cclfCuoi_ky_co.Name = "cclfCuoi_ky_co";
-            // 
             // xtraReport1
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -830,24 +654,6 @@ namespace XtraReportSerialization {
                         this.PageFooter,
                         this.DetailReport,
                         this.PageHeader});
-            this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
-                        this.FieldFormatMakh,
-                        this.FieldFormatTk,
-                        this.FieldStartEndDate,
-                        this.FieldDuDK,
-                        this.FieldDuCKLabel,
-                        this.FieldDuCKValue,
-                        this.FieldDuDKTien,
-                        this.FieldNgay_ct,
-                        this.FieldSoct,
-                        this.tenkh,
-                        this.ct,
-                        this.cclfTK,
-                        this.cclfTrimSoct,
-                        this.cclfDau_ky_No,
-                        this.cclfDau_ky_co,
-                        this.cclfCuoi_ky_No,
-                        this.cclfCuoi_ky_co});
             this.Margins = new System.Drawing.Printing.Margins(78, 25, 27, 27);
             this.Name = "xtraReport1";
             this.PageHeight = 1169;
