@@ -527,7 +527,7 @@ namespace Arso1t2_LSX
 
             string strFields = sFieldArrays[1];
 
-            object _tong_cong = dsDetail.Tables[0].Rows[0]["tong_cong"];
+            object _tong_cong = dsDetail.Tables[1].Rows[0]["tong_cong"];
             //decimal _co_dk = (decimal)currentRow["co_dk"];
             //decimal _ps_no = (decimal)currentRow["ps_no"];
             //decimal _ps_co = (decimal)currentRow["ps_co"];

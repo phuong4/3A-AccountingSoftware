@@ -45,16 +45,23 @@ namespace Arso1t2_LSX
         private void Form_Loaded(object sender, RoutedEventArgs e)
         {
             DataSet dsPrint = new DataSet("ds");
-            //DataTable tbl = new DataTable();
-            //string[] fields = "stt,so_lsx,ngay_kh1_ct,ngay_kh2_ct,ma_sp,sl_kh,sl_sx,sl_kt,sl_nhap,sl_hong,sl_ll,id,ma_hd,ten_vt,ten_vt2,dien_giai,tong_cong".Split(new char[] { ',' });
-            //foreach (string s in fields)
-            //    tbl.Columns.Add(s.Trim());
+            DataTable tbl = new DataTable();
+            string[] fields = "stt,so_lsx,ngay_kh1_ct,ngay_kh2_ct,ma_sp,sl_kh,sl_sx,sl_kt,sl_nhap,sl_hong,sl_ll,id,ma_hd,ten_vt,ten_vt2,dien_giai".Split(new char[] { ',' });
+            foreach (string s in fields)
+                tbl.Columns.Add(s.Trim());
 
-            //dsPrint.Tables.Add(tbl);
+            dsPrint.Tables.Add(tbl);
+            DataTable tbl1 = new DataTable();
+            string[] fields1 = "so_lsx,dien_giai,tong_cong".Split(new char[] { ',' });
+            foreach (string s in fields1)
+                tbl1.Columns.Add(s.Trim());
+
+            dsPrint.Tables.Add(tbl1);
             //Info.Columns.Add(new DataColumn("stt", typeof(ushort)));
             //Chỗ này sẽ là vấn đề khi chỉnh sửa mẫu in, tức là khi hiện ra danh sách lệnh sản xuất bên ngoài mình query 1 lần, đến lúc in từng trang/in liên tục mình query thêm lần nữa, vấn đề là kết quả câu truy vấn trả về sẽ gồm các cột khác nhau, ví dụ như query bên ngoài kia mình ko trả về cột stt nhưng query lúc in mới trả về cột stt, nhưng khi chỉnh sửa mẫu in thì mẫu in chỉ nhận những cột trong kết quả mình query ban đầu thôi, mình muốn hiện những cột trong kết quả query lúc in thì phải thêm ở đây bằng cách Info.Columns.Add(...) thì lúc chỉnh sửa mẫu in sẽ có những cột đó để thêm vào mẫu in, mẫu in thêm xong rồi thì xóa mấy dòng Info.Columns.Add ở đây cũng được
-            dsPrint.Tables.Add(Info.Copy());
-            //ds.Tables[0].TableName = "tblInfo"; //Ở trong phần In từng trang để tên table là tblInfo thì ở đây cũng để tên giống vậy, tóm lại phải để tên table giống nhau, nếu ko khi sửa mẫu in sẽ bị hiển thị sai dữ liệu, ví dụ bảng có 2 bản ghi thì mẫu in hiển thị 4, có 3 thì hiển thị 9, có 4 hiển thị 16...
+            //dsPrint.Tables.Add(Info.Copy());
+            dsPrint.Tables[0].TableName = "TableDetail"; //Ở trong phần In từng trang để tên table là tblInfo thì ở đây cũng để tên giống vậy, tóm lại phải để tên table giống nhau, nếu ko khi sửa mẫu in sẽ bị hiển thị sai dữ liệu, ví dụ bảng có 2 bản ghi thì mẫu in hiển thị 4, có 3 thì hiển thị 9, có 4 hiển thị 16...
+            dsPrint.Tables[1].TableName = "Table1";
             //ds.Tables.Add(new Total().ToTable());
             GridSearch.DSource = dsPrint;
             ////txtKieuIn.Value = Kieu_In;
@@ -98,88 +105,106 @@ namespace Arso1t2_LSX
 
         private void InTungTrang(bool flag)
         {
-            //DataRow r = Info.Rows[0];
-            //DateTime ngay_ct1 = (DateTime) r["ngay_ct1"];
-            //DateTime ngay_ct2 = (DateTime) r["ngay_ct2"];
-            //string tk = r["tk"].ToString().Trim();
-            //string advance = r["advance"].ToString().Trim();
-            //string ma_kh = "";
-            //string sql = "";
-
-            //DataRecord rec;
-            //for(int i = 0; i < Records.Count; i++)
-            //{
-            //    rec = Records[i] as DataRecord;
-            //    if (rec == null || rec.Cells["tag"].Value.ToString() == "False")
-            //        continue;
-            //    ma_kh = rec.Cells["ma_kh"].Value.ToString().Trim();
-            //    CopyInfo(rec, r);
-            //    sql = GetCommand(ngay_ct1, ngay_ct2, tk, ma_kh, advance);
-
-            //    Debug.WriteLine(sql);
-            //    SqlCommand cmd = new SqlCommand(sql);
-            //    DataTable dt = StartUp.SysObj.ExcuteReader(cmd).Tables[0];
-            //    DataSet ds = new DataSet("ds");
-
-            //    //ta chieu de tranh bi double so lieu khi preview
-            //    DataTable a = new DataTable();
-            //    ds.Tables.Add(a.Copy());
-            //    ds.Tables.Add(dt.Copy());
-            //    ds.Tables.Add(Info.Copy());
-            //    ds.Tables[1].TableName = "TableDetail";
-
-            //    GridSearch.DSource = ds;
-            //    if (!flag)
-            //        GridSearch.V_Xem(i < Records.Count - 1);
-            //    else
-            //        GridSearch.V_In(1);
-
-            //    rec.Cells["tag"].Value = false;
-            //}
-            //this.Close();
             DataSet dsPrint = new DataSet("ds");
-            //dsPrint.Tables.Add(Info);
-            //dsPrint.Tables[0].TableName = "tblInfo";
-            DataTable lsxct = new DataTable();
-            for (int i = 0; i < Info.Rows.Count; i++)
+
+            foreach (DataRow row in Info.Rows)
             {
-                DataRow row = Info.Rows[i];
                 bool tagValue = Convert.ToBoolean(row["tag"]);
-                //decimal tong_cong = 0;
-                if (tagValue) //Nếu bản ghi được đánh dấu -> tag = true
+                if (tagValue)
                 {
-                    SqlCommand cmdQuery = new SqlCommand();
-                    cmdQuery.CommandType = CommandType.StoredProcedure;
-                    cmdQuery.CommandText = "LSX";
-                    cmdQuery.Parameters.Add("@Mapx", SqlDbType.VarChar).Value = "";
-                    cmdQuery.Parameters.Add("@Malsx", SqlDbType.VarChar).Value = row["so_lsx"].ToString().Trim();
-                    cmdQuery.Parameters.Add("@Ngay_ct1", SqlDbType.SmallDateTime).Value = new DateTime(1900, 1, 1);
-                    cmdQuery.Parameters.Add("@Ngay_ct2", SqlDbType.SmallDateTime).Value = new DateTime(2079, 6, 6);
-                    cmdQuery.Parameters.Add("@Tong_cong", SqlDbType.TinyInt).Value = 1;
-                    lsxct = StartUp.SysObj.ExcuteReader(cmdQuery).Tables[0];
-                    //lsxct.Columns.Add(new DataColumn("tong_cong", typeof(decimal)));
-                    //foreach (DataRow row0 in lsxct.Rows)
-                    //{
-                    //    tong_cong += DecimalTryParse(row0["sl_kh"].ToString());
-                    //}
-                    //lsxct.Rows[0]["tong_cong"] = tong_cong;
-                    dsPrint.Tables.Add(lsxct.Copy());
-                    dsPrint.Tables[0].TableName = "tblInfo";
-                    GridSearch.DSource = dsPrint;
-                    if (!flag)
-                      GridSearch.V_Xem(true);
-                  else
-                      GridSearch.V_In(1);
-                    //tong_cong = 0;
-                    dsPrint.Tables.Remove("tblInfo");
+                    string so_lsx = row["so_lsx"].ToString().Trim();
+                    dsPrint = GetLSXDataSet(so_lsx);
+
+                    if (dsPrint != null)
+                    {
+                        GridSearch.DSource = dsPrint;
+
+                        if (!flag)
+                            GridSearch.V_Xem(true);
+                        else
+                            GridSearch.V_In(1);
+
+                        dsPrint.Clear();
+                    }
                 }
-                else continue;
             }
+
             this.Close();
+        }
+
+        private DataSet GetLSXDataSet(string so_lsx)
+        {
+            SqlCommand cmdQuery = new SqlCommand();
+            cmdQuery.CommandType = CommandType.StoredProcedure;
+            cmdQuery.CommandText = "LSX";
+            cmdQuery.Parameters.Add("@Mapx", SqlDbType.VarChar).Value = "";
+            cmdQuery.Parameters.Add("@Malsx", SqlDbType.VarChar).Value = so_lsx;
+            cmdQuery.Parameters.Add("@Ngay_ct1", SqlDbType.SmallDateTime).Value = new DateTime(1900, 1, 1);
+            cmdQuery.Parameters.Add("@Ngay_ct2", SqlDbType.SmallDateTime).Value = new DateTime(2079, 6, 6);
+            cmdQuery.Parameters.Add("@Tong_cong", SqlDbType.TinyInt).Value = 1;
+
+            DataSet ds = StartUp.SysObj.ExcuteReader(cmdQuery);
+
+            if (ds.Tables.Count > 0)
+            {
+                ds.Tables[0].TableName = "TableDetail";
+                ds.Tables[1].TableName = "Table1";
+
+                return ds;
+            }
+            else
+                return null;
+        }
+
+        private DataTable GetLSXDataTable(string so_lsx)
+        {
+            SqlCommand cmdQuery = new SqlCommand();
+            cmdQuery.CommandType = CommandType.StoredProcedure;
+            cmdQuery.CommandText = "LSX";
+            cmdQuery.Parameters.Add("@Mapx", SqlDbType.VarChar).Value = "";
+            cmdQuery.Parameters.Add("@Malsx", SqlDbType.VarChar).Value = so_lsx;
+            cmdQuery.Parameters.Add("@Ngay_ct1", SqlDbType.SmallDateTime).Value = new DateTime(1900, 1, 1);
+            cmdQuery.Parameters.Add("@Ngay_ct2", SqlDbType.SmallDateTime).Value = new DateTime(2079, 6, 6);
+            cmdQuery.Parameters.Add("@Tong_cong", SqlDbType.TinyInt).Value = 1;
+
+            DataSet ds = StartUp.SysObj.ExcuteReader(cmdQuery);
+            DataTable dt = ds.Tables[0];
+            // Tạo một bản ghi mới
+            DataRow newRow = dt.NewRow();
+            newRow["so_lsx"] = so_lsx;
+            newRow["dien_giai"] = ds.Tables[0].Rows[0]["dien_giai"];
+            newRow["ten_vt"] = "TỔNG CỘNG:";
+            //newRow["ngay_kh2_ct"] = "None";
+            newRow["sl_kh"] = ds.Tables[1].Rows[0]["tong_cong"];
+            // Chèn bản ghi mới vào đầu DataTable
+            dt.Rows.InsertAt(newRow, 0);
+
+            if (dt.Rows.Count > 0)
+                return dt;
+            else
+                return null;
         }
 
         private void InLienTuc(bool flag)
         {
+            DataSet dsPrint = new DataSet("ds");
+            DataTable mergedDataTable = new DataTable("TableDetail");
+            foreach (DataRow row in Info.Rows)
+            {
+                bool tagValue = Convert.ToBoolean(row["tag"]);
+                if (tagValue)
+                {
+                    string so_lsx = row["so_lsx"].ToString().Trim();
+                    mergedDataTable.Merge(GetLSXDataTable(so_lsx));
+                }
+            }
+            foreach (DataRow row in mergedDataTable.Rows)
+            {
+                string so_lsx = row["so_lsx"].ToString().Trim();
+                row["so_lsx"] = so_lsx; // Cập nhật lại giá trị đã được trim vào cột so_lsx
+            }
+            mergedDataTable.DefaultView.Sort = "so_lsx,stt";
+            dsPrint.Tables.Add(mergedDataTable);
             //DataRow r = Info.Rows[0];
             //DateTime ngay_ct1 = (DateTime)r["ngay_ct1"];
             //DateTime ngay_ct2 = (DateTime)r["ngay_ct2"];
@@ -203,9 +228,6 @@ namespace Arso1t2_LSX
             //}
 
             //sql = GetCommand(ngay_ct1, ngay_ct2, tk, ma_kh, advance);
-
-            DataSet dsPrint = new DataSet("ds");
-
             //Debug.WriteLine(sql);
             //SqlCommand cmd = new SqlCommand(sql);
             //DataSet ds = StartUp.SysObj.ExcuteReader(cmd);
@@ -216,20 +238,20 @@ namespace Arso1t2_LSX
             //data.TableName = "TableDetail";
             //ds.Tables.Clear();
             //dsPrint.Tables.Add(data);
-            dsPrint.Tables.Add(Info);
-            for (int i = 0; i < dsPrint.Tables[0].Rows.Count; i++)
-            {
-                DataRow row = dsPrint.Tables[0].Rows[i];
-                bool tagValue = Convert.ToBoolean(row["tag"]);
+            //dsPrint.Tables.Add(Info);
+            //for (int i = 0; i < dsPrint.Tables[0].Rows.Count; i++)
+            //{
+            //    DataRow row = dsPrint.Tables[0].Rows[i];
+            //    bool tagValue = Convert.ToBoolean(row["tag"]);
 
-                if (!tagValue)
-                {
-                    // Xóa bản ghi khỏi DataSet
-                    dsPrint.Tables[0].Rows.RemoveAt(i);
-                    i--; // Giảm biến i để không bị bỏ qua bản ghi sau khi xóa
-                }
-            }
-            dsPrint.Tables[0].TableName = "tblInfo";
+            //    if (!tagValue)
+            //    {
+            //        // Xóa bản ghi khỏi DataSet
+            //        dsPrint.Tables[0].Rows.RemoveAt(i);
+            //        i--; // Giảm biến i để không bị bỏ qua bản ghi sau khi xóa
+            //    }
+            //}
+            //dsPrint.Tables[0].TableName = "tblInfo";
             //for (int i = 0; i < Records.Count; i++)
             //{
             //    rec = Records[i] as DataRecord;
